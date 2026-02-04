@@ -1,141 +1,94 @@
-import { useEffect, useRef } from "react";
-import { Code, Briefcase, Coffee, BookOpen } from "lucide-react";
+import { Brain, Rocket, Users, Target } from 'lucide-react';
+import sagarhasan from '../assests/images/sagarhasan.jpg';
 
-import sagarhasan from "../assets/images/sagarhasan.jpg";
+const values = [
+  {
+    icon: Brain,
+    title: 'Problem Solver',
+    description: 'Passionate about tackling complex technical challenges with elegant, scalable solutions'
+  },
+  {
+    icon: Rocket,
+    title: 'Fast Learner',
+    description: 'Continuously exploring new technologies and adapting to evolving industry standards'
+  },
+  {
+    icon: Users,
+    title: 'Team Player',
+    description: 'Strong collaborator who values code reviews, knowledge sharing, and mentorship'
+  },
+  {
+    icon: Target,
+    title: 'Impact Focused',
+    description: 'Driven by measurable results and creating meaningful value for users and business'
+  }
+];
 
-export const About = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const node = sectionRef.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in");
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (node) {
-      observer.observe(node);
-    }
-
-    return () => {
-      if (node) {
-        observer.unobserve(node);
-      }
-    };
-  }, []);
-
+export default function About() {
   return (
-    <section
-      id="about"
-      ref={sectionRef}
-      className="py-20 opacity-0 transition-opacity duration-1000"
-    >
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="about" className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-          <div className="w-16 h-1 bg-teal-600 dark:bg-teal-400 mx-auto"></div>
+          <h2 className="text-4xl font-bold mb-4">About Me</h2>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            Driven by curiosity and committed to technical excellence
+          </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold">
-                Hello, I'm{" "}
-                <span className="text-teal-600 dark:text-teal-400">Sagar</span>
-              </h3>
-
-              <p className="text-gray-600 dark:text-gray-400">
-                I'm a passionate full-stack developer with 1.5+ years of
-                experience creating intuitive and dynamic web applications. My
-                journey in tech began with a curiosity about how digital
-                products shape our daily experiences.
-              </p>
-
-              <div className="flex flex-col md:flex-row gap-6 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="relative">
+            <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 p-1">
+              <div className="w-full h-full bg-slate-800 rounded-2xl p-8 flex items-center justify-center">
                 <img
                   src={sagarhasan}
-                  alt="Sagar Hasan"
-                  className="rounded-lg shadow-lg object-cover flex-none"
-                  loading="lazy"
-                  width={200}
-                  height="auto"
+                  alt="Developer workspace"
+                  className="w-full h-full object-cover rounded-xl"
                 />
-                <p className="text-gray-600 dark:text-gray-400 flex-1">
-                  Also Aspiring Software Engineer with a strong foundation in
-                  system design, backend development, and problem solving.
-                  Proficient in JavaScript, with hands-on experience in Node.js,
-                  MongoDB, and RESTful APIs. Passionate about building scalable,
-                  distributed systems and eager to contribute to cloud platforms
-                  like Microsoft Azure.
-                </p>
-              </div>
-
-              <div className="pt-4">
-                <a
-                  href="/Sagar_Hasan_Exp_02.pdf"
-                  download="Sagar_Hasan_Exp_02.pdf"
-                  className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-full transition-colors duration-300 inline-block"
-                >
-                  Download Resume
-                </a>
               </div>
             </div>
+            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl"></div>
+          </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transform transition-transform hover:scale-105">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center mb-4">
-                  <BookOpen className="text-blue-500" size={24} />
-                </div>
-                <h4 className="text-xl font-semibold mb-2">Problem Solving</h4>
-                <p className="text-gray-600 dark:text-gray-400">
-                  1200+ DSA problems on Codeforces & Leetcode.
-                </p>
-              </div>
-              
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transform transition-transform hover:scale-105">
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-full flex items-center justify-center mb-4">
-                  <Coffee className="text-purple-500" size={24} />
-                </div>
-                <h4 className="text-xl font-semibold mb-2">System Design</h4>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Crafting Reliable Systems with Code & Logic. Problem Solver
-                  Behind the Server.
-                </p>
-              </div>
-
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transform transition-transform hover:scale-105">
-                <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/40 rounded-full flex items-center justify-center mb-4">
-                  <Briefcase className="text-orange-500" size={24} />
-                </div>
-                <h4 className="text-xl font-semibold mb-2">Backend</h4>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Building robust APIs and database architectures to power
-                  applications.
-                </p>
-              </div>
-
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transform transition-transform hover:scale-105">
-                <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center mb-4">
-                  <Code
-                    className="text-teal-600 dark:text-teal-400"
-                    size={24}
-                  />
-                </div>
-                <h4 className="text-xl font-semibold mb-2">Frontend</h4>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Creating responsive, accessible, and beautiful interfaces
-                  using modern frameworks.
-                </p>
-              </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-6">Building the Future, One Line at a Time</h3>
+            <div className="space-y-4 text-slate-300 leading-relaxed">
+              <p>
+                As a software engineer with 2+ years of experience, I specialize in building
+                high-performance, scalable systems that handle millions of users. My journey
+                started with a fascination for how things work under the hood, which evolved
+                into a career building production systems at scale.
+              </p>
+              <p>
+                I thrive in environments where I can tackle challenging problems, whether
+                it's optimizing database queries to handle 10x traffic, architecting
+                microservices platforms, or building real-time collaborative applications.
+                I believe in writing clean, maintainable code and making data-driven decisions.
+              </p>
+              <p>
+                When I'm not coding, you'll find me contributing to open source, writing
+                technical articles, or exploring the latest developments in distributed
+                systems and machine learning. I'm passionate about sharing knowledge and
+                helping others grow in their engineering journey.
+              </p>
             </div>
           </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((value, index) => (
+            <div
+              key={index}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-slate-700/50 transition-all duration-300 hover:-translate-y-1 border border-slate-700"
+            >
+              <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+                <value.icon className="text-blue-400" size={24} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
+              <p className="text-slate-400 text-sm">{value.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}

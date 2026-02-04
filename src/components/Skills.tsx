@@ -1,99 +1,76 @@
-import { useEffect, useRef } from 'react';
-import { SkillBar } from './SkillBar';
-import { SkillCard } from './SkillCard';
+import { Code, Database, Globe, Smartphone, Cloud, Terminal } from 'lucide-react';
 
-export const Skills = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    const node = sectionRef.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (node) {
-      observer.observe(node);
-    }
-    
-    return () => {
-      if (node) {
-        observer.unobserve(node);
-      }
-    };
-  }, []);
+const skillCategories = [
+  {
+    icon: Code,
+    title: 'Languages',
+    skills: ['JavaScript/TypeScript', 'Python', 'C++', 'MySQL']
+  },
+  {
+    icon: Database,
+    title: 'Backend & Database',
+    skills: ['Node.js', 'PostgreSQL', 'MongoDB', 'Redis', 'GraphQL', 'REST APIs']
+  },
+  {
+    icon: Globe,
+    title: 'Frontend',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Redux', 'Metaterial UI']
+  },
+  {
+    icon: Cloud,
+    title: 'Cloud & DevOps',
+    skills: ['Docker', 'Kubernetes', 'CI/CD', 'GCP']
+  },
+  {
+    icon: Terminal,
+    title: 'Tools & Practices',
+    skills: ['Git', 'Linux', 'Microservices', 'System Design', "Computer Networks"]
+  },
+  {
+    icon: Smartphone,
+    title: 'Mobile & Other',
+    skills: ['WebRTC', 'WebSockets', 'JWT', 'React Native']
+  }
+];
 
-  const technicalSkills = [
-    { name: 'DSA 1200+ LeetCode', percentage: 70 },
-    { name: 'JavaScript / TypeScript', percentage: 80 },
-    { name: 'Node.js', percentage: 70 },
-    { name: 'React JS', percentage: 75 },
-    { name: 'HTML & CSS', percentage: 80 },
-    { name: 'SQL & NoSQL', percentage: 75 },
-    { name: 'AI/ML', percentage: 50 },
-    // { name: 'AWS / Azure', percentage: 60 },
-  ];
-
-  const otherSkills = [
-    { name: 'JavaScript', icon: 'JavaScriptIcon' },
-    { name: 'Python', icon: 'PythonIcon' },
-    { name: 'Node.js', icon: 'NodeIcon' },
-    { name: 'React', icon: 'ReactIcon' },
-    { name: 'AI/ML', icon: 'MlIcon' },
-    { name: 'DSA', icon: 'DSAIcon' },
-    { name: 'TypeScript', icon: 'TypeScriptIcon' },
-    { name: 'MongoDB', icon: 'MongoDBIcon' },
-    { name: 'Express.js', icon: 'ExpressIcon' },
-    { name: 'Material UI', icon: 'MaterialUIIcon' },
-    { name: 'Figma', icon: 'FigmaIcon' },
-    { name: 'Docker', icon: 'DockerIcon' },
-    { name: 'Git', icon: 'GitIcon' },
-    { name: 'Redux', icon: 'ReduxIcon' },
-  ];
-
+export default function Skills() {
   return (
-    <section 
-      id="skills" 
-      ref={sectionRef}
-      className="py-20 bg-gray-50 dark:bg-gray-800/50 opacity-0 transition-opacity duration-1000"
-    >
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="skills" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
-          <div className="w-16 h-1 bg-teal-600 dark:bg-teal-400 mx-auto mb-6"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I've worked with a variety of technologies across the full stack.
-            Here's an overview of my technical expertise and professional skills.
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">Technical Skills</h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            A comprehensive toolkit built through years of hands-on experience
+            and continuous learning
           </p>
         </div>
-        
-        <div className="max-w-6xl mx-auto mb-20">
-          <h3 className="text-2xl font-semibold mb-8">Technical Proficiency</h3>
-          <div className="space-y-6">
-            {technicalSkills.map((skill) => (
-              <SkillBar 
-                key={skill.name} 
-                name={skill.name} 
-                percentage={skill.percentage} 
-              />
-            ))}
-          </div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-8">Technologies & Tools</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {otherSkills.map((skill) => (
-              <SkillCard key={skill.name} name={skill.name} />
-            ))}
-          </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillCategories.map((category, index) => (
+            <div
+              key={index}
+              className="group bg-slate-50 rounded-xl p-6 hover:bg-gradient-to-br hover:from-blue-50 hover:to-cyan-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <div className="flex items-center mb-4">
+                <div className="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-500 transition-colors duration-300">
+                  <category.icon className="text-blue-600 group-hover:text-white transition-colors duration-300" size={24} />
+                </div>
+                <h3 className="ml-4 text-xl font-semibold text-slate-900">{category.title}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="px-3 py-1 bg-white text-slate-700 rounded-full text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
