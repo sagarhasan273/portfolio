@@ -3,33 +3,7 @@ import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
 
 const projects = [
-  {
-    title: "Distributed Task Scheduler",
-    description:
-      "Built a fault-tolerant distributed task scheduling system handling 10M+ tasks daily. Implemented using Go, Redis, and PostgreSQL with horizontal scaling capabilities.",
-    fullDescription:
-      "Engineered a highly scalable, fault-tolerant task scheduling system designed to handle millions of concurrent tasks with guaranteed delivery semantics. The system utilizes consistent hashing for load distribution, implements comprehensive retry logic with exponential backoff, and maintains state durability through persistent storage.",
-    tags: ["Go", "Redis", "PostgreSQL", "Docker", "Microservices"],
-    metrics: ["99.99% uptime", "10M+ tasks/day", "50ms avg latency"],
-    image:
-      "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Go", "Redis", "PostgreSQL", "Docker", "Kubernetes", "gRPC"],
-    challenges: [
-      "Handling distributed consensus across nodes",
-      "Maintaining strong consistency under failures",
-      "Scaling to 10M+ tasks/day without bottlenecks",
-    ],
-    solutions: [
-      "Implemented Raft consensus algorithm",
-      "Used write-ahead logging for durability",
-      "Built multi-tier caching layer",
-    ],
-    outcomes: [
-      "Achieved 99.99% uptime across 6-month period",
-      "Reduced task latency from 200ms to 50ms",
-      "Enabled 10x capacity increase",
-    ],
-  },
+
   {
     title: "Real-Time Collaboration Platform",
     description:
