@@ -64,6 +64,9 @@ const projects = [
       "Reduced operational overhead and infrastructure costs",
       "Delivered stable and maintainable enterprise-grade architecture",
     ],
+
+    code: "Source code is proprietary and not publicly available due to company policies",
+    demo: "Live demo is not publicly accessible",
   },
 
   {
@@ -369,6 +372,11 @@ export default function Projects() {
                       e.stopPropagation();
                     }}
                     className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
+                    title={project?.code}
+                    style={{
+                      pointerEvents: project?.code ? "auto" : "none",
+                      cursor: !project?.code ? "pointer" : "not-allowed",
+                    }}
                   >
                     <Github size={18} />
                     Code
