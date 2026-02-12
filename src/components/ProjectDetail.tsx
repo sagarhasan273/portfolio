@@ -14,6 +14,8 @@ interface ProjectDetailProps {
     challenges?: string[];
     solutions?: string[];
     outcomes?: string[];
+    code?: string;
+    demo?: string;
   } | null;
 }
 
@@ -132,7 +134,12 @@ export default function ProjectDetail({ isOpen, onClose, data }: ProjectDetailPr
             </div>
 
             <div className="flex flex-wrap gap-4 pt-6 border-t border-slate-200">
-              <button className="flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+              <button
+              style={{
+                      pointerEvents: data?.code ? "auto" : "none",
+                      cursor: !data?.code ? "pointer" : "not-allowed",
+                    }}
+              className="flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
                 <Github size={18} />
                 View Code
               </button>
