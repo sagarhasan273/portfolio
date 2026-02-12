@@ -143,7 +143,7 @@ export default function ProjectDetail({ isOpen, onClose, data }: ProjectDetailPr
                 <Github size={18} />
                 View Code
               </button>
-              <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+              <button onClick={() => window.open("https://lyxa.ai/home", "_blank")} className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
                 <ExternalLink size={18} />
                 Live Demo
               </button>

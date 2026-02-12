@@ -14,8 +14,9 @@ const values = [
   },
   {
     icon: Users,
-    title: 'Team Player',
-    description: 'Strong collaborator who values code reviews, knowledge sharing, and mentorship'
+    title: 'Team Player 🔗',
+    description: 'Strong collaborator who values code reviews, knowledge sharing, and mentorship',
+    checkout: 'https://www.linkedin.com/posts/lyxa_lyxaemployeerecognition-awardwinner-teamappreciation-activity-7373632136979001345-2p-b/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMShvsBFVz-GSSWAwdR6-RCSnXTABAPGzw'
   },
   {
     icon: Target,
@@ -78,7 +79,12 @@ export default function About() {
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-slate-700/50 transition-all duration-300 hover:-translate-y-1 border border-slate-700"
+              onClick={() =>{ if (value?.checkout) window.open(value?.checkout, '_blank');}}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-slate-700/50 transition-all duration-300 hover:-translate-y-1 border border-slate-700 cursor-pointer"
+              style={{
+                cursor: value?.checkout ? 'pointer' : 'default'
+              }}
+              title={value?.checkout ? 'Click to view recognition' : ''}
             >
               <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
                 <value.icon className="text-blue-400" size={24} />

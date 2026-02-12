@@ -66,7 +66,7 @@ const projects = [
     ],
 
     code: "Source code is proprietary and not publicly available due to company policies",
-    demo: "Live demo is not publicly accessible",
+    demo: "https://www.linkedin.com/company/lyxa/posts/?feedView=all",
   },
 
   {
@@ -384,6 +384,9 @@ export default function Projects() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      if (project?.demo) {
+                        window.open(project.demo, "_blank");
+                      }
                     }}
                     className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
                   >
