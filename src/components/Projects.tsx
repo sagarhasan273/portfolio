@@ -197,6 +197,69 @@ const projects = [
       "Delivered a production-ready AI backend aligned with enterprise standards",
     ],
   },
+
+  {
+    title: "Autonomous AI Engineering System (OpenDevin-Inspired)",
+
+    description:
+      "Designed and implemented an autonomous AI agent system capable of planning, writing, and executing code within a secure sandboxed environment.",
+
+    fullDescription:
+      "Architected an OpenDevin-inspired autonomous AI engineering system capable of task decomposition, iterative reasoning, code generation, and controlled execution within isolated runtime environments. The platform integrates large language models with structured planning modules, tool orchestration layers, and sandboxed execution using containerized infrastructure. Designed to support multi-step workflows, failure recovery, state persistence, and secure command execution, enabling reliable AI-driven software task automation.",
+
+    tags: [
+      "Autonomous Agents",
+      "LLM Planning",
+      "Tool Orchestration",
+      "Sandboxed Execution",
+      "Multi-Step Reasoning",
+      "AI Systems Engineering",
+    ],
+
+    metrics: [
+      "Multi-step task decomposition",
+      "Isolated container-based execution",
+      "Persistent agent state management",
+      "Automated code generation & validation",
+    ],
+
+    image:
+      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+
+    technologies: [
+      "Python",
+      "LangChain",
+      "Docker",
+      "FastAPI",
+      "Redis",
+      "PostgreSQL",
+      "OpenAI API",
+      "AsyncIO",
+      "TypeScript",
+      "WebSockets",
+    ],
+
+    challenges: [
+      "Designing reliable multi-step autonomous planning loops",
+      "Ensuring secure execution of AI-generated code",
+      "Managing agent state across iterative reasoning cycles",
+      "Implementing failure recovery and retry mechanisms",
+    ],
+
+    solutions: [
+      "Built a structured think-plan-act-observe execution loop with checkpointing",
+      "Implemented Docker-based sandbox isolation for secure command execution",
+      "Designed persistent state storage for task memory and recovery",
+      "Added structured tool interfaces with validation and guarded execution",
+    ],
+
+    outcomes: [
+      "Enabled autonomous completion of multi-step engineering tasks",
+      "Reduced manual intervention through agent-driven workflow automation",
+      "Improved reliability with checkpoint-based recovery mechanisms",
+      "Delivered a scalable foundation for AI-powered development automation",
+    ],
+  },
 ];
 
 export default function Projects() {
