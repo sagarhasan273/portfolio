@@ -52,15 +52,15 @@ const projects = [
     outcomes: ['Reduced global latency by 70%', 'Achieved 99.99% availability', 'Saved 40% on bandwidth costs']
   },
   {
-    title: 'Developer Analytics Platform',
+    title: 'LangChain',
     description: 'Built a real-time analytics platform processing 100M+ events daily. Features custom visualization engine and anomaly detection using machine learning.',
     fullDescription: 'Created a comprehensive analytics platform enabling developers to track application metrics, user behavior, and system performance. Processes 100M+ events daily with real-time processing, custom dashboards, and ML-powered anomaly detection.',
-    tags: ['React', 'TypeScript', 'Kafka', 'ClickHouse', 'Python'],
+    tags: ['Python', 'TypeScript (JS version is very active)', 'Vector DBs', 'OpenAI', 'OSS LLMs'],
     metrics: ['100M+ events/day', 'Real-time processing', 'Sub-second queries'],
     image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
     technologies: ['React', 'TypeScript', 'Kafka', 'ClickHouse', 'Python', 'Apache Airflow', 'GraphQL'],
     challenges: ['Real-time processing at massive scale', 'Sub-second query performance', 'Anomaly detection accuracy'],
-    solutions: ['Kafka for event streaming', 'ClickHouse for columnar queries', 'Isolation Forest for anomalies'],
+    solutions: ['Strong backend + system design focus', 'Complex architecture problems', 'JS/TS contributions are in high demand'],
     outcomes: ['Processes 100M events/day', 'Query response time under 1 second', 'Detects 95% of anomalies']
   },
   {

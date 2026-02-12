@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Code2, Download } from 'lucide-react';
-import resume from '../assests/resume/Sagar_Hasan_Exp_02.pdf';
+import resume from '../assets/resume/Sagar_Hasan_Exp_02.pdf';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -80,7 +80,7 @@ export default function Navigation() {
 
           <div className="flex md:hidden items-center gap-4">
             <a
-              href="/resume.pdf"
+              href={resume}
               download
               className={`transition-colors duration-300 ${
                 isScrolled ? 'text-slate-900' : 'text-white'

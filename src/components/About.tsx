@@ -1,5 +1,5 @@
 import { Brain, Rocket, Users, Target } from 'lucide-react';
-import sagarhasan from '../assests/images/sagarhasan.jpg';
+import sagarhasan from '../assets/images/sagarhasan.jpg';
 
 const values = [
   {
