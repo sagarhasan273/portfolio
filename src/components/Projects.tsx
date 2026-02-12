@@ -3,6 +3,68 @@ import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
 
 const projects = [
+  {
+    title: "Lyxa Console – Scalable E-commerce Management Platform",
+
+    description:
+      "Developed and optimized a scalable e-commerce admin and operations platform supporting high-volume users, orders, and delivery workflows.",
+
+    fullDescription:
+      "Engineered core features of the Lyxa Console, a modern e-commerce management platform handling large-scale user activity, order processing, and logistics coordination. Contributed to both frontend and backend systems, focusing on performance optimization, modular architecture, and system reliability. Implemented advanced caching strategies, optimized API payloads, and improved runtime efficiency across critical services. Designed components to support high concurrency, scalable delivery workflows, and seamless administrative control.",
+
+    tags: [
+      "E-commerce Systems",
+      "Scalable Architecture",
+      "Performance Optimization",
+      "Logistics Automation",
+      "Admin Dashboard Engineering",
+      "Full-Stack Development",
+    ],
+
+    metrics: [
+      "Optimized system to handle millions of users and posts",
+      "Reduced API response times through caching strategies",
+      "Improved memory and CPU efficiency in backend services",
+      "Enhanced admin panel stability and performance",
+    ],
+
+    image:
+      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "MySQL",
+      "Redis",
+      "REST APIs",
+      "Git",
+    ],
+
+    challenges: [
+      "Handling high concurrency in delivery and order workflows",
+      "Optimizing large API payloads for performance efficiency",
+      "Reducing infrastructure costs through resource optimization",
+      "Maintaining modular and scalable frontend architecture",
+    ],
+
+    solutions: [
+      "Implemented caching mechanisms to reduce redundant database queries",
+      "Optimized API responses and minimized payload size",
+      "Refactored components using reusable and modular design patterns",
+      "Improved backend resource allocation and memory management",
+    ],
+
+    outcomes: [
+      "Improved platform scalability and runtime efficiency",
+      "Enhanced user experience through faster load times",
+      "Reduced operational overhead and infrastructure costs",
+      "Delivered stable and maintainable enterprise-grade architecture",
+    ],
+  },
 
   {
     title: "Real-Time Collaboration Platform",
