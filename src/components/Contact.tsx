@@ -62,7 +62,7 @@ export default function Contact() {
                 <div>
                   <div className="font-medium text-slate-900">GitHub</div>
                   <div className="text-sm text-slate-600">
-                    github.com/yourprofile
+                    github.com/sagarhasan273
                   </div>
                 </div>
               </a>
