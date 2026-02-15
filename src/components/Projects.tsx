@@ -42,6 +42,7 @@ const projects = [
       "Redis",
       "REST APIs",
       "Git",
+      "GitHub",
     ],
 
     challenges: [
