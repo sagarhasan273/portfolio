@@ -1,34 +1,41 @@
-import { Brain, Rocket, Users, Target } from 'lucide-react';
-import sagarhasan from '../assets/images/sagarhasan.jpg';
+import { Brain, Rocket, Users, Target } from "lucide-react";
+import sagarhasan from "../assets/images/sagarhasan.jpg";
 
 const values = [
   {
     icon: Brain,
-    title: 'Problem Solver',
-    description: 'Approach complex engineering challenges with structured thinking, strong DSA foundations, and scalable system design principles.'
+    title: "Problem Solver",
+    description:
+      "Approach complex engineering challenges with structured thinking, strong DSA foundations, and scalable system design principles.",
   },
   {
     icon: Rocket,
-    title: 'Fast Learner',
-    description: 'Quickly adapt to new technologies, frameworks, and architectural patterns with minimal supervision.'
+    title: "Fast Learner",
+    description:
+      "Quickly adapt to new technologies, frameworks, and architectural patterns with minimal supervision.",
   },
   {
     icon: Users,
-    title: 'Team Player 🔗',
-    description: 'Collaborate effectively in cross-functional teams, valuing clean code, constructive reviews, and shared ownership.',
-    checkout: 'https://www.linkedin.com/posts/lyxa_lyxaemployeerecognition-awardwinner-teamappreciation-activity-7373632136979001345-2p-b/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMShvsBFVz-GSSWAwdR6-RCSnXTABAPGzw'
+    title: "Team Player 🔗",
+    description:
+      "Collaborate effectively in cross-functional teams, valuing clean code, constructive reviews, and shared ownership.",
+    checkout:
+      "https://www.linkedin.com/posts/lyxa_lyxaemployeerecognition-awardwinner-teamappreciation-activity-7373632136979001345-2p-b/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMShvsBFVz-GSSWAwdR6-RCSnXTABAPGzw",
   },
   {
     icon: Target,
-    title: 'Impact Focused',
-    description: 'Focused on delivering measurable improvements in performance, scalability, and user experience.'
-  }
+    title: "Impact Focused",
+    description:
+      "Focused on delivering measurable improvements in performance, scalability, and user experience.",
+  },
 ];
-
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
@@ -52,25 +59,29 @@ export default function About() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold mb-6">Building the Future, One Line at a Time</h3>
+            <h3 className="text-2xl font-bold mb-6">
+              Engineering Scalable Systems with Precision
+            </h3>
             <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
-                As a software engineer with 2+ years of experience, I specialize in building
-                high-performance, scalable systems that handle millions of users. My journey
-                started with a fascination for how things work under the hood, which evolved
-                into a career building production systems at scale.
+                I am a Software Engineer with 2+ years of professional
+                experience, specializing in JavaScript-based development and
+                backend system design. I have contributed to production-grade
+                platforms handling large-scale user activity, focusing on
+                performance, scalability, and reliability.
               </p>
               <p>
-                I thrive in environments where I can tackle challenging problems, whether
-                it's optimizing database queries to handle 10x traffic, architecting
-                microservices platforms, or building real-time collaborative applications.
-                I believe in writing clean, maintainable code and making data-driven decisions.
+                My work includes designing optimized APIs, implementing caching
+                strategies, building modular React applications, and developing
+                scalable Node.js backends. I enjoy solving complex engineering
+                challenges, supported by a strong foundation in Data Structures
+                and Algorithms with 1100+ problems solved on LeetCode.
               </p>
               <p>
-                When I'm not coding, you'll find me contributing to open source, writing
-                technical articles, or exploring the latest developments in distributed
-                systems and machine learning. I'm passionate about sharing knowledge and
-                helping others grow in their engineering journey.
+                I am passionate about clean architecture, maintainable code, and
+                continuous learning. Whether building e-commerce systems,
+                autonomous AI platforms, or developer tools, I aim to create
+                solutions that are efficient, scalable, and impactful.
               </p>
             </div>
           </div>
@@ -80,12 +91,14 @@ export default function About() {
           {values.map((value, index) => (
             <div
               key={index}
-              onClick={() =>{ if (value?.checkout) window.open(value?.checkout, '_blank');}}
+              onClick={() => {
+                if (value?.checkout) window.open(value?.checkout, "_blank");
+              }}
               className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-slate-700/50 transition-all duration-300 hover:-translate-y-1 border border-slate-700 cursor-pointer"
               style={{
-                cursor: value?.checkout ? 'pointer' : 'default'
+                cursor: value?.checkout ? "pointer" : "default",
               }}
-              title={value?.checkout ? 'Click to view recognition' : ''}
+              title={value?.checkout ? "Click to view recognition" : ""}
             >
               <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
                 <value.icon className="text-blue-400" size={24} />
