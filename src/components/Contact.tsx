@@ -1,24 +1,30 @@
-import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-slate-50">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            Get In Touch
+          </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Open to full-time opportunities, interesting projects, or just a chat about technology
+            Open to full-time opportunities, interesting projects, or just a
+            chat about technology
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Let's Connect</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Let's Connect
+              </h3>
               <p className="text-slate-600 leading-relaxed mb-6">
-                I'm currently seeking full-time opportunities where I can contribute to
-                impactful projects and continue growing as an engineer. Feel free to reach
-                out if you'd like to discuss opportunities or collaborate.
+                I’m currently seeking full-time opportunities where I can
+                contribute to impactful, scalable projects and continue growing
+                as a software engineer. I’m always open to meaningful
+                collaborations and conversations about exciting opportunities.
               </p>
             </div>
 
@@ -28,11 +34,16 @@ export default function Contact() {
                 className="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
-                  <Mail className="text-blue-600 group-hover:text-white transition-colors duration-300" size={20} />
+                  <Mail
+                    className="text-blue-600 group-hover:text-white transition-colors duration-300"
+                    size={20}
+                  />
                 </div>
                 <div>
                   <div className="font-medium text-slate-900">Email</div>
-                  <div className="text-sm text-slate-600">sagarhasan273@gmail.com</div>
+                  <div className="text-sm text-slate-600">
+                    sagarhasan273@gmail.com
+                  </div>
                 </div>
               </a>
 
@@ -43,11 +54,16 @@ export default function Contact() {
                 className="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-slate-800 transition-colors duration-300">
-                  <Github className="text-slate-800 group-hover:text-white transition-colors duration-300" size={20} />
+                  <Github
+                    className="text-slate-800 group-hover:text-white transition-colors duration-300"
+                    size={20}
+                  />
                 </div>
                 <div>
                   <div className="font-medium text-slate-900">GitHub</div>
-                  <div className="text-sm text-slate-600">github.com/yourprofile</div>
+                  <div className="text-sm text-slate-600">
+                    github.com/yourprofile
+                  </div>
                 </div>
               </a>
 
@@ -58,11 +74,16 @@ export default function Contact() {
                 className="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
-                  <Linkedin className="text-blue-600 group-hover:text-white transition-colors duration-300" size={20} />
+                  <Linkedin
+                    className="text-blue-600 group-hover:text-white transition-colors duration-300"
+                    size={20}
+                  />
                 </div>
                 <div>
                   <div className="font-medium text-slate-900">LinkedIn</div>
-                  <div className="text-sm text-slate-600">linkedin.com/in/sagar-hasan-677b5b1ba</div>
+                  <div className="text-sm text-slate-600">
+                    linkedin.com/in/sagar-hasan-677b5b1ba
+                  </div>
                 </div>
               </a>
 
@@ -72,7 +93,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-medium text-slate-900">Location</div>
-                  <div className="text-sm text-slate-600">Dhaka, Bangladesh</div>
+                  <div className="text-sm text-slate-600">
+                    Dhaka, Bangladesh
+                  </div>
                 </div>
               </div>
             </div>
@@ -81,7 +104,10 @@ export default function Contact() {
           <div className="bg-white rounded-xl p-8 shadow-lg">
             <form className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -93,7 +119,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -105,7 +134,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Message
                 </label>
                 <textarea
