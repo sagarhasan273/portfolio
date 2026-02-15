@@ -5,25 +5,26 @@ const values = [
   {
     icon: Brain,
     title: 'Problem Solver',
-    description: 'Passionate about tackling complex technical challenges with elegant, scalable solutions'
+    description: 'Approach complex engineering challenges with structured thinking, strong DSA foundations, and scalable system design principles.'
   },
   {
     icon: Rocket,
     title: 'Fast Learner',
-    description: 'Continuously exploring new technologies and adapting to evolving industry standards'
+    description: 'Quickly adapt to new technologies, frameworks, and architectural patterns with minimal supervision.'
   },
   {
     icon: Users,
     title: 'Team Player 🔗',
-    description: 'Strong collaborator who values code reviews, knowledge sharing, and mentorship',
+    description: 'Collaborate effectively in cross-functional teams, valuing clean code, constructive reviews, and shared ownership.',
     checkout: 'https://www.linkedin.com/posts/lyxa_lyxaemployeerecognition-awardwinner-teamappreciation-activity-7373632136979001345-2p-b/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMShvsBFVz-GSSWAwdR6-RCSnXTABAPGzw'
   },
   {
     icon: Target,
     title: 'Impact Focused',
-    description: 'Driven by measurable results and creating meaningful value for users and business'
+    description: 'Focused on delivering measurable improvements in performance, scalability, and user experience.'
   }
 ];
+
 
 export default function About() {
   return (
