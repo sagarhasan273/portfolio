@@ -66,7 +66,8 @@ const projects = [
       "Delivered stable and maintainable enterprise-grade architecture",
     ],
 
-    code: "Source code is proprietary and not publicly available due to company policies",
+    // code: "Source code is proprietary and not publicly available due to company policies",
+    codeLink: "https://github.com/sagarhasan2024",
     demo: "https://www.linkedin.com/company/lyxa/posts/?feedView=all",
   },
 
@@ -104,6 +105,7 @@ const projects = [
       "Reduced edit latency to 85ms average",
       "Created industry-standard collaboration model",
     ],
+    code: undefined,
   },
   {
     title: "ML-Powered Search Engine",
@@ -371,6 +373,9 @@ export default function Projects() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      if (project?.codeLink) {
+                        window.open(project.codeLink, "_blank");
+                      }
                     }}
                     className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
                     title={project?.code}
