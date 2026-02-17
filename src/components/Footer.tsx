@@ -9,7 +9,7 @@ export default function Footer() {
             <p className="text-slate-400">
               Built with{' '}
               <Heart className="inline-block text-red-500 fill-current" size={16} />{' '}
-              using React, TypeScript & Tailwind CSS
+              using React, TypeScript, and Metarial UI
             </p>
             <p className="text-slate-500 text-sm mt-2">
               © 2024 All rights reserved

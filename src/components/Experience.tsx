@@ -36,19 +36,19 @@ const experiences = [
 const achievements = [
   {
     title: 'Open Source Contributions',
-    description: '500+ contributions to major projects including React, Node.js, and Kubernetes'
+    description: '5+ contributions to major ML/LLM projects including JavaScript, and Python libraries'
   },
   {
     title: 'Technical Writing',
-    description: 'Published 20+ articles on system design with 100K+ readers monthly'
-  },
-  {
-    title: 'Hackathons',
-    description: 'Winner of 3 major hackathons including TechCrunch Disrupt'
+    description: 'Published 200+ articles on Algorithms at leetcode with 21.5K+ readers'
   },
   {
     title: 'Certifications',
-    description: 'AWS Solutions Architect, Google Cloud Professional, CKA Kubernetes'
+    description: 'Collaboration Ninja Certified at Lyxa'
+  },
+  {
+    title: 'Lyxa Contributions',
+    description: 'More than 1000+ Bugs fixed and 20+ features implemented across Lyxa\'s product suite, contributing to improved user experience and system performance.'
   }
 ];
 

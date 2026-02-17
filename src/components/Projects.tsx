@@ -2,6 +2,10 @@ import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
 
+import lyxacover from "../assets/images/lyxa_cover.jpg";
+import talk2active from "../assets/images/talk2active.png";
+import algorithms from "../assets/images/algorithm.png";
+
 const projects = [
   {
     title: "Lyxa Console – Scalable E-commerce Management Platform",
@@ -29,7 +33,7 @@ const projects = [
     ],
 
     image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+      lyxacover,
 
     technologies: [
       "JavaScript",
@@ -71,112 +75,239 @@ const projects = [
     demo: "https://www.linkedin.com/company/lyxa/posts/?feedView=all",
   },
 
+  // {
+  //   title: "Real-Time Collaboration Platform",
+  //   description:
+  //     "Developed a WebSocket-based collaboration tool with operational transformation for concurrent editing. Supports 50K+ simultaneous users with sub-100ms latency.",
+  //   fullDescription:
+  //     "Built a real-time collaboration platform enabling multiple users to edit documents simultaneously with conflict-free convergence. Implemented operational transformation algorithm to handle concurrent edits, optimistic locking for consistency, and WebSocket for low-latency communication.",
+  //   tags: ["React", "Node.js", "WebSocket", "Redis", "AWS"],
+  //   metrics: ["50K+ concurrent users", "<100ms latency", "1M+ documents"],
+  //   image:
+  //     "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //   technologies: [
+  //     "React",
+  //     "Node.js",
+  //     "WebSocket",
+  //     "Redis",
+  //     "AWS",
+  //     "PostgreSQL",
+  //     "Socket.io",
+  //   ],
+  //   challenges: [
+  //     "Implementing conflict-free concurrent editing",
+  //     "Maintaining sub-100ms latency globally",
+  //     "Handling network partitions gracefully",
+  //   ],
+  //   solutions: [
+  //     "Operational transformation with vector clocks",
+  //     "Regional WebSocket gateways",
+  //     "Local-first architecture with sync",
+  //   ],
+  //   outcomes: [
+  //     "Supported 50K concurrent users",
+  //     "Reduced edit latency to 85ms average",
+  //     "Created industry-standard collaboration model",
+  //   ],
+  //   code: undefined,
+  // },
   {
-    title: "Real-Time Collaboration Platform",
+    title: "Talk2Active – Scalable Speaking Practice Platform",
+
     description:
-      "Developed a WebSocket-based collaboration tool with operational transformation for concurrent editing. Supports 50K+ simultaneous users with sub-100ms latency.",
+      "Built a scalable language practice platform enabling IELTS students to connect, interact, and improve speaking fluency through real-time engagement.",
+
     fullDescription:
-      "Built a real-time collaboration platform enabling multiple users to edit documents simultaneously with conflict-free convergence. Implemented operational transformation algorithm to handle concurrent edits, optimistic locking for consistency, and WebSocket for low-latency communication.",
-    tags: ["React", "Node.js", "WebSocket", "Redis", "AWS"],
-    metrics: ["50K+ concurrent users", "<100ms latency", "1M+ documents"],
+      "Architected and developed Talk2Active, a backend-driven IELTS speaking practice platform designed to support high user concurrency and structured communication workflows. Built using Node.js and modular REST architecture, the system supports authentication, user-generated posts, real-time chat interactions, and progress tracking. Focused on scalable route design, optimized database queries, and efficient resource management to ensure the platform can handle millions of users and posts while maintaining performance and reliability.",
+
+    tags: [
+      "EdTech Platform",
+      "Backend Architecture",
+      "Scalable Systems",
+      "Real-Time Communication",
+      "Authentication Systems",
+      "API Design",
+    ],
+
+    metrics: [
+      "Designed system to support millions of users and posts",
+      "Implemented JWT-based secure authentication",
+      "Optimized database queries for scalable performance",
+      "Built modular APIs for extensibility and maintainability",
+    ],
+
     image:
-      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
+      talk2active,
     technologies: [
-      "React",
+      "JavaScript",
       "Node.js",
-      "WebSocket",
+      "Express",
+      "MongoDB",
       "Redis",
-      "AWS",
-      "PostgreSQL",
+      "JWT",
+      "REST APIs",
       "Socket.io",
+      "Git",
+      "GitHub",
     ],
+
     challenges: [
-      "Implementing conflict-free concurrent editing",
-      "Maintaining sub-100ms latency globally",
-      "Handling network partitions gracefully",
+      "Designing architecture for high user concurrency",
+      "Ensuring secure and scalable authentication",
+      "Managing real-time communication efficiently",
+      "Maintaining clean and extensible backend structure",
     ],
+
     solutions: [
-      "Operational transformation with vector clocks",
-      "Regional WebSocket gateways",
-      "Local-first architecture with sync",
+      "Implemented modular service-based backend architecture",
+      "Used JWT for secure stateless authentication",
+      "Optimized query performance and caching strategies",
+      "Designed scalable routing and middleware layers",
     ],
+
     outcomes: [
-      "Supported 50K concurrent users",
-      "Reduced edit latency to 85ms average",
-      "Created industry-standard collaboration model",
+      "Delivered a scalable IELTS speaking platform",
+      "Enabled seamless peer-to-peer language practice",
+      "Ensured performance stability under concurrent usage",
+      "Established maintainable and extensible backend foundation",
     ],
-    code: undefined,
+    demo: "",
+    code: "The source code for Talk2Active is proprietary and not publicly available due to company policies. For more information about the project, please visit the LinkedIn post: https://www.linkedin.com/posts/sagarhasan2024_talk2active-ielts-speaking-practice-platform-activity-7114325678901234567-abcD",
   },
+
   {
-    title: "ML-Powered Search Engine",
+    title: "ds-saga-kit – Reusable Data Structures & Algorithms Library",
+
     description:
-      "Created a semantic search engine using transformer models and vector databases. Achieved 40% improvement in search relevance over traditional keyword-based systems.",
+      "Developed and published a modular JavaScript library providing efficient implementations of core data structures and algorithms.",
+
     fullDescription:
-      "Developed a neural search engine leveraging pre-trained transformer models to encode documents and queries into semantic vectors. Integrated with Elasticsearch for hybrid search capabilities, combining keyword matching with semantic similarity for superior relevance.",
-    tags: ["Python", "TensorFlow", "Elasticsearch", "FastAPI", "React"],
-    metrics: ["40% better relevance", "200ms query time", "500M+ documents"],
+      "Created ds-saga-kit, an open-source NPM library focused on delivering optimized and reusable implementations of fundamental data structures and algorithms. Designed with modular architecture and performance efficiency in mind, the library includes Min Heap, Max Heap, queues, stacks, and classic sorting and searching algorithms. Built to support educational use, competitive programming practice, and integration into real-world JavaScript projects.",
+
+    tags: [
+      "Open Source",
+      "Data Structures",
+      "Algorithms",
+      "NPM Package",
+      "Performance Optimization",
+      "Modular Architecture",
+    ],
+
+    metrics: [
+      "Implemented optimized Heap and priority queue structures",
+      "Published reusable algorithm modules to NPM",
+      "Designed for performance and low memory overhead",
+      "Supports educational and production use cases",
+    ],
+
     image:
-      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+      algorithms,
+
     technologies: [
-      "Python",
-      "TensorFlow",
-      "Elasticsearch",
-      "FastAPI",
-      "React",
-      "ONNX",
-      "Redis",
-    ],
-    challenges: [
-      "Encoding 500M documents efficiently",
-      "Real-time inference at scale",
-      "Maintaining semantic relevance quality",
-    ],
-    solutions: [
-      "Batch processing with ONNX Runtime",
-      "GPU acceleration for embeddings",
-      "Hierarchical indexing strategy",
-    ],
-    outcomes: [
-      "Improved relevance scores by 40%",
-      "Reduced query latency to 200ms",
-      "Achieved 95% user satisfaction",
-    ],
-  },
-  {
-    title: "High-Performance CDN",
-    description:
-      "Architected a global content delivery network with edge caching and smart routing. Reduced load times by 70% across 150+ countries with 99.99% availability.",
-    fullDescription:
-      "Designed and deployed a global CDN infrastructure with edge servers in 150+ countries, implementing intelligent routing algorithms, geo-location based content delivery, and predictive prefetching to minimize latency.",
-    tags: ["Node.js", "Nginx", "AWS CloudFront", "Terraform", "Kubernetes"],
-    metrics: ["70% faster loads", "150+ countries", "99.99% uptime"],
-    image:
-      "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: [
+      "JavaScript",
       "Node.js",
-      "Nginx",
-      "AWS CloudFront",
-      "Terraform",
-      "Kubernetes",
-      "BGP",
-      "DNS",
+      "NPM",
+      "Data Structures",
+      "Algorithms",
+      "Git",
+      "GitHub",
     ],
+
     challenges: [
-      "Global distribution and sync",
-      "Cache invalidation complexity",
-      "Latency optimization",
+      "Ensuring optimal time and space complexity",
+      "Designing reusable and clean modular APIs",
+      "Maintaining performance consistency across implementations",
+      "Balancing simplicity with extensibility",
     ],
+
     solutions: [
-      "Geo-replicated edge servers",
-      "Smart cache purging",
-      "BGP anycast routing",
+      "Applied algorithmic optimization principles",
+      "Designed modular exports for easy integration",
+      "Documented usage patterns and examples",
+      "Structured codebase following clean architecture practices",
     ],
+
     outcomes: [
-      "Reduced global latency by 70%",
-      "Achieved 99.99% availability",
-      "Saved 40% on bandwidth costs",
+      "Delivered a reusable DS&A toolkit for JavaScript developers",
+      "Strengthened algorithmic proficiency and open-source presence",
+      "Enabled easier integration of core data structures in projects",
+      "Created maintainable and extensible library architecture",
     ],
+
+    codeLink: "https://github.com/sagarhasan2024/ds-saga-kit-javascript.git",
+    demo: "",
   },
+
+  // {
+  //   title: "ML-Powered Search Engine",
+  //   description:
+  //     "Created a semantic search engine using transformer models and vector databases. Achieved 40% improvement in search relevance over traditional keyword-based systems.",
+  //   fullDescription:
+  //     "Developed a neural search engine leveraging pre-trained transformer models to encode documents and queries into semantic vectors. Integrated with Elasticsearch for hybrid search capabilities, combining keyword matching with semantic similarity for superior relevance.",
+  //   tags: ["Python", "TensorFlow", "Elasticsearch", "FastAPI", "React"],
+  //   metrics: ["40% better relevance", "200ms query time", "500M+ documents"],
+  //   image:
+  //     "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //   technologies: [
+  //     "Python",
+  //     "TensorFlow",
+  //     "Elasticsearch",
+  //     "FastAPI",
+  //     "React",
+  //     "ONNX",
+  //     "Redis",
+  //   ],
+  //   challenges: [
+  //     "Encoding 500M documents efficiently",
+  //     "Real-time inference at scale",
+  //     "Maintaining semantic relevance quality",
+  //   ],
+  //   solutions: [
+  //     "Batch processing with ONNX Runtime",
+  //     "GPU acceleration for embeddings",
+  //     "Hierarchical indexing strategy",
+  //   ],
+  //   outcomes: [
+  //     "Improved relevance scores by 40%",
+  //     "Reduced query latency to 200ms",
+  //     "Achieved 95% user satisfaction",
+  //   ],
+  // },
+  // {
+  //   title: "High-Performance CDN",
+  //   description:
+  //     "Architected a global content delivery network with edge caching and smart routing. Reduced load times by 70% across 150+ countries with 99.99% availability.",
+  //   fullDescription:
+  //     "Designed and deployed a global CDN infrastructure with edge servers in 150+ countries, implementing intelligent routing algorithms, geo-location based content delivery, and predictive prefetching to minimize latency.",
+  //   tags: ["Node.js", "Nginx", "AWS CloudFront", "Terraform", "Kubernetes"],
+  //   metrics: ["70% faster loads", "150+ countries", "99.99% uptime"],
+  //   image:
+  //     "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //   technologies: [
+  //     "Node.js",
+  //     "Nginx",
+  //     "AWS CloudFront",
+  //     "Terraform",
+  //     "Kubernetes",
+  //     "BGP",
+  //     "DNS",
+  //   ],
+  //   challenges: [
+  //     "Global distribution and sync",
+  //     "Cache invalidation complexity",
+  //     "Latency optimization",
+  //   ],
+  //   solutions: [
+  //     "Geo-replicated edge servers",
+  //     "Smart cache purging",
+  //     "BGP anycast routing",
+  //   ],
+  //   outcomes: [
+  //     "Reduced global latency by 70%",
+  //     "Achieved 99.99% availability",
+  //     "Saved 40% on bandwidth costs",
+  //   ],
+  // },
   {
     title: "Enterprise AI Platform (LangChain-Based)",
 
