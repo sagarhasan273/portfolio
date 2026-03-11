@@ -84,7 +84,7 @@ const projects = [
       "Delivered stable enterprise-grade architecture",
     ],
     codeLink: "https://github.com/sagarhasan2024",
-    demo: "https://www.linkedin.com/company/lyxa/posts/?feedView=all",
+    demo: "https://apps.apple.com/us/app/lyxa-shop/id6464550676",
   },
   {
     title: "ds-saga-kit",
