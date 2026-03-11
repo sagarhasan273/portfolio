@@ -93,7 +93,7 @@ export default function About() {
                 backdropFilter: 'blur(10px)',
               }}
             >
-              <div className="text-2xl font-black" style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}>1100+</div>
+              <div className="text-2xl font-black" style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}>1200+</div>
               <div className="text-xs" style={{ color: '#64748b' }}>LeetCode</div>
             </div>
           </div>
