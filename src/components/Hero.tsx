@@ -153,7 +153,7 @@ export default function Hero() {
         <div className="flex flex-wrap justify-center gap-8 mb-12 mt-8">
           {[
             { value: "2+", label: "Years Backend Engineering" },
-            { value: "1100+", label: "Algorithm Problems Solved" },
+            { value: "1500+", label: "Algorithm Problems Solved" },
             { value: "3+", label: "Scalable Systems Designed" },
             { value: "1", label: "Published NPM Package" },
           ].map((stat, i) => (
