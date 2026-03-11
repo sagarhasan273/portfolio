@@ -1,159 +1,175 @@
-import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Send, ArrowRight } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-slate-50">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Get In Touch
+    <section
+      id="contact"
+      className="py-24 relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #020817 0%, #0a1628 100%)' }}
+    >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+        .input-field {
+          background: rgba(15, 23, 42, 0.8);
+          border: 1px solid rgba(56, 189, 248, 0.15);
+          color: #e2e8f0;
+          outline: none;
+          transition: border-color 0.3s;
+          font-family: 'DM Sans', sans-serif;
+        }
+        .input-field::placeholder { color: #475569; }
+        .input-field:focus { border-color: rgba(56, 189, 248, 0.5); }
+      `}</style>
+
+      {/* Glow effect */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl opacity-10"
+        style={{ background: 'radial-gradient(circle, #38bdf8, transparent)' }}
+      />
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#38bdf8', letterSpacing: '0.3em' }}>
+            — Get In Touch
+          </p>
+          <h2 className="text-5xl font-black mb-4" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+            Let's work together
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Open to full-time opportunities, interesting projects, or just a
-            chat about technology
+          <p className="text-lg max-w-xl mx-auto" style={{ color: '#64748b', fontFamily: '"DM Sans", sans-serif' }}>
+            Open to full-time opportunities, interesting projects, or just a conversation about tech
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                Let's Connect
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                I’m currently seeking full-time opportunities where I can
-                contribute to impactful, scalable projects and continue growing
-                as a software engineer. I’m always open to meaningful
-                collaborations and conversations about exciting opportunities.
-              </p>
-            </div>
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Left: Info */}
+          <div>
+            <p
+              className="text-base leading-relaxed mb-8"
+              style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}
+            >
+              I'm actively seeking full-time opportunities where I can contribute to impactful, scalable projects.
+              I bring 2+ years of professional engineering experience, having built systems from the ground up — including
+              Talk2Active, now serving <span style={{ color: '#38bdf8', fontWeight: 600 }}>50,000+ active users</span>.
+            </p>
 
-            <div className="space-y-4">
-              <a
-                href="mailto:sagarhasan273@gmail.com"
-                className="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
-                  <Mail
-                    className="text-blue-600 group-hover:text-white transition-colors duration-300"
-                    size={20}
-                  />
-                </div>
-                <div>
-                  <div className="font-medium text-slate-900">Email</div>
-                  <div className="text-sm text-slate-600">
-                    sagarhasan273@gmail.com
+            <div className="space-y-3">
+              {[
+                {
+                  icon: Mail,
+                  label: 'Email',
+                  value: 'sagarhasan273@gmail.com',
+                  href: 'mailto:sagarhasan273@gmail.com',
+                  color: '#38bdf8',
+                },
+                {
+                  icon: Github,
+                  label: 'GitHub',
+                  value: 'github.com/sagarhasan273',
+                  href: 'https://github.com/sagarhasan273',
+                  color: '#94a3b8',
+                },
+                {
+                  icon: Linkedin,
+                  label: 'LinkedIn',
+                  value: 'linkedin.com/in/sagar-hasan-677b5b1ba',
+                  href: 'https://linkedin.com/in/sagar-hasan-677b5b1ba',
+                  color: '#38bdf8',
+                },
+                {
+                  icon: MapPin,
+                  label: 'Location',
+                  value: 'Dhaka, Bangladesh',
+                  href: null,
+                  color: '#64748b',
+                },
+              ].map(({ icon: Icon, label, value, href, color }) => {
+                const inner = (
+                  <div
+                    className="flex items-center gap-4 p-4 rounded-xl group transition-all duration-300"
+                    style={{
+                      background: 'rgba(15, 23, 42, 0.6)',
+                      border: '1px solid rgba(56,189,248,0.08)',
+                    }}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(56,189,248,0.08)' }}
+                    >
+                      <Icon size={18} style={{ color }} />
+                    </div>
+                    <div>
+                      <div className="text-xs uppercase tracking-wider mb-0.5" style={{ color: '#475569' }}>{label}</div>
+                      <div className="text-sm font-medium" style={{ color: '#cbd5e1', fontFamily: '"DM Sans", sans-serif' }}>{value}</div>
+                    </div>
+                    {href && <ArrowRight size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: '#38bdf8' }} />}
                   </div>
-                </div>
-              </a>
+                );
 
-              <a
-                href="https://github.com/sagarhasan273"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-slate-800 transition-colors duration-300">
-                  <Github
-                    className="text-slate-800 group-hover:text-white transition-colors duration-300"
-                    size={20}
-                  />
-                </div>
-                <div>
-                  <div className="font-medium text-slate-900">GitHub</div>
-                  <div className="text-sm text-slate-600">
-                    github.com/sagarhasan273
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="https://linkedin.com/in/sagar-hasan-677b5b1ba"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
-                  <Linkedin
-                    className="text-blue-600 group-hover:text-white transition-colors duration-300"
-                    size={20}
-                  />
-                </div>
-                <div>
-                  <div className="font-medium text-slate-900">LinkedIn</div>
-                  <div className="text-sm text-slate-600">
-                    linkedin.com/in/sagar-hasan-677b5b1ba
-                  </div>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 p-4 bg-white rounded-lg">
-                <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
-                  <MapPin className="text-cyan-600" size={20} />
-                </div>
-                <div>
-                  <div className="font-medium text-slate-900">Location</div>
-                  <div className="text-sm text-slate-600">
-                    Dhaka, Bangladesh
-                  </div>
-                </div>
-              </div>
+                return href ? (
+                  <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={label}>{inner}</div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <form className="space-y-4">
+          {/* Right: Form */}
+          <div
+            className="rounded-2xl p-8"
+            style={{
+              background: 'rgba(15, 23, 42, 0.7)',
+              border: '1px solid rgba(56,189,248,0.15)',
+            }}
+          >
+            <form className="space-y-5">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
+                <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#64748b' }}>
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 outline-none"
+                  className="input-field w-full px-4 py-3 rounded-lg text-sm"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
+                <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#64748b' }}>
                   Email
                 </label>
                 <input
                   type="email"
-                  id="email"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 outline-none"
+                  className="input-field w-full px-4 py-3 rounded-lg text-sm"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-slate-700 mb-2"
-                >
+                <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#64748b' }}>
                   Message
                 </label>
                 <textarea
-                  id="message"
                   rows={5}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 outline-none resize-none"
+                  className="input-field w-full px-4 py-3 rounded-lg text-sm resize-none"
                   placeholder="Tell me about your opportunity or project..."
-                ></textarea>
+                />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)',
+                  color: '#fff',
+                  boxShadow: '0 0 20px rgba(56,189,248,0.2)',
+                }}
               >
                 Send Message
-                <Send size={18} />
+                <Send size={16} />
               </button>
             </form>
           </div>

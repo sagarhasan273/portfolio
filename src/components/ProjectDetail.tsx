@@ -1,10 +1,11 @@
-import { X, Github, ExternalLink } from 'lucide-react';
+import { X, Github, ExternalLink, Star, Users } from 'lucide-react';
 
 interface ProjectDetailProps {
   isOpen: boolean;
   onClose: () => void;
   data: {
     title: string;
+    subtitle?: string;
     description: string;
     tags: string[];
     metrics: string[];
@@ -16,6 +17,8 @@ interface ProjectDetailProps {
     outcomes?: string[];
     code?: string;
     demo?: string;
+    soloBuilt?: boolean;
+    userCount?: string;
   } | null;
 }
 
@@ -24,60 +27,131 @@ export default function ProjectDetail({ isOpen, onClose, data }: ProjectDetailPr
 
   return (
     <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+      `}</style>
+
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300"
+        className="fixed inset-0 z-40 transition-opacity duration-300"
+        style={{ background: 'rgba(2, 8, 23, 0.9)', backdropFilter: 'blur(8px)' }}
         onClick={onClose}
-      ></div>
+      />
 
       <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
-        <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
+        <div
+          className="max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl relative"
+          style={{
+            background: '#0a1628',
+            border: '1px solid rgba(56,189,248,0.2)',
+            boxShadow: '0 0 80px rgba(56,189,248,0.1)',
+          }}
+        >
+          {/* Close button */}
           <button
             onClick={onClose}
-            className="sticky top-6 right-6 float-right text-slate-400 hover:text-slate-900 transition-colors duration-300 z-10"
+            className="sticky top-4 right-4 float-right w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 z-10 m-4 mb-0"
+            style={{ background: 'rgba(56,189,248,0.08)', color: '#64748b' }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56,189,248,0.15)';
+              (e.currentTarget as HTMLButtonElement).style.color = '#e2e8f0';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56,189,248,0.08)';
+              (e.currentTarget as HTMLButtonElement).style.color = '#64748b';
+            }}
           >
-            <X size={24} />
+            <X size={18} />
           </button>
 
-          <div className="relative h-64 overflow-hidden">
+          {/* Hero image */}
+          <div className="relative h-56 overflow-hidden rounded-t-2xl">
             <img
               src={data.image}
               alt={data.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
-            <h2 className="absolute bottom-6 left-8 text-3xl font-bold text-white">
-              {data.title}
-            </h2>
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(to top, rgba(10,22,40,1) 0%, rgba(10,22,40,0.6) 40%, transparent 100%)' }}
+            />
+
+            {data.soloBuilt && (
+              <div
+                className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
+                style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)', color: '#fff' }}
+              >
+                <Star size={12} fill="currentColor" />
+                Solely Built by Me
+              </div>
+            )}
+
+            <div className="absolute bottom-4 left-6 right-16">
+              <h2
+                className="text-3xl font-black text-white mb-1"
+                style={{ fontFamily: '"Syne", sans-serif' }}
+              >
+                {data.title}
+              </h2>
+              {data.subtitle && (
+                <p className="text-sm" style={{ color: '#64748b' }}>{data.subtitle}</p>
+              )}
+            </div>
           </div>
 
           <div className="p-8">
-            <p className="text-lg text-slate-700 leading-relaxed mb-8">
+            {/* User count highlight for Talk2Active */}
+            {data.userCount && (
+              <div
+                className="flex items-center gap-2 px-4 py-3 rounded-xl mb-6"
+                style={{
+                  background: 'rgba(56,189,248,0.08)',
+                  border: '1px solid rgba(56,189,248,0.25)',
+                }}
+              >
+                <Users size={18} style={{ color: '#38bdf8' }} />
+                <span className="font-bold" style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}>
+                  {data.userCount} Active Users
+                </span>
+                <span className="text-sm ml-2" style={{ color: '#64748b' }}>
+                  — Built and scaled entirely as a solo project
+                </span>
+              </div>
+            )}
+
+            <p
+              className="text-base leading-relaxed mb-8"
+              style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}
+            >
               {data.fullDescription || data.description}
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Challenges & Solutions */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               {data.challenges && data.challenges.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Challenges</h3>
+                  <h3 className="font-black text-base mb-3" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+                    Challenges
+                  </h3>
                   <ul className="space-y-2">
-                    {data.challenges.map((challenge, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-700">
-                        <span className="text-blue-600 font-bold mt-1">→</span>
-                        <span>{challenge}</span>
+                    {data.challenges.map((c, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
+                        <span style={{ color: '#f87171', marginTop: '2px' }}>→</span>
+                        <span style={{ fontFamily: '"DM Sans", sans-serif' }}>{c}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
-
               {data.solutions && data.solutions.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Solutions</h3>
+                  <h3 className="font-black text-base mb-3" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+                    Solutions
+                  </h3>
                   <ul className="space-y-2">
-                    {data.solutions.map((solution, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-700">
-                        <span className="text-green-600 font-bold mt-1">✓</span>
-                        <span>{solution}</span>
+                    {data.solutions.map((s, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
+                        <span style={{ color: '#4ade80', marginTop: '2px' }}>✓</span>
+                        <span style={{ fontFamily: '"DM Sans", sans-serif' }}>{s}</span>
                       </li>
                     ))}
                   </ul>
@@ -85,47 +159,59 @@ export default function ProjectDetail({ isOpen, onClose, data }: ProjectDetailPr
               )}
             </div>
 
+            {/* Outcomes */}
             {data.outcomes && data.outcomes.length > 0 && (
-              <div className="mb-8 bg-blue-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Key Outcomes</h3>
+              <div
+                className="rounded-xl p-5 mb-8"
+                style={{ background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.12)' }}
+              >
+                <h3 className="font-black text-base mb-3" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+                  Key Outcomes
+                </h3>
                 <ul className="space-y-2">
-                  {data.outcomes.map((outcome, index) => (
-                    <li key={index} className="flex items-start gap-2 text-slate-700">
-                      <span className="text-blue-600 mt-1">●</span>
-                      <span>{outcome}</span>
+                  {data.outcomes.map((o, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
+                      <span style={{ color: '#38bdf8', marginTop: '4px' }}>●</span>
+                      <span style={{ fontFamily: '"DM Sans", sans-serif' }}>{o}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {data.technologies && data.technologies.length > 0 && (
+            {/* Technologies & Metrics */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {data.technologies && (
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">Technologies Used</h3>
+                  <h3 className="font-black text-sm uppercase tracking-wider mb-3" style={{ color: '#64748b', fontFamily: '"Syne", sans-serif' }}>
+                    Technologies
+                  </h3>
                   <div className="flex flex-wrap gap-2">
-                    {data.technologies.map((tech, index) => (
+                    {data.technologies.map((t, i) => (
                       <span
-                        key={index}
-                        className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium"
+                        key={i}
+                        className="px-3 py-1 rounded-full text-xs font-medium"
+                        style={{ background: 'rgba(30,41,59,0.8)', color: '#94a3b8', border: '1px solid rgba(56,189,248,0.08)' }}
                       >
-                        {tech}
+                        {t}
                       </span>
                     ))}
                   </div>
                 </div>
               )}
-
               {data.metrics && data.metrics.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">Key Metrics</h3>
+                  <h3 className="font-black text-sm uppercase tracking-wider mb-3" style={{ color: '#64748b', fontFamily: '"Syne", sans-serif' }}>
+                    Key Metrics
+                  </h3>
                   <div className="flex flex-wrap gap-2">
-                    {data.metrics.map((metric, index) => (
+                    {data.metrics.map((m, i) => (
                       <span
-                        key={index}
-                        className="px-3 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium"
+                        key={i}
+                        className="px-3 py-1.5 rounded-lg text-xs font-medium"
+                        style={{ background: 'rgba(56,189,248,0.08)', color: '#38bdf8', border: '1px solid rgba(56,189,248,0.15)' }}
                       >
-                        {metric}
+                        {m}
                       </span>
                     ))}
                   </div>
@@ -133,23 +219,35 @@ export default function ProjectDetail({ isOpen, onClose, data }: ProjectDetailPr
               )}
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-6 border-t border-slate-200">
-              <button
-              style={{
-                      pointerEvents: data?.code ? "auto" : "none",
-                      cursor: !data?.code ? "pointer" : "not-allowed",
-                    }}
-              className="flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
-                <Github size={18} />
-                View Code
-              </button>
-              <button onClick={() => window.open("https://lyxa.ai/home", "_blank")} className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
-                <ExternalLink size={18} />
-                Live Demo
-              </button>
+            {/* Actions */}
+            <div
+              className="flex flex-wrap gap-3 pt-6"
+              style={{ borderTop: '1px solid rgba(56,189,248,0.1)' }}
+            >
+              {data.code && (
+                <button
+                  onClick={() => window.open(data.code, '_blank')}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ background: 'rgba(30,41,59,0.8)', color: '#e2e8f0', border: '1px solid rgba(56,189,248,0.15)' }}
+                >
+                  <Github size={16} />
+                  View Code
+                </button>
+              )}
+              {data.demo && (
+                <button
+                  onClick={() => window.open(data.demo, '_blank')}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)', color: '#fff' }}
+                >
+                  <ExternalLink size={16} />
+                  Live Demo
+                </button>
+              )}
               <button
                 onClick={onClose}
-                className="ml-auto px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg font-medium transition-all duration-300"
+                className="ml-auto px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300"
+                style={{ background: 'rgba(56,189,248,0.06)', color: '#64748b', border: '1px solid rgba(56,189,248,0.1)' }}
               >
                 Close
               </button>

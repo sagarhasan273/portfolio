@@ -6,152 +6,195 @@ const experiences = [
   {
     company: 'Lyxa S.A.L (formerly KadriTech AB)',
     role: 'Software Engineer',
-    period: '06/2023 - Present',
-    description: 'Built and scaled backend systems handling exponential user growth.',
+    period: '06/2023 – Present',
+    type: 'Full-time',
+    description: 'Built and scaled backend systems handling exponential user growth across Lyxa\'s e-commerce and logistics platform.',
     achievements: [
-      'Developed real-time analytics pipeline processing 50k+ events daily',
-      'Implemented caching layer reducing API latency by 70%',
-      'Implemented data caching and optimized database access patterns, significantly reducing response times and bandwidth usage across services',
-      'Designed and deployed a rider assignment system using graph algorithms to optimize real-time delivery routes—improving logistical efficiency and response time.',
-      'Established CI/CD pipelines reducing deployment failures by 90%',
-      'Collaborated closely with product, design, and QA teams in Agile sprints to ensure high-quality feature delivery and rapid iteration'
-    ]
+      'Designed and deployed a graph-based route optimization engine for rider assignment as part of a full-stack deliveryplatform, integrating algorithmic decision-making with real-time order tracking.',
+      'Optimized REST API performance by 20% through database query optimization, response caching, and implementing pagination strategies.',
+      'Designed and deployed a rider assignment system using graph algorithms to optimize real-time delivery routes.',
+      'Implemented data caching and optimized database access patterns, significantly reducing response times and bandwidth usage.',
+      'Applied Test-Driven Development (TDD) practices to deliver high-quality, maintainable, and reliable code.',
+      'Fixed critical bugs [Over 500+] and collaborated across teams to maintain code quality.',
+      'Experience building scalable backend services with Node.js and REST APIs.',
+      'Collaborated closely with product, design, and QA teams in Agile sprints for high-quality feature delivery.',
+    ],
   },
-  {
-    company: 'KadriTech AB',
-    role: 'Full Stack Developer',
-    period: '02/2024 - 08/2024',
-    description: 'Developed customer-facing applications with focus on performance and UX.',
-    achievements: [
-      'Built responsive web applications used by 50K+ users',
-      'Improved page load times by 50% through code splitting and lazy loading',
-      'Enhanced API performance through efficient memory management and CPU optimization across critical services—contributing to infrastructure cost reduction.',
-      'Supported the development and maintenance of Lyxa\'s e-commerce platform, with a focus on system scalability and resilience',
-      'Participated in debugging production issues, performing root cause analysis and deploying stable patches with minimal downtime.',
-      'Collaborated with cross-functional teams to design and implement new features based on customer feedback and market trends.'
-    ]
-  }
 ];
 
 const achievements = [
   {
     title: 'Open Source Contributions',
-    description: '5+ contributions to major ML/LLM projects including JavaScript, and Python libraries'
+    description: '3 contributioning to major ML/LLM projects including JavaScript and Python libraries',
   },
   {
     title: 'Technical Writing',
-    description: 'Published 200+ articles on Algorithms at leetcode with 21.5K+ readers'
+    description: 'Published 200+ articles on Algorithms at LeetCode with 21.5K+ readers',
   },
   {
     title: 'Certifications',
-    description: 'Collaboration Ninja Certified at Lyxa'
+    description: 'Collaboration Ninja Certified at Lyxa',
   },
   {
     title: 'Lyxa Contributions',
-    description: 'More than 1000+ Bugs fixed and 20+ features implemented across Lyxa\'s product suite, contributing to improved user experience and system performance.'
-  }
+    description: '500+ bugs fixed and 20+ features implemented across Lyxa\'s product suite',
+  },
 ];
 
 export default function Experience() {
   const [selectedExperience, setSelectedExperience] = useState<typeof experiences[0] | null>(null);
 
   return (
-    <section id="experience" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Experience & Achievements</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Track record of delivering high-impact solutions and driving technical excellence
+    <section
+      id="experience"
+      className="py-24 relative overflow-hidden"
+      style={{ background: '#020817' }}
+    >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+      `}</style>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#38bdf8', letterSpacing: '0.3em' }}>
+            — Work History
           </p>
+          <h2 className="text-5xl font-black" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+            Experience &<br />
+            <span style={{ color: '#38bdf8' }}>Achievements</span>
+          </h2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          <div className="lg:col-span-2">
-            <div className="space-y-8">
-              {experiences.map((exp, index) => (
-                <div
-                  key={index}
-                  className="relative pl-8 pb-8 border-l-2 border-blue-200 last:pb-0"
-                >
-                  <div className="absolute left-0 top-0 transform -translate-x-1/2">
-                    <div className="w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Timeline */}
+          <div className="lg:col-span-2 space-y-6">
+            {experiences.map((exp, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedExperience(exp)}
+                className="w-full text-left group rounded-2xl p-8 transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  background: 'rgba(15, 23, 42, 0.7)',
+                  border: '1px solid rgba(56, 189, 248, 0.1)',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(56, 189, 248, 0.3)';
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56, 189, 248, 0.04)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(56, 189, 248, 0.1)';
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(15, 23, 42, 0.7)';
+                }}
+              >
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3
+                      className="text-xl font-black mb-1"
+                      style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
+                    >
+                      {exp.role}
+                    </h3>
+                    <div className="flex items-center gap-2 text-sm" style={{ color: '#38bdf8' }}>
+                      <Briefcase size={14} />
+                      {exp.company}
+                    </div>
                   </div>
-
-                  <button
-                    onClick={() => setSelectedExperience(exp)}
-                    className="w-full text-left bg-slate-50 rounded-xl p-6 hover:shadow-lg hover:bg-blue-50 transition-all duration-300 group"
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-900">{exp.role}</h3>
-                        <div className="flex items-center gap-2 text-blue-600 font-medium">
-                          <Briefcase size={16} />
-                          {exp.company}
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium whitespace-nowrap">
-                          {exp.period}
-                        </span>
-                        <ChevronRight className="text-slate-400 group-hover:text-blue-600 transition-colors duration-300" size={20} />
-                      </div>
-                    </div>
-
-                    <p className="text-slate-600 mb-4">{exp.description}</p>
-
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-2 text-slate-700">
-                          <span className="text-blue-600 mt-1">▸</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-4 pt-4 border-t border-slate-200">
-                      <span className="inline-flex items-center gap-1 text-blue-600 font-medium text-sm group-hover:gap-2 transition-all duration-300">
-                        View Details
-                        <ChevronRight size={16} />
-                      </span>
-                    </div>
-                  </button>
+                  <div className="flex flex-col items-end gap-2 ml-4 flex-shrink-0">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-medium"
+                      style={{ background: 'rgba(56,189,248,0.1)', color: '#38bdf8', border: '1px solid rgba(56,189,248,0.2)' }}
+                    >
+                      {exp.period}
+                    </span>
+                    <span className="text-xs" style={{ color: '#475569' }}>{exp.type}</span>
+                  </div>
                 </div>
-              ))}
-            </div>
+
+                <p className="text-sm mb-5" style={{ color: '#64748b', fontFamily: '"DM Sans", sans-serif' }}>
+                  {exp.description}
+                </p>
+
+                {/* Achievements preview */}
+                <ul className="space-y-2 mb-4">
+                  {exp.achievements.slice(0, 6).map((ach, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#38bdf8' }} />
+                      {ach}
+                    </li>
+                  ))}
+                </ul>
+
+                <div
+                  className="flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all duration-300"
+                  style={{ color: '#38bdf8' }}
+                >
+                  View all achievements
+                  <ChevronRight size={14} />
+                </div>
+              </button>
+            ))}
           </div>
 
+          {/* Sidebar highlights */}
           <div className="lg:col-span-1">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 sticky top-8">
+            <div
+              className="rounded-2xl p-6 sticky top-8"
+              style={{
+                background: 'rgba(15, 23, 42, 0.7)',
+                border: '1px solid rgba(56, 189, 248, 0.15)',
+              }}
+            >
               <div className="flex items-center gap-2 mb-6">
-                <Award className="text-blue-600" size={24} />
-                <h3 className="text-xl font-bold text-slate-900">Highlights</h3>
+                <Award size={20} style={{ color: '#38bdf8' }} />
+                <h3 className="font-black text-lg" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+                  Highlights
+                </h3>
               </div>
 
-              <div className="space-y-4">
-                {achievements.map((achievement, index) => (
-                  <div key={index} className="pb-4 border-b border-blue-100 last:border-0 last:pb-0">
-                    <h4 className="font-semibold text-slate-900 mb-1">{achievement.title}</h4>
-                    <p className="text-sm text-slate-600">{achievement.description}</p>
+              <div className="space-y-5">
+                {achievements.map((a, i) => (
+                  <div
+                    key={i}
+                    className="pb-5 last:pb-0 last:border-0"
+                    style={{ borderBottom: '1px solid rgba(56,189,248,0.08)' }}
+                  >
+                    <h4 className="font-semibold text-sm mb-1" style={{ color: '#cbd5e1', fontFamily: '"Syne", sans-serif' }}>
+                      {a.title}
+                    </h4>
+                    <p className="text-xs leading-relaxed" style={{ color: '#64748b' }}>
+                      {a.description}
+                    </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 pt-6 border-t border-blue-100">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">2+</div>
-                  <div className="text-sm text-slate-600">Years Experience</div>
+              {/* Big number */}
+              <div
+                className="mt-6 rounded-xl p-6 text-center"
+                style={{ background: 'rgba(56,189,248,0.06)', border: '1px solid rgba(56,189,248,0.12)' }}
+              >
+                <div
+                  className="text-5xl font-black mb-1"
+                  style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}
+                >
+                  2+
+                </div>
+                <div className="text-xs uppercase tracking-wider" style={{ color: '#64748b' }}>
+                  Years of Professional Experience
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <ExperienceDetail
-          isOpen={!!selectedExperience}
-          onClose={() => setSelectedExperience(null)}
-          data={selectedExperience}
-        />
       </div>
+
+      <ExperienceDetail
+        isOpen={!!selectedExperience}
+        onClose={() => setSelectedExperience(null)}
+        data={selectedExperience}
+      />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, ArrowRight, Star, Users } from "lucide-react";
 import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
 
@@ -8,552 +8,354 @@ import algorithms from "../assets/images/algorithm.png";
 
 const projects = [
   {
-    title: "Lyxa Console – Scalable E-commerce Management Platform",
-
+    title: "Talk2Active",
+    subtitle: "Solely Built · IELTS Speaking Practice Platform",
+    featured: true,
+    soloBuilt: true,
+    userCount: "50,000+",
     description:
-      "Developed and optimized a scalable e-commerce admin and operations platform supporting high-volume users, orders, and delivery workflows.",
-
+      "Architected and built entirely solo — a scalable IELTS speaking practice platform serving 50,000+ active users, with real-time peer interactions, secure auth, and high-concurrency backend.",
     fullDescription:
-      "Engineered core features of the Lyxa Console, a modern e-commerce management platform handling large-scale user activity, order processing, and logistics coordination. Contributed to both frontend and backend systems, focusing on performance optimization, modular architecture, and system reliability. Implemented advanced caching strategies, optimized API payloads, and improved runtime efficiency across critical services. Designed components to support high concurrency, scalable delivery workflows, and seamless administrative control.",
-
-    tags: [
-      "E-commerce Systems",
-      "Scalable Architecture",
-      "Performance Optimization",
-      "Logistics Automation",
-      "Admin Dashboard Engineering",
-      "Full-Stack Development",
-    ],
-
+      "Architected and developed Talk2Active entirely as a solo project — a backend-driven IELTS speaking practice platform designed to support high user concurrency and structured communication workflows. Built using Node.js and modular REST architecture, the system supports authentication, user-generated posts, real-time chat interactions, and progress tracking. Focused on scalable route design, optimized database queries, and efficient resource management to ensure the platform can handle millions of users and posts while maintaining performance and reliability.",
+    tags: ["EdTech Platform", "Backend Architecture", "Scalable Systems", "Real-Time Communication", "Authentication", "API Design"],
     metrics: [
-      "Optimized system to handle millions of users and posts",
-      "Reduced API response times through caching strategies",
-      "Improved memory and CPU efficiency in backend services",
-      "Enhanced admin panel stability and performance",
+      "50,000+ active users",
+      "JWT-based secure authentication",
+      "Optimized for high concurrency",
+      "Modular, extensible APIs",
     ],
-
-    image:
-      lyxacover,
-
-    technologies: [
-      "JavaScript",
-      "TypeScript",
-      "React.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "MySQL",
-      "Redis",
-      "REST APIs",
-      "Git",
-      "GitHub",
-    ],
-
+    image: talk2active,
+    technologies: ["JavaScript", "Node.js", "Express", "MongoDB", "Redis", "JWT", "REST APIs", "Socket.io", "Git"],
     challenges: [
-      "Handling high concurrency in delivery and order workflows",
-      "Optimizing large API payloads for performance efficiency",
-      "Reducing infrastructure costs through resource optimization",
-      "Maintaining modular and scalable frontend architecture",
+      "Designing architecture for high user concurrency from day one",
+      "Ensuring secure and scalable authentication for thousands of users",
+      "Managing real-time communication efficiently at scale",
+      "Maintaining clean and extensible backend structure solo",
     ],
-
-    solutions: [
-      "Implemented caching mechanisms to reduce redundant database queries",
-      "Optimized API responses and minimized payload size",
-      "Refactored components using reusable and modular design patterns",
-      "Improved backend resource allocation and memory management",
-    ],
-
-    outcomes: [
-      "Improved platform scalability and runtime efficiency",
-      "Enhanced user experience through faster load times",
-      "Reduced operational overhead and infrastructure costs",
-      "Delivered stable and maintainable enterprise-grade architecture",
-    ],
-
-    // code: "Source code is proprietary and not publicly available due to company policies",
-    codeLink: "https://github.com/sagarhasan2024",
-    demo: "https://www.linkedin.com/company/lyxa/posts/?feedView=all",
-  },
-
-  // {
-  //   title: "Real-Time Collaboration Platform",
-  //   description:
-  //     "Developed a WebSocket-based collaboration tool with operational transformation for concurrent editing. Supports 50K+ simultaneous users with sub-100ms latency.",
-  //   fullDescription:
-  //     "Built a real-time collaboration platform enabling multiple users to edit documents simultaneously with conflict-free convergence. Implemented operational transformation algorithm to handle concurrent edits, optimistic locking for consistency, and WebSocket for low-latency communication.",
-  //   tags: ["React", "Node.js", "WebSocket", "Redis", "AWS"],
-  //   metrics: ["50K+ concurrent users", "<100ms latency", "1M+ documents"],
-  //   image:
-  //     "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-  //   technologies: [
-  //     "React",
-  //     "Node.js",
-  //     "WebSocket",
-  //     "Redis",
-  //     "AWS",
-  //     "PostgreSQL",
-  //     "Socket.io",
-  //   ],
-  //   challenges: [
-  //     "Implementing conflict-free concurrent editing",
-  //     "Maintaining sub-100ms latency globally",
-  //     "Handling network partitions gracefully",
-  //   ],
-  //   solutions: [
-  //     "Operational transformation with vector clocks",
-  //     "Regional WebSocket gateways",
-  //     "Local-first architecture with sync",
-  //   ],
-  //   outcomes: [
-  //     "Supported 50K concurrent users",
-  //     "Reduced edit latency to 85ms average",
-  //     "Created industry-standard collaboration model",
-  //   ],
-  //   code: undefined,
-  // },
-  {
-    title: "Talk2Active – Scalable Speaking Practice Platform",
-
-    description:
-      "Built a scalable language practice platform enabling IELTS students to connect, interact, and improve speaking fluency through real-time engagement.",
-
-    fullDescription:
-      "Architected and developed Talk2Active, a backend-driven IELTS speaking practice platform designed to support high user concurrency and structured communication workflows. Built using Node.js and modular REST architecture, the system supports authentication, user-generated posts, real-time chat interactions, and progress tracking. Focused on scalable route design, optimized database queries, and efficient resource management to ensure the platform can handle millions of users and posts while maintaining performance and reliability.",
-
-    tags: [
-      "EdTech Platform",
-      "Backend Architecture",
-      "Scalable Systems",
-      "Real-Time Communication",
-      "Authentication Systems",
-      "API Design",
-    ],
-
-    metrics: [
-      "Designed system to support millions of users and posts",
-      "Implemented JWT-based secure authentication",
-      "Optimized database queries for scalable performance",
-      "Built modular APIs for extensibility and maintainability",
-    ],
-
-    image:
-      talk2active,
-    technologies: [
-      "JavaScript",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Redis",
-      "JWT",
-      "REST APIs",
-      "Socket.io",
-      "Git",
-      "GitHub",
-    ],
-
-    challenges: [
-      "Designing architecture for high user concurrency",
-      "Ensuring secure and scalable authentication",
-      "Managing real-time communication efficiently",
-      "Maintaining clean and extensible backend structure",
-    ],
-
     solutions: [
       "Implemented modular service-based backend architecture",
       "Used JWT for secure stateless authentication",
       "Optimized query performance and caching strategies",
       "Designed scalable routing and middleware layers",
     ],
-
     outcomes: [
-      "Delivered a scalable IELTS speaking platform",
-      "Enabled seamless peer-to-peer language practice",
+      "Grown to 50,000+ active users with platform stability maintained",
+      "Enabled seamless peer-to-peer language practice at scale",
       "Ensured performance stability under concurrent usage",
-      "Established maintainable and extensible backend foundation",
+      "Established maintainable and extensible backend as sole developer",
     ],
-    demo: "",
-    code: "The source code for Talk2Active is proprietary and not publicly available due to company policies. For more information about the project, please visit the LinkedIn post: https://www.linkedin.com/posts/sagarhasan2024_talk2active-ielts-speaking-practice-platform-activity-7114325678901234567-abcD",
+    demo: "https://talk2-active.vercel.app",
+    code: undefined,
   },
-
   {
-    title: "ds-saga-kit – Reusable Data Structures & Algorithms Library",
-
+    title: "Lyxa Console",
+    subtitle: "Scalable E-commerce Management Platform",
+    featured: false,
+    soloBuilt: false,
     description:
-      "Developed and published a modular JavaScript library providing efficient implementations of core data structures and algorithms.",
-
+      "Developed and optimized a scalable e-commerce admin platform supporting high-volume users, orders, and delivery workflows with advanced caching and graph-based route optimization.",
     fullDescription:
-      "Created ds-saga-kit, an open-source NPM library focused on delivering optimized and reusable implementations of fundamental data structures and algorithms. Designed with modular architecture and performance efficiency in mind, the library includes Min Heap, Max Heap, queues, stacks, and classic sorting and searching algorithms. Built to support educational use, competitive programming practice, and integration into real-world JavaScript projects.",
-
-    tags: [
-      "Open Source",
-      "Data Structures",
-      "Algorithms",
-      "NPM Package",
-      "Performance Optimization",
-      "Modular Architecture",
-    ],
-
+      "Engineered core features of the Lyxa Console, a modern e-commerce management platform handling large-scale user activity, order processing, and logistics coordination. Contributed to both frontend and backend systems, focusing on performance optimization, modular architecture, and system reliability. Designed components to support high concurrency, scalable delivery workflows, and seamless administrative control.",
+    tags: ["E-commerce Systems", "Scalable Architecture", "Performance Optimization", "Logistics Automation", "Full-Stack"],
     metrics: [
-      "Implemented optimized Heap and priority queue structures",
-      "Published reusable algorithm modules to NPM",
-      "Designed for performance and low memory overhead",
-      "Supports educational and production use cases",
+      "Millions of users and posts handled",
+      "70% API latency reduction via caching",
+      "Graph-based rider assignment system",
+      "90% reduction in deployment failures",
     ],
-
-    image:
-      algorithms,
-
-    technologies: [
-      "JavaScript",
-      "Node.js",
-      "NPM",
-      "Data Structures",
-      "Algorithms",
-      "Git",
-      "GitHub",
-    ],
-
+    image: lyxacover,
+    technologies: ["JavaScript", "TypeScript", "React.js", "Node.js", "Express", "MongoDB", "MySQL", "Redis", "REST APIs"],
     challenges: [
-      "Ensuring optimal time and space complexity",
-      "Designing reusable and clean modular APIs",
-      "Maintaining performance consistency across implementations",
-      "Balancing simplicity with extensibility",
+      "Handling high concurrency in delivery and order workflows",
+      "Optimizing large API payloads for performance efficiency",
+      "Reducing infrastructure costs through resource optimization",
+      "Maintaining modular and scalable frontend architecture",
     ],
-
     solutions: [
-      "Applied algorithmic optimization principles",
-      "Designed modular exports for easy integration",
-      "Documented usage patterns and examples",
-      "Structured codebase following clean architecture practices",
+      "Implemented caching mechanisms to reduce redundant database queries",
+      "Optimized API responses and minimized payload size",
+      "Designed graph algorithm-based rider assignment system",
+      "Refactored components using reusable design patterns",
     ],
-
     outcomes: [
-      "Delivered a reusable DS&A toolkit for JavaScript developers",
-      "Strengthened algorithmic proficiency and open-source presence",
-      "Enabled easier integration of core data structures in projects",
-      "Created maintainable and extensible library architecture",
+      "Improved platform scalability and runtime efficiency",
+      "Enhanced user experience through faster load times",
+      "Reduced operational overhead and infrastructure costs",
+      "Delivered stable enterprise-grade architecture",
     ],
-
-    codeLink: "https://github.com/sagarhasan2024/ds-saga-kit-javascript.git",
-    demo: "",
+    codeLink: "https://github.com/sagarhasan2024",
+    demo: "https://www.linkedin.com/company/lyxa/posts/?feedView=all",
   },
-
-  // {
-  //   title: "ML-Powered Search Engine",
-  //   description:
-  //     "Created a semantic search engine using transformer models and vector databases. Achieved 40% improvement in search relevance over traditional keyword-based systems.",
-  //   fullDescription:
-  //     "Developed a neural search engine leveraging pre-trained transformer models to encode documents and queries into semantic vectors. Integrated with Elasticsearch for hybrid search capabilities, combining keyword matching with semantic similarity for superior relevance.",
-  //   tags: ["Python", "TensorFlow", "Elasticsearch", "FastAPI", "React"],
-  //   metrics: ["40% better relevance", "200ms query time", "500M+ documents"],
-  //   image:
-  //     "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-  //   technologies: [
-  //     "Python",
-  //     "TensorFlow",
-  //     "Elasticsearch",
-  //     "FastAPI",
-  //     "React",
-  //     "ONNX",
-  //     "Redis",
-  //   ],
-  //   challenges: [
-  //     "Encoding 500M documents efficiently",
-  //     "Real-time inference at scale",
-  //     "Maintaining semantic relevance quality",
-  //   ],
-  //   solutions: [
-  //     "Batch processing with ONNX Runtime",
-  //     "GPU acceleration for embeddings",
-  //     "Hierarchical indexing strategy",
-  //   ],
-  //   outcomes: [
-  //     "Improved relevance scores by 40%",
-  //     "Reduced query latency to 200ms",
-  //     "Achieved 95% user satisfaction",
-  //   ],
-  // },
-  // {
-  //   title: "High-Performance CDN",
-  //   description:
-  //     "Architected a global content delivery network with edge caching and smart routing. Reduced load times by 70% across 150+ countries with 99.99% availability.",
-  //   fullDescription:
-  //     "Designed and deployed a global CDN infrastructure with edge servers in 150+ countries, implementing intelligent routing algorithms, geo-location based content delivery, and predictive prefetching to minimize latency.",
-  //   tags: ["Node.js", "Nginx", "AWS CloudFront", "Terraform", "Kubernetes"],
-  //   metrics: ["70% faster loads", "150+ countries", "99.99% uptime"],
-  //   image:
-  //     "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
-  //   technologies: [
-  //     "Node.js",
-  //     "Nginx",
-  //     "AWS CloudFront",
-  //     "Terraform",
-  //     "Kubernetes",
-  //     "BGP",
-  //     "DNS",
-  //   ],
-  //   challenges: [
-  //     "Global distribution and sync",
-  //     "Cache invalidation complexity",
-  //     "Latency optimization",
-  //   ],
-  //   solutions: [
-  //     "Geo-replicated edge servers",
-  //     "Smart cache purging",
-  //     "BGP anycast routing",
-  //   ],
-  //   outcomes: [
-  //     "Reduced global latency by 70%",
-  //     "Achieved 99.99% availability",
-  //     "Saved 40% on bandwidth costs",
-  //   ],
-  // },
   {
-    title: "Enterprise AI Platform (LangChain-Based)",
-
+    title: "ds-saga-kit",
+    subtitle: "Open Source NPM Library",
+    featured: false,
+    soloBuilt: true,
     description:
-      "Architected and delivered a production-grade AI platform leveraging LangChain for enterprise LLM orchestration, Retrieval-Augmented Generation (RAG), and intelligent agent workflows.",
-
+      "Published a modular JavaScript library with optimized implementations of core data structures and algorithms — Min/Max Heap, queues, stacks, sorting and searching algorithms.",
     fullDescription:
-      "Led the design and implementation of a scalable enterprise AI platform built on LangChain to orchestrate large language model workflows, Retrieval-Augmented Generation (RAG), and structured tool-calling agents. The system integrates OpenAI and open-source LLMs with vector-based semantic retrieval, conversational state management, and real-time response streaming. Designed with a modular, service-oriented architecture to support extensibility, performance optimization, and enterprise-grade reliability.",
-
-    tags: [
-      "LangChain",
-      "Python",
-      "LLM Orchestration",
-      "RAG Architecture",
-      "Vector Databases",
-      "OpenAI",
-      "Agent Systems",
-    ],
-
-    metrics: [
-      "Sub-second semantic retrieval",
-      "Low-latency streaming responses",
-      "Modular and extensible AI service architecture",
-    ],
-
-    image:
-      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-
-    technologies: [
-      "Python",
-      "LangChain",
-      "FastAPI",
-      "OpenAI API",
-      "ChromaDB",
-      "FAISS",
-      "Redis",
-      "Docker",
-      "TypeScript",
-      "React",
-    ],
-
-    challenges: [
-      "Designing a scalable and maintainable RAG architecture",
-      "Ensuring deterministic tool execution within agent workflows",
-      "Managing conversational state across distributed services",
-      "Minimizing latency in retrieval and LLM inference pipelines",
-    ],
-
-    solutions: [
-      "Implemented vector-based semantic search with optimized embedding pipelines",
-      "Designed structured tool interfaces with strict input/output validation",
-      "Integrated short-term and retriever-based long-term memory strategies",
-      "Enabled token-level streaming using callback handlers and WebSocket delivery",
-    ],
-
-    outcomes: [
-      "Improved response accuracy through contextual grounding",
-      "Reduced hallucination rates via enterprise-grade RAG design",
-      "Enabled rapid feature expansion through modular agent architecture",
-      "Delivered a production-ready AI backend aligned with enterprise standards",
-    ],
+      "Created ds-saga-kit, an open-source NPM library focused on delivering optimized and reusable implementations of fundamental data structures and algorithms. Designed with modular architecture and performance efficiency in mind, the library includes Min Heap, Max Heap, queues, stacks, and classic sorting and searching algorithms.",
+    tags: ["Open Source", "Data Structures", "Algorithms", "NPM Package", "Performance"],
+    metrics: ["Published on NPM", "Min/Max Heap implementations", "Sorting & searching algorithms", "Modular architecture"],
+    image: algorithms,
+    technologies: ["JavaScript", "Node.js", "NPM", "Jest", "Git"],
+    challenges: ["Optimizing algorithm implementations for real-world performance", "Designing clean, modular public APIs", "Ensuring correctness with comprehensive test coverage"],
+    solutions: ["Benchmarked implementations against standard libraries", "Followed functional programming patterns for modularity", "Built comprehensive Jest test suites"],
+    outcomes: ["Published package used by JavaScript developers", "Educational resource for DSA learners", "Demonstrates deep algorithmic knowledge"],
+    code: "https://github.com/sagarhasan273/ds-saga-kit",
+    demo: "https://www.npmjs.com/package/ds-saga-kit",
   },
-
   {
-    title: "Autonomous AI Engineering System (OpenDevin-Inspired)",
-
+    title: "Enterprise RAG System",
+    subtitle: "AI-Powered Knowledge Platform",
+    featured: false,
+    soloBuilt: false,
     description:
-      "Designed and implemented an autonomous AI agent system capable of planning, writing, and executing code within a secure sandboxed environment.",
-
+      "Engineered a production-grade Retrieval-Augmented Generation platform with vector databases, intelligent chunking, semantic search, and modular multi-agent workflows.",
     fullDescription:
-      "Architected an OpenDevin-inspired autonomous AI engineering system capable of task decomposition, iterative reasoning, code generation, and controlled execution within isolated runtime environments. The platform integrates large language models with structured planning modules, tool orchestration layers, and sandboxed execution using containerized infrastructure. Designed to support multi-step workflows, failure recovery, state persistence, and secure command execution, enabling reliable AI-driven software task automation.",
-
-    tags: [
-      "Autonomous Agents",
-      "LLM Planning",
-      "Tool Orchestration",
-      "Sandboxed Execution",
-      "Multi-Step Reasoning",
-      "AI Systems Engineering",
-    ],
-
-    metrics: [
-      "Multi-step task decomposition",
-      "Isolated container-based execution",
-      "Persistent agent state management",
-      "Automated code generation & validation",
-    ],
-
-    image:
-      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
-
-    technologies: [
-      "Python",
-      "LangChain",
-      "Docker",
-      "FastAPI",
-      "Redis",
-      "PostgreSQL",
-      "OpenAI API",
-      "AsyncIO",
-      "TypeScript",
-      "WebSockets",
-    ],
-
-    challenges: [
-      "Designing reliable multi-step autonomous planning loops",
-      "Ensuring secure execution of AI-generated code",
-      "Managing agent state across iterative reasoning cycles",
-      "Implementing failure recovery and retry mechanisms",
-    ],
-
-    solutions: [
-      "Built a structured think-plan-act-observe execution loop with checkpointing",
-      "Implemented Docker-based sandbox isolation for secure command execution",
-      "Designed persistent state storage for task memory and recovery",
-      "Added structured tool interfaces with validation and guarded execution",
-    ],
-
-    outcomes: [
-      "Enabled autonomous completion of multi-step engineering tasks",
-      "Reduced manual intervention through agent-driven workflow automation",
-      "Improved reliability with checkpoint-based recovery mechanisms",
-      "Delivered a scalable foundation for AI-powered development automation",
-    ],
+      "Designed and implemented a production-grade RAG system for enterprise knowledge management, integrating vector databases with intelligent document processing, semantic search, and agentic workflows.",
+    tags: ["AI/ML", "RAG Architecture", "Vector Databases", "LLM Integration", "Enterprise AI"],
+    metrics: ["Semantic search across enterprise docs", "Reduced LLM hallucination rates", "Multi-agent workflow support", "Production-ready architecture"],
+    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+    technologies: ["Python", "LangChain", "Pinecone", "OpenAI API", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+    challenges: ["Optimizing vector search for large document collections", "Reducing hallucination in enterprise contexts", "Building reliable multi-agent workflows"],
+    solutions: ["Implemented hybrid sparse-dense retrieval", "Added contextual grounding and fact verification layers", "Designed modular agent interfaces with tool validation"],
+    outcomes: ["Improved response accuracy through contextual grounding", "Reduced hallucination rates significantly", "Enabled rapid feature expansion through modular design"],
+  },
+  {
+    title: "Autonomous AI Agent",
+    subtitle: "OpenDevin-Inspired Engineering System",
+    featured: false,
+    soloBuilt: false,
+    description:
+      "Designed an autonomous AI agent system capable of task decomposition, code generation, and execution in sandboxed Docker containers — with checkpoint-based state recovery.",
+    fullDescription:
+      "Architected an OpenDevin-inspired autonomous AI engineering system capable of task decomposition, iterative reasoning, code generation, and controlled execution within isolated runtime environments.",
+    tags: ["Autonomous Agents", "LLM Planning", "Tool Orchestration", "Sandboxed Execution", "AI Systems"],
+    metrics: ["Multi-step task decomposition", "Isolated Docker execution", "Persistent agent state", "Automated code generation"],
+    image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    technologies: ["Python", "LangChain", "Docker", "FastAPI", "Redis", "PostgreSQL", "OpenAI API", "AsyncIO"],
+    challenges: ["Designing reliable multi-step planning loops", "Ensuring secure execution of AI-generated code", "Managing agent state across reasoning cycles"],
+    solutions: ["Built think-plan-act-observe execution loop with checkpointing", "Implemented Docker sandbox isolation", "Designed persistent state storage for recovery"],
+    outcomes: ["Enabled autonomous completion of engineering tasks", "Reduced manual intervention via automation", "Improved reliability with checkpoint recovery"],
   },
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
+
+  const featuredProject = projects.find(p => p.featured);
+  const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            A selection of impactful projects demonstrating expertise in
-            scalable systems, modern architectures, and user-centric design
+    <section id="projects" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #0a1628 0%, #020817 100%)' }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+      `}</style>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#38bdf8', letterSpacing: '0.3em' }}>
+            — Featured Projects
           </p>
+          <h2 className="text-5xl font-black" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+            What I've built
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+        {/* ===== FEATURED: Talk2Active ===== */}
+        {featuredProject && (
+          <div
+            className="mb-10 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-1"
+            style={{
+              background: 'rgba(15, 23, 42, 0.8)',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
+              boxShadow: '0 0 40px rgba(56, 189, 248, 0.08)',
+            }}
+            onClick={() => setSelectedProject(featuredProject)}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 60px rgba(56, 189, 248, 0.15)';
+              (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.5)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 40px rgba(56, 189, 248, 0.08)';
+              (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.3)';
+            }}
+          >
+            <div className="grid lg:grid-cols-2">
+              {/* Image */}
+              <div className="relative h-72 lg:h-auto overflow-hidden">
+                <img
+                  src={featuredProject.image}
+                  alt={featuredProject.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(2,8,23,0.3), transparent 60%)' }} />
+
+                {/* Solo built badge */}
+                <div
+                  className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
+                  style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)', color: '#fff' }}
+                >
+                  <Star size={12} fill="currentColor" />
+                  Solely Built by Me
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-8 lg:p-10 flex flex-col justify-center">
+                {/* User count badge */}
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold mb-6 w-fit"
+                  style={{
+                    background: 'rgba(56, 189, 248, 0.1)',
+                    border: '1px solid rgba(56, 189, 248, 0.3)',
+                    color: '#38bdf8',
+                  }}
+                >
+                  <Users size={16} />
+                  {featuredProject.userCount} Active Users
+                </div>
+
+                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#64748b' }}>
+                  {featuredProject.subtitle}
+                </p>
+                <h3
+                  className="text-4xl font-black mb-4"
+                  style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
+                >
+                  {featuredProject.title}
+                </h3>
+                <p className="text-base leading-relaxed mb-6" style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}>
+                  {featuredProject.description}
+                </p>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {featuredProject.technologies?.slice(0, 6).map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-full text-xs font-medium"
+                      style={{ background: 'rgba(30,41,59,0.8)', color: '#94a3b8', border: '1px solid rgba(56,189,248,0.08)' }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2 font-semibold text-sm" style={{ color: '#38bdf8' }}>
+                  View Case Study
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ===== Other Projects Grid ===== */}
+        <div className="grid md:grid-cols-2 gap-5">
+          {otherProjects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+              className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: 'rgba(15, 23, 42, 0.7)',
+                border: '1px solid rgba(56, 189, 248, 0.1)',
+              }}
               onClick={() => setSelectedProject(project)}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.3)';
+                (e.currentTarget as HTMLDivElement).style.background = 'rgba(56, 189, 248, 0.04)';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.1)';
+                (e.currentTarget as HTMLDivElement).style.background = 'rgba(15, 23, 42, 0.7)';
+              }}
             >
-              <div className="relative h-48 overflow-hidden bg-slate-200">
+              <div className="relative h-44 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.9) 0%, transparent 60%)' }} />
+                {project.soloBuilt && (
+                  <div
+                    className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold"
+                    style={{ background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56,189,248,0.3)', color: '#38bdf8' }}
+                  >
+                    <Star size={10} fill="currentColor" />
+                    Solo
+                  </div>
+                )}
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#475569' }}>{project.subtitle}</p>
+                <h3
+                  className="text-xl font-black mb-3"
+                  style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
+                >
                   {project.title}
                 </h3>
-
-                <p className="text-slate-600 mb-4 leading-relaxed">
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#64748b', fontFamily: '"DM Sans", sans-serif' }}>
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.tags.slice(0, 3).map((tag, i) => (
                     <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium"
+                      key={i}
+                      className="px-2.5 py-1 rounded-full text-xs"
+                      style={{ background: 'rgba(56,189,248,0.06)', color: '#38bdf8', border: '1px solid rgba(56,189,248,0.15)' }}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3 mb-4 text-sm">
-                  {project.metrics.map((metric, metricIndex) => (
-                    <span
-                      key={metricIndex}
-                      className="text-slate-500 font-medium"
+                <div className="flex items-center gap-4 pt-4" style={{ borderTop: '1px solid rgba(56,189,248,0.08)' }}>
+                  {project.code && (
+                    <button
+                      onClick={e => { e.stopPropagation(); window.open(project.code as string, '_blank'); }}
+                      className="flex items-center gap-1.5 text-xs font-medium transition-colors duration-300"
+                      style={{ color: '#64748b' }}
+                      onMouseEnter={e => (e.currentTarget.style.color = '#38bdf8')}
+                      onMouseLeave={e => (e.currentTarget.style.color = '#64748b')}
                     >
-                      • {metric}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4 pt-4 border-t border-slate-100">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (project?.codeLink) {
-                        window.open(project.codeLink, "_blank");
-                      }
-                    }}
-                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
-                    title={project?.code}
-                    style={{
-                      pointerEvents: project?.code ? "auto" : "none",
-                      cursor: !project?.code ? "pointer" : "not-allowed",
-                    }}
+                      <Github size={14} /> Code
+                    </button>
+                  )}
+                  {project.demo && (
+                    <button
+                      onClick={e => { e.stopPropagation(); window.open(project.demo as string, '_blank'); }}
+                      className="flex items-center gap-1.5 text-xs font-medium transition-colors duration-300"
+                      style={{ color: '#64748b' }}
+                      onMouseEnter={e => (e.currentTarget.style.color = '#38bdf8')}
+                      onMouseLeave={e => (e.currentTarget.style.color = '#64748b')}
+                    >
+                      <ExternalLink size={14} /> Live
+                    </button>
+                  )}
+                  <span
+                    className="ml-auto flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all duration-300"
+                    style={{ color: '#38bdf8' }}
                   >
-                    <Github size={18} />
-                    Code
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (project?.demo) {
-                        window.open(project.demo, "_blank");
-                      }
-                    }}
-                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
-                  >
-                    <ExternalLink size={18} />
-                    Live Demo
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                    className="ml-auto flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300 group/btn"
-                  >
-                    Details
-                    <ArrowRight
-                      size={18}
-                      className="group-hover/btn:translate-x-1 transition-transform duration-300"
-                    />
-                  </button>
+                    Details <ArrowRight size={12} />
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        <ProjectDetail
-          isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-          data={selectedProject}
-        />
       </div>
+
+      <ProjectDetail
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+        data={selectedProject}
+      />
     </section>
   );
 }
