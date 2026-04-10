@@ -13,7 +13,7 @@ const projects = [
     subtitle: "Solely Built · IELTS Speaking Practice Platform",
     featured: true,
     soloBuilt: true,
-    userCount: "50,000+",
+    userCount: "50,000+ Can Handle",
     description:
       "Architected and built entirely solo — a scalable IELTS speaking practice platform serving 50,000+ active users, with real-time peer interactions, secure auth, and high-concurrency backend.",
     fullDescription:
@@ -27,7 +27,7 @@ const projects = [
       "API Design",
     ],
     metrics: [
-      "50,000+ active users",
+      "50,000+ active users without any crashes",
       "JWT-based secure authentication",
       "Optimized for high concurrency",
       "Modular, extensible APIs",
@@ -64,6 +64,48 @@ const projects = [
     ],
     demo: "https://talk2-active.vercel.app",
     code: undefined,
+  },
+   {
+    title: "File processing kit",
+    subtitle: "Browser-Native File Processing Suite",
+    featured: false,
+    soloBuilt: true,
+    description:
+      "Built a fully client-side file processing suite with 6 tools — Image Editor, Images to PDF, PDF Merger, PDF Compressor, OCR Scanner, and Image Resizer — all running locally in the browser with zero file uploads.",
+    fullDescription:
+      "Created FILEKIT PRO, a privacy-first web application that processes PDFs and images entirely in the browser using WebAssembly and Canvas APIs. The suite includes an image editor with real-time filter controls, batch image-to-PDF conversion, PDF merging and compression via pdf-lib, OCR text extraction via Tesseract.js, and an image resizer with social media presets. No files ever leave the user's device.",
+    tags: [
+      "Browser-Native",
+      "Privacy-First",
+      "PDF Processing",
+      "Image Processing",
+      "Open Source",
+    ],
+    metrics: [
+      "6 fully functional tools",
+      "Zero server-side processing",
+      "Supports PDF, PNG, JPG, WEBP",
+      "Social media resize presets",
+    ],
+    image: filekit,
+    technologies: ["React", "jsPDF", "pdf-lib", "Tesseract.js", "Canvas API"],
+    challenges: [
+      "Working around sandboxed iframe download restrictions",
+      "Loading heavy WASM libraries (Tesseract) on demand without blocking UI",
+      "Implementing real-time image filter preview using Canvas with rotation",
+    ],
+    solutions: [
+      "Built a safeDownload() helper using window.open() with a floating fallback anchor",
+      "Lazy-loaded all third-party libraries via CDN only when the tool is first used",
+      "Used requestAnimationFrame-synced canvas redraws for smooth filter previews",
+    ],
+    outcomes: [
+      "Fully offline-capable tool — works without internet after first load",
+      "Privacy-first alternative to cloud-based tools like ILovePDF and Smallpdf",
+      "Demonstrates deep knowledge of browser APIs and client-side architecture",
+    ],
+    code: "https://github.com/sagarhasan273/Image-Editor",
+    demo: "https://file-processing-kit.vercel.app",
   },
   {
     title: "Lyxa Console",
@@ -210,48 +252,7 @@ const projects = [
       "Streamlined media asset management workflows through automated keyword indexing",
     ],
   },
-  {
-    title: "filekit-pro",
-    subtitle: "Browser-Native File Processing Suite",
-    featured: true,
-    soloBuilt: true,
-    description:
-      "Built a fully client-side file processing suite with 6 tools — Image Editor, Images to PDF, PDF Merger, PDF Compressor, OCR Scanner, and Image Resizer — all running locally in the browser with zero file uploads.",
-    fullDescription:
-      "Created FILEKIT PRO, a privacy-first web application that processes PDFs and images entirely in the browser using WebAssembly and Canvas APIs. The suite includes an image editor with real-time filter controls, batch image-to-PDF conversion, PDF merging and compression via pdf-lib, OCR text extraction via Tesseract.js, and an image resizer with social media presets. No files ever leave the user's device.",
-    tags: [
-      "Browser-Native",
-      "Privacy-First",
-      "PDF Processing",
-      "Image Processing",
-      "Open Source",
-    ],
-    metrics: [
-      "6 fully functional tools",
-      "Zero server-side processing",
-      "Supports PDF, PNG, JPG, WEBP",
-      "Social media resize presets",
-    ],
-    image: filekit,
-    technologies: ["React", "jsPDF", "pdf-lib", "Tesseract.js", "Canvas API"],
-    challenges: [
-      "Working around sandboxed iframe download restrictions",
-      "Loading heavy WASM libraries (Tesseract) on demand without blocking UI",
-      "Implementing real-time image filter preview using Canvas with rotation",
-    ],
-    solutions: [
-      "Built a safeDownload() helper using window.open() with a floating fallback anchor",
-      "Lazy-loaded all third-party libraries via CDN only when the tool is first used",
-      "Used requestAnimationFrame-synced canvas redraws for smooth filter previews",
-    ],
-    outcomes: [
-      "Fully offline-capable tool — works without internet after first load",
-      "Privacy-first alternative to cloud-based tools like ILovePDF and Smallpdf",
-      "Demonstrates deep knowledge of browser APIs and client-side architecture",
-    ],
-    code: "https://github.com/sagarhasan273/Image-Editor",
-    demo: "https://file-processing-kit.vercel.app",
-  },
+ 
   {
     title: "Autonomous AI Agent",
     subtitle: "OpenDevin-Inspired Engineering System",
