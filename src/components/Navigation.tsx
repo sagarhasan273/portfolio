@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Download } from 'lucide-react';
-import resume from '../assets/resume/Sagar_Hasan_Exp_02.pdf';
+import resume from '../assets/resume/Sagar_Hasan_Software_Engineer_Exp_2yrs+.pdf';
 
 const navItems = [
   { label: 'Home', href: '#home' },
