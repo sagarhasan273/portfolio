@@ -1,255 +1,189 @@
-import { Github, Linkedin, Mail, ArrowDown, Zap } from "lucide-react";
+import { GitHub, LinkedIn, Mail, KeyboardArrowDown } from "@mui/icons-material";
+import { Box, Button, Chip, Container, IconButton, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
-const roles = [
-  "Software Engineer",
-  "Backend Architect",
-  "System Designer",
-  "Full-Stack Builder",
-];
+const roles = ["Software Engineer", "Backend Architect", "System Designer", "Full-Stack Builder"];
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
 
   useEffect(() => {
     const current = roles[roleIndex];
     const speed = isDeleting ? 40 : 80;
-
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setDisplayText(current.slice(0, displayText.length + 1));
-        if (displayText.length + 1 === current.length) {
-          setTimeout(() => setIsDeleting(true), 1800);
-        }
+        if (displayText.length + 1 === current.length) setTimeout(() => setIsDeleting(true), 1800);
       } else {
         setDisplayText(current.slice(0, displayText.length - 1));
-        if (displayText.length === 0) {
-          setIsDeleting(false);
-          setRoleIndex((i) => (i + 1) % roles.length);
-        }
+        if (displayText.length === 0) { setIsDeleting(false); setRoleIndex((i) => (i + 1) % roles.length); }
       }
     }, speed);
-
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, roleIndex]);
 
   return (
-    <section
+    <Box
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, #020817 0%, #0a1628 40%, #071020 100%)",
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        bgcolor: "#050A14",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,122,255,0.15), transparent)`,
+        },
       }}
     >
-      {/* Animated grid background */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* Subtle dot grid */}
+      <Box sx={{
+        position: "absolute", inset: 0, opacity: 0.04,
+        backgroundImage: "radial-gradient(circle, #60A5FA 1px, transparent 1px)",
+        backgroundSize: "40px 40px",
+      }} />
 
-      {/* Glowing orbs */}
-      <div
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl"
-        style={{ background: "radial-gradient(circle, #38bdf8, transparent)" }}
-      />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-8 blur-3xl"
-        style={{ background: "radial-gradient(circle, #0ea5e9, transparent)" }}
-      />
-
-      {/* Floating particles */}
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: Math.random() * 3 + 1 + "px",
-            height: Math.random() * 3 + 1 + "px",
-            background: "#38bdf8",
-            left: Math.random() * 100 + "%",
-            top: Math.random() * 100 + "%",
-            opacity: Math.random() * 0.4 + 0.1,
-            animation: `float ${Math.random() * 8 + 6}s ease-in-out infinite`,
-            animationDelay: Math.random() * 4 + "s",
-          }}
+      <Container maxWidth="md" sx={{ position: "relative", zIndex: 1, textAlign: "center",
+        opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)",
+        transition: "opacity 0.8s ease, transform 0.8s ease",
+      }}>
+        {/* Available badge */}
+        <Chip
+          label={
+            <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
+              <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#22C55E",
+                boxShadow: "0 0 8px #22C55E", animation: "pulse 2s infinite" }} />
+              <Typography variant="caption" sx={{ fontWeight: 600, letterSpacing: 1, color: "#22C55E", fontSize: "0.7rem" }}>
+                OPEN TO FULL-TIME ROLES
+              </Typography>
+            </Stack>
+          }
+          sx={{ mb: 4, bgcolor: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.25)", height: 36, px: 1 }}
         />
-      ))}
 
-      <div
-        className={`max-w-5xl mx-auto px-6 text-center z-10 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
-      >
-        {/* Status badge */}
-        <div
-          className="mb-8 inline-flex items-center gap-2 px-5 py-2 rounded-full border text-sm font-medium"
-          style={{
-            background: "rgba(56, 189, 248, 0.08)",
-            borderColor: "rgba(56, 189, 248, 0.3)",
-            color: "#38bdf8",
-          }}
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400"></span>
-          </span>
-          Available for Full-Time Opportunities
-        </div>
+        {/* Sub-label */}
+        <Typography variant="overline" sx={{ color: "#4B5563", letterSpacing: "0.25em", display: "block", mb: 2, fontSize: "0.75rem" }}>
+          Sagar Hasan — Software Engineer
+        </Typography>
 
-        {/* Name */}
-        <p
-          className="text-lg font-light tracking-widest uppercase mb-3"
-          style={{ color: "#64748b", letterSpacing: "0.3em" }}
-        >
-          Sagar Hasan
-        </p>
-
-        {/* Animated role title */}
-        <h1
-          className="font-black mb-6"
-          style={{
-            fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-            lineHeight: "1.1",
-            background:
-              "linear-gradient(135deg, #e2e8f0 0%, #38bdf8 50%, #7dd3fc 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            fontFamily: '"Syne", sans-serif',
+        {/* Typewriter headline */}
+        <Typography
+          variant="h1"
+          sx={{
+            fontFamily: '"SF Pro Display", "Helvetica Neue", sans-serif',
+            fontWeight: 700,
+            fontSize: { xs: "2.4rem", md: "4rem" },
+            lineHeight: 1.1,
+            color: "#F9FAFB",
+            mb: 1,
+            minHeight: { xs: "3rem", md: "5rem" },
           }}
         >
           {displayText}
-          <span
-            className="animate-pulse"
-            style={{ WebkitTextFillColor: "#38bdf8" }}
-          >
-            |
-          </span>
-        </h1>
+          <Box component="span" sx={{ color: "#007AFF", animation: "blink 1s step-end infinite" }}>|</Box>
+        </Typography>
 
-        {/* Tagline */}
-        <p
-          className="text-xl mb-4 font-light max-w-3xl mx-auto"
-          style={{ color: "#94a3b8" }}
-        >
-          Building scalable and reliable systems — from{" "}
-          <span style={{ color: "#38bdf8", fontWeight: 600 }}>
-            production platforms
-          </span>{" "}
-          to open-source engineering tools.
-        </p>
+        <Typography sx={{ color: "#9CA3AF", fontSize: "1.1rem", maxWidth: 560, mx: "auto", mb: 5, lineHeight: 1.7 }}>
+          Building scalable, reliable systems — from production platforms to open-source engineering tools.{" "}
+          <Box component="span" sx={{ color: "#60A5FA" }}>2+ years of backend engineering</Box> with proven impact.
+        </Typography>
 
-        {/* Stats bar */}
-        <div className="flex flex-wrap justify-center gap-8 mb-12 mt-8">
+        {/* Stats row */}
+        <Stack direction="row" sx={{ gap: 5, justifyContent: "center", flexWrap: "wrap", mb: 6 }}>
           {[
-            { value: "2+", label: "Years Backend Engineering" },
-            { value: "1500+", label: "Algorithm Problems Solved" },
-            { value: "3+", label: "Scalable Systems Designed" },
-            { value: "1", label: "Published NPM Package" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <div
-                className="text-2xl font-black"
-                style={{ color: "#38bdf8", fontFamily: '"Syne", sans-serif' }}
-              >
-                {stat.value}
-              </div>
-              <div
-                className="text-xs uppercase tracking-wider"
-                style={{ color: "#64748b" }}
-              >
-                {stat.label}
-              </div>
-            </div>
+            { v: "2+", l: "Years Experience" },
+            { v: "1500+", l: "Problems Solved" },
+            { v: "50K+", l: "Platform Users" },
+            { v: "1", l: "NPM Package" },
+          ].map((s) => (
+            <Box key={s.l} sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0.5 }}>
+              <Typography sx={{ fontWeight: 700, fontSize: "1.6rem", color: "#007AFF", fontFamily: '"SF Pro Display", sans-serif' }}>
+                {s.v}
+              </Typography>
+              <Typography sx={{ fontSize: "0.7rem", color: "#6B7280", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                {s.l}
+              </Typography>
+            </Box>
           ))}
-        </div>
+        </Stack>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          <a
+        <Stack direction="row" spacing={2} sx={{ justifyContent: "center", flexWrap: "wrap", mb: 5 }}>
+          <Button
             href="#contact"
-            className="group px-8 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-            style={{
-              background: "linear-gradient(135deg, #0ea5e9, #38bdf8)",
-              color: "#fff",
-              boxShadow: "0 0 20px rgba(56, 189, 248, 0.3)",
+            variant="contained"
+            size="large"
+            sx={{
+              bgcolor: "#007AFF", color: "#fff", fontWeight: 600, px: 4, py: 1.5,
+              borderRadius: "12px", fontSize: "0.9rem", letterSpacing: "0.02em",
+              "&:hover": { bgcolor: "#0066DD", boxShadow: "0 0 24px rgba(0,122,255,0.4)" },
+              transition: "all 0.2s",
             }}
           >
-            <span className="flex items-center gap-2">
-              <Zap size={16} />
-              Hire Me
-            </span>
-          </a>
-          <a
+            Hire Me
+          </Button>
+          <Button
             href="#projects"
-            className="group px-8 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              color: "#cbd5e1",
-              border: "1px solid rgba(255,255,255,0.12)",
+            variant="outlined"
+            size="large"
+            sx={{
+              borderColor: "rgba(255,255,255,0.12)", color: "#D1D5DB", fontWeight: 600,
+              px: 4, py: 1.5, borderRadius: "12px", fontSize: "0.9rem",
+              "&:hover": { borderColor: "rgba(255,255,255,0.3)", bgcolor: "rgba(255,255,255,0.04)" },
             }}
           >
             View Projects
-          </a>
-        </div>
+          </Button>
+        </Stack>
 
-        {/* Social links */}
-        <div className="flex gap-6 justify-center">
+        {/* Socials */}
+        <Stack direction="row" spacing={1} sx={{ justifyContent: "center" }}>
           {[
-            {
-              icon: Github,
-              href: "https://github.com/sagarhasan273",
-              label: "GitHub",
-            },
-            {
-              icon: Linkedin,
-              href: "https://linkedin.com/in/sagar-hasan-677b5b1ba",
-              label: "LinkedIn",
-            },
-            {
-              icon: Mail,
-              href: "mailto:sagarhasan273@gmail.com",
-              label: "Email",
-            },
-          ].map(({ icon: Icon, href, label }) => (
-            <a
+            { icon: <GitHub />, href: "https://github.com/sagarhasan273", label: "GitHub" },
+            { icon: <LinkedIn />, href: "https://linkedin.com/in/sagar-hasan-677b5b1ba", label: "LinkedIn" },
+            { icon: <Mail />, href: "mailto:sagarhasan273@gmail.com", label: "Email" },
+          ].map(({ icon, href, label }) => (
+            <IconButton
               key={label}
+              component="a"
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-sm transition-all duration-300 hover:-translate-y-0.5"
-              style={{ color: "#64748b" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#38bdf8")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#64748b")}
+              aria-label={label}
+              sx={{
+                color: "#4B5563", border: "1px solid rgba(255,255,255,0.07)",
+                borderRadius: "10px", p: 1.2,
+                "&:hover": { color: "#007AFF", borderColor: "rgba(0,122,255,0.4)", bgcolor: "rgba(0,122,255,0.06)" },
+                transition: "all 0.2s",
+              }}
             >
-              <Icon size={20} />
-              <span className="hidden sm:block">{label}</span>
-            </a>
+              {icon}
+            </IconButton>
           ))}
-        </div>
-      </div>
+        </Stack>
+      </Container>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown size={24} style={{ color: "#334155" }} />
-      </div>
+      {/* Scroll indicator */}
+      <Box sx={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)",
+        animation: "bounceY 1.5s ease-in-out infinite" }}>
+        <KeyboardArrowDown sx={{ color: "#374151", fontSize: 28 }} />
+      </Box>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&display=swap');
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
+        @keyframes bounceY { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
       `}</style>
-    </section>
+    </Box>
   );
 }
