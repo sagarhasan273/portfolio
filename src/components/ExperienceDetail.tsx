@@ -1,4 +1,8 @@
-import { X, Briefcase } from 'lucide-react';
+import {
+  Box, Button, Chip, Dialog, DialogContent, Divider,
+  IconButton, Stack, Typography,
+} from "@mui/material";
+import { Close, WorkOutline } from "@mui/icons-material";
 
 interface ExperienceDetailProps {
   isOpen: boolean;
@@ -13,112 +17,105 @@ interface ExperienceDetailProps {
 }
 
 export default function ExperienceDetail({ isOpen, onClose, data }: ExperienceDetailProps) {
-  if (!isOpen || !data) return null;
+  if (!data) return null;
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
-      `}</style>
-
-      <div
-        className="fixed inset-0 z-40 transition-opacity duration-300"
-        style={{ background: 'rgba(2, 8, 23, 0.85)', backdropFilter: 'blur(8px)' }}
-        onClick={onClose}
-      />
-
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
-        <div
-          className="max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl relative"
-          style={{
-            background: '#0a1628',
-            border: '1px solid rgba(56,189,248,0.2)',
-            boxShadow: '0 0 60px rgba(56,189,248,0.1)',
-          }}
-        >
-          <button
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      maxWidth="sm"
+      fullWidth
+      PaperProps={{
+        sx: {
+          bgcolor: "#0A0F1E", border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "20px", boxShadow: "0 0 60px rgba(0,0,0,0.6)",
+        },
+      }}
+      BackdropProps={{ sx: { bgcolor: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" } }}
+    >
+      <DialogContent sx={{ p: 0 }}>
+        {/* Header */}
+        <Box sx={{ p: 4, pb: 3, position: "relative" }}>
+          <IconButton
             onClick={onClose}
-            className="absolute top-6 right-6 w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 z-10"
-            style={{ background: 'rgba(56,189,248,0.08)', color: '#64748b' }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56,189,248,0.15)';
-              (e.currentTarget as HTMLButtonElement).style.color = '#e2e8f0';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56,189,248,0.08)';
-              (e.currentTarget as HTMLButtonElement).style.color = '#64748b';
+            sx={{
+              position: "absolute", top: 20, right: 20,
+              color: "#6B7280", bgcolor: "rgba(255,255,255,0.04)",
+              borderRadius: "10px",
+              "&:hover": { bgcolor: "rgba(255,255,255,0.08)", color: "#F9FAFB" },
             }}
           >
-            <X size={18} />
-          </button>
+            <Close fontSize="small" />
+          </IconButton>
 
-          <div className="p-8">
-            <span
-              className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-5"
-              style={{ background: 'rgba(56,189,248,0.1)', color: '#38bdf8', border: '1px solid rgba(56,189,248,0.2)' }}
-            >
-              {data.period}
-            </span>
+          <Chip
+            label={data.period}
+            size="small"
+            sx={{ bgcolor: "rgba(0,122,255,0.1)", color: "#60A5FA", border: "1px solid rgba(0,122,255,0.2)", mb: 2, fontWeight: 600 }}
+          />
 
-            <h2
-              className="text-3xl font-black mb-2"
-              style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
-            >
-              {data.role}
-            </h2>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: 700, color: "#F9FAFB", mb: 1, fontFamily: '"SF Pro Display", "Helvetica Neue", sans-serif' }}
+          >
+            {data.role}
+          </Typography>
 
-            <div className="flex items-center gap-2 mb-6" style={{ color: '#38bdf8' }}>
-              <Briefcase size={16} />
-              <span className="font-semibold">{data.company}</span>
-            </div>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <WorkOutline sx={{ fontSize: 16, color: "#007AFF" }} />
+            <Typography sx={{ color: "#007AFF", fontWeight: 600, fontSize: "0.9rem" }}>{data.company}</Typography>
+          </Stack>
+        </Box>
 
-            <p
-              className="text-base leading-relaxed mb-8"
-              style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif', borderLeft: '2px solid rgba(56,189,248,0.3)', paddingLeft: '1rem' }}
-            >
+        <Divider sx={{ borderColor: "rgba(255,255,255,0.06)" }} />
+
+        <Box sx={{ p: 4 }}>
+          {/* Description */}
+          <Box
+            sx={{
+              borderLeft: "2px solid rgba(0,122,255,0.4)", pl: 2, mb: 4,
+            }}
+          >
+            <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "0.9rem" }}>
               {data.description}
-            </p>
+            </Typography>
+          </Box>
 
-            <h3
-              className="font-black text-lg mb-4"
-              style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
-            >
-              Key Achievements
-            </h3>
+          <Typography sx={{ fontWeight: 700, color: "#F9FAFB", mb: 2.5, fontSize: "0.95rem" }}>
+            Key Achievements
+          </Typography>
 
-            <ul className="space-y-3">
-              {data.achievements.map((achievement, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 p-4 rounded-xl transition-colors duration-300"
-                  style={{ background: 'rgba(56,189,248,0.04)', border: '1px solid rgba(56,189,248,0.08)' }}
-                >
-                  <span
-                    className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ background: '#38bdf8' }}
-                  />
-                  <span className="text-sm leading-relaxed" style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}>
-                    {achievement}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(56,189,248,0.1)' }}>
-              <button
-                onClick={onClose}
-                className="w-full px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)',
-                  color: '#fff',
+          <Stack spacing={1.5}>
+            {data.achievements.map((a, i) => (
+              <Box
+                key={i}
+                sx={{
+                  p: 2, borderRadius: "10px",
+                  bgcolor: "rgba(0,122,255,0.04)",
+                  border: "1px solid rgba(0,122,255,0.08)",
+                  display: "flex", gap: 1.5, alignItems: "flex-start",
                 }}
               >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+                <Box sx={{ width: 5, height: 5, borderRadius: "50%", bgcolor: "#007AFF", mt: "8px", flexShrink: 0 }} />
+                <Typography sx={{ fontSize: "0.83rem", color: "#9CA3AF", lineHeight: 1.7 }}>{a}</Typography>
+              </Box>
+            ))}
+          </Stack>
+
+          <Button
+            onClick={onClose}
+            fullWidth
+            variant="contained"
+            sx={{
+              mt: 4, bgcolor: "#007AFF", color: "#fff", fontWeight: 600,
+              borderRadius: "12px", py: 1.5, textTransform: "none", fontSize: "0.9rem",
+              "&:hover": { bgcolor: "#0066DD" },
+            }}
+          >
+            Close
+          </Button>
+        </Box>
+      </DialogContent>
+    </Dialog>
   );
 }
