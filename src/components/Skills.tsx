@@ -1,129 +1,197 @@
-import { Code, Database, Globe, Smartphone, Cloud, Terminal } from 'lucide-react';
+import {
+  Code,
+  Database,
+  Globe,
+  Smartphone,
+  Cloud,
+  Terminal,
+} from "lucide-react";
+import { Box, Chip, Container, Paper, Stack, Typography } from "@mui/material";
 
 const skillCategories = [
   {
     icon: Code,
-    title: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'C++', 'MySQL'],
+    title: "Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "C++", "MySQL"],
+    color: "#007AFF",
   },
   {
     icon: Database,
-    title: 'Backend & Database',
-    skills: ['Node.js', 'PostgreSQL', 'MongoDB', 'Redis', 'GraphQL', 'REST APIs'],
+    title: "Backend & Database",
+    skills: [
+      "Node.js",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "GraphQL",
+      "REST APIs",
+    ],
+    color: "#10B981",
   },
   {
     icon: Globe,
-    title: 'Frontend',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'Redux', 'Material UI'],
+    title: "Frontend",
+    skills: ["React", "Next.js", "Tailwind CSS", "Redux", "Material UI"],
+    color: "#F59E0B",
   },
   {
     icon: Cloud,
-    title: 'Cloud & DevOps',
-    skills: ['Docker', 'Kubernetes', 'CI/CD', 'GCP'],
+    title: "Cloud & DevOps",
+    skills: ["Docker", "Kubernetes", "CI/CD", "GCP"],
+    color: "#8B5CF6",
   },
   {
     icon: Terminal,
-    title: 'Tools & Practices',
-    skills: ['Git', 'Linux', 'Microservices', 'System Design', 'Computer Networks'],
+    title: "Tools & Practices",
+    skills: [
+      "Git",
+      "Linux",
+      "Microservices",
+      "System Design",
+      "Computer Networks",
+    ],
+    color: "#EC4899",
   },
   {
     icon: Smartphone,
-    title: 'Mobile & Other',
-    skills: ['WebRTC', 'WebSockets', 'JWT', 'React Native', 'Socket.io'],
+    title: "Mobile & Other",
+    skills: ["WebRTC", "WebSockets", "JWT", "React Native", "Socket.io"],
+    color: "#06B6D4",
   },
 ];
 
 export default function Skills() {
   return (
-    <section
+    <Box
       id="skills"
-      className="py-24 relative overflow-hidden"
-      style={{ background: '#020817' }}
+      sx={{
+        py: { xs: 10, md: 14 },
+        bgcolor: "#070C18",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&display=swap');
-      `}</style>
-
-      {/* Horizontal accent line */}
-      <div
-        className="absolute left-0 right-0"
-        style={{ top: '50%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(56,189,248,0.1), transparent)' }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="mb-16">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#38bdf8', letterSpacing: '0.3em' }}>
-            — Technical Skills
-          </p>
-          <h2
-            className="text-5xl font-black"
-            style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
+      <Container maxWidth="lg">
+        {/* Header */}
+        <Box sx={{ mb: 6 }}>
+          <Typography
+            variant="overline"
+            sx={{ color: "#007AFF", letterSpacing: "0.2em", fontWeight: 700 }}
           >
-            Tools I build<br />
-            <span style={{ color: '#38bdf8' }}>with</span>
-          </h2>
-        </div>
+            Technical Skills
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 700,
+              color: "#F9FAFB",
+              mt: 1,
+              fontFamily: '"SF Pro Display", "Helvetica Neue", sans-serif',
+              fontSize: { xs: "2rem", md: "2.8rem" },
+            }}
+          >
+            Tools I build{" "}
+            <Box component="span" sx={{ color: "#007AFF" }}>
+              with
+            </Box>
+          </Typography>
+        </Box>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillCategories.map((category, index) => (
-            <div
-              key={index}
-              className="group rounded-2xl p-6 transition-all duration-400 hover:-translate-y-1"
-              style={{
-                background: 'rgba(15, 23, 42, 0.7)',
-                border: '1px solid rgba(56, 189, 248, 0.1)',
-                transitionDuration: '0.35s',
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.3)';
-                (e.currentTarget as HTMLDivElement).style.background = 'rgba(56, 189, 248, 0.05)';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.1)';
-                (e.currentTarget as HTMLDivElement).style.background = 'rgba(15, 23, 42, 0.7)';
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gridTemplateRows: "1fr",
+            gap: 1.5,
+          }}
+        >
+          {skillCategories.map((cat, i) => (
+            <Paper
+              key={i}
+              sx={{
+                p: 3,
+                borderRadius: "16px",
+                height: "100%",
+                bgcolor: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                transition: "all 0.22s ease",
+                "&:hover": {
+                  border: `1px solid ${cat.color}30`,
+                  bgcolor: `${cat.color}06`,
+                  transform: "translateY(-3px)",
+                },
               }}
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300"
-                  style={{ background: 'rgba(56, 189, 248, 0.12)' }}
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={1.5}
+                sx={{ mb: 3 }}
+              >
+                <Box
+                  sx={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: "10px",
+                    bgcolor: `${cat.color}15`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <category.icon size={20} style={{ color: '#38bdf8' }} />
-                </div>
-                <h3
-                  className="font-bold text-lg"
-                  style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
+                  <cat.icon size={20} color={cat.color} />
+                </Box>
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    color: "#F9FAFB",
+                    fontSize: "0.95rem",
+                  }}
                 >
-                  {category.title}
-                </h3>
-              </div>
+                  {cat.title}
+                </Typography>
+              </Stack>
 
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300"
-                    style={{
-                      background: 'rgba(30, 41, 59, 0.8)',
-                      color: '#94a3b8',
-                      border: '1px solid rgba(56, 189, 248, 0.08)',
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                {cat.skills.map((skill) => (
+                  <Chip
+                    key={skill}
+                    label={skill}
+                    size="small"
+                    sx={{
+                      bgcolor: "rgba(255,255,255,0.04)",
+                      color: "#9CA3AF",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      fontSize: "0.75rem",
+                      fontWeight: 500,
+                      height: 28,
+                      "&:hover": {
+                        bgcolor: `${cat.color}12`,
+                        color: cat.color,
+                        borderColor: `${cat.color}30`,
+                      },
+                      transition: "all 0.15s",
                     }}
-                  >
-                    {skill}
-                  </span>
+                  />
                 ))}
-              </div>
-            </div>
+              </Box>
+            </Paper>
           ))}
-        </div>
+        </Box>
 
-        {/* Bottom accent */}
-        <div className="mt-16 flex items-center gap-4">
-          <div className="flex-1 h-px" style={{ background: 'rgba(56,189,248,0.1)' }} />
-          <p className="text-sm" style={{ color: '#334155' }}>Continuously expanding • Always learning</p>
-          <div className="flex-1 h-px" style={{ background: 'rgba(56,189,248,0.1)' }} />
-        </div>
-      </div>
-    </section>
+        {/* Footer accent */}
+        <Box sx={{ mt: 8, textAlign: "center" }}>
+          <Typography
+            sx={{
+              fontSize: "0.8rem",
+              color: "#374151",
+              letterSpacing: "0.1em",
+            }}
+          >
+            CONTINUOUSLY EXPANDING · ALWAYS LEARNING
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 }

@@ -1,180 +1,197 @@
 import { Brain, Rocket, Users, Target, ExternalLink } from "lucide-react";
+import { Box, Container, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 import sagarhasan from "../assets/images/sagarhasan.jpg";
 
 const values = [
   {
     icon: Brain,
     title: "Problem Solver",
-    description: "Approach complex engineering challenges with structured thinking, strong DSA foundations, and scalable system design principles.",
+    description: "Structured thinking, strong DSA foundations, and scalable system design principles.",
   },
   {
     icon: Rocket,
     title: "Fast Learner",
-    description: "Quickly adapt to new technologies, frameworks, and architectural patterns with minimal supervision.",
+    description: "Quickly adapts to new technologies, frameworks, and architectural patterns.",
+    checkout: undefined,
   },
   {
     icon: Users,
     title: "Team Player",
-    description: "Collaborate effectively in cross-functional teams, valuing clean code, constructive reviews, and shared ownership.",
-    checkout: "https://www.linkedin.com/posts/lyxa_lyxaemployeerecognition-awardwinner-teamappreciation-activity-7373632136979001345-2p-b/?utm_source=share&utm_medium=member_desktop",
+    description: "Cross-functional collaboration, clean code culture, and shared ownership.",
+    checkout: "https://www.linkedin.com/posts/lyxa_lyxaemployeerecognition-awardwinner-teamappreciation-activity-7373632136979001345-2p-b/",
   },
   {
     icon: Target,
     title: "Impact Focused",
-    description: "Focused on delivering measurable improvements in performance, scalability, and user experience.",
+    description: "Measurable improvements in performance, scalability, and user experience.",
   },
+];
+
+const stats = [
+  { value: "50K+", label: "Users on Talk2Active" },
+  { value: "200+", label: "Articles Published" },
+  { value: "5+", label: "OSS Contributions" },
 ];
 
 export default function About() {
   return (
-    <section
+    <Box
       id="about"
-      className="py-24 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #020817 0%, #0a1628 100%)' }}
+      sx={{ py: { xs: 10, md: 14 }, bgcolor: "#050A14", position: "relative", overflow: "hidden" }}
     >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
-      `}</style>
+      {/* top gradient accent */}
+      <Box sx={{
+        position: "absolute", top: 0, left: 0, right: 0, height: 1,
+        background: "linear-gradient(90deg, transparent, rgba(0,122,255,0.3), transparent)",
+      }} />
 
-      {/* Subtle grid */}
-      <div className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(rgba(56, 189, 248, 0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(56, 189, 248, 0.5) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <Container maxWidth="lg">
         {/* Section header */}
-        <div className="mb-20">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#38bdf8', letterSpacing: '0.3em' }}>
-            — About Me
-          </p>
-          <h2
-            className="text-5xl font-black mb-4"
-            style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}
+        <Box sx={{ mb: 8 }}>
+          <Typography variant="overline" sx={{ color: "#007AFF", letterSpacing: "0.2em", fontWeight: 700 }}>
+            About Me
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 700, color: "#F9FAFB", mt: 1,
+              fontFamily: '"SF Pro Display", "Helvetica Neue", sans-serif',
+              fontSize: { xs: "2rem", md: "2.8rem" },
+            }}
           >
-            Driven by curiosity,<br />
-            <span style={{ color: '#38bdf8' }}>built for scale</span>
-          </h2>
-        </div>
+            Driven by curiosity,{" "}
+            <Box component="span" sx={{ color: "#007AFF" }}>built for scale</Box>
+          </Typography>
+        </Box>
 
-        <div className="grid lg:grid-cols-5 gap-16 items-start mb-20">
-          {/* Photo column */}
-          <div className="lg:col-span-2 relative">
-            <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ border: '1px solid rgba(56, 189, 248, 0.2)' }}
-            >
-              <img
-                src={sagarhasan}
-                alt="Sagar Hasan"
-                className="w-full object-cover"
-                style={{ aspectRatio: '4/5' }}
-              />
-              {/* Gradient overlay at bottom */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-32"
-                style={{ background: 'linear-gradient(to top, rgba(2,8,23,0.9), transparent)' }}
-              />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="text-white font-bold text-lg" style={{ fontFamily: '"Syne", sans-serif' }}>Sagar Hasan</div>
-                <div style={{ color: '#38bdf8', fontSize: '0.85rem' }}>Software Engineer · Dhaka, Bangladesh</div>
-              </div>
-            </div>
+        <Grid container spacing={6} alignItems="flex-start" sx={{ mb: 8 }}>
+          {/* Photo */}
+          <Grid item xs={12} md={4}>
+            <Box sx={{ position: "relative" }}>
+              <Box
+                sx={{
+                  borderRadius: "16px", overflow: "hidden",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  position: "relative",
+                }}
+              >
+                <Box
+                  component="img"
+                  src={sagarhasan}
+                  alt="Sagar Hasan"
+                  sx={{ width: "100%", aspectRatio: "4/5", objectFit: "cover", display: "block" }}
+                />
+                <Box sx={{
+                  position: "absolute", bottom: 0, left: 0, right: 0, height: 120,
+                  background: "linear-gradient(to top, rgba(5,10,20,0.95), transparent)",
+                }} />
+                <Box sx={{ position: "absolute", bottom: 20, left: 20 }}>
+                  <Typography sx={{ fontWeight: 700, color: "#F9FAFB", fontSize: "1rem" }}>Sagar Hasan</Typography>
+                  <Typography sx={{ fontSize: "0.8rem", color: "#007AFF" }}>Software Engineer · Dhaka, BD</Typography>
+                </Box>
+              </Box>
 
-            {/* Floating stat card */}
-            <div
-              className="absolute -right-4 top-8 px-4 py-3 rounded-xl"
-              style={{
-                background: 'rgba(56, 189, 248, 0.1)',
-                border: '1px solid rgba(56, 189, 248, 0.3)',
-                backdropFilter: 'blur(10px)',
-              }}
-            >
-              <div className="text-2xl font-black" style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}>1200+</div>
-              <div className="text-xs" style={{ color: '#64748b' }}>LeetCode</div>
-            </div>
-          </div>
+              {/* LeetCode floating badge */}
+              <Paper
+                sx={{
+                  position: "absolute", top: 20, right: -16, px: 2.5, py: 1.5,
+                  borderRadius: "12px", bgcolor: "rgba(5,10,20,0.9)",
+                  border: "1px solid rgba(0,122,255,0.3)", backdropFilter: "blur(12px)",
+                  textAlign: "center",
+                }}
+              >
+                <Typography sx={{ fontWeight: 700, fontSize: "1.3rem", color: "#007AFF" }}>1200+</Typography>
+                <Typography sx={{ fontSize: "0.65rem", color: "#6B7280", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                  LeetCode
+                </Typography>
+              </Paper>
+            </Box>
+          </Grid>
 
-          {/* Text column */}
-          <div className="lg:col-span-3">
-            <div className="space-y-5 text-lg leading-relaxed" style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}>
-              <p>
-                I'm a <span style={{ color: '#e2e8f0', fontWeight: 500 }}>Software Engineer with 2+ years of professional experience</span>, specializing in JavaScript-based development and backend system design. I've contributed to production-grade platforms handling large-scale user activity.
-              </p>
-              <p>
-                My work includes designing optimized APIs, implementing caching strategies, building modular React applications, and developing scalable Node.js backends. Most notably, I <span style={{ color: '#38bdf8', fontWeight: 500 }}>solely built Talk2Active</span> — a language practice platform serving <span style={{ color: '#38bdf8', fontWeight: 500 }}>50,000+ active users</span>, designed from architecture to deployment.
-              </p>
-              <p>
-                Passionate about clean architecture, maintainable code, and continuous learning. Whether building e-commerce systems, autonomous AI platforms, or developer tools — I aim to create solutions that are efficient, scalable, and impactful.
-              </p>
-            </div>
+          {/* Text */}
+          <Grid item xs={12} md={8}>
+            <Stack spacing={3} sx={{ mb: 5 }}>
+              <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "1rem" }}>
+                I'm a{" "}
+                <Box component="span" sx={{ color: "#F9FAFB", fontWeight: 600 }}>
+                  Software Engineer with 2+ years of professional experience
+                </Box>
+                , specializing in JavaScript-based development and backend system design. I've contributed to
+                production-grade platforms handling large-scale user activity.
+              </Typography>
+              <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "1rem" }}>
+                My work includes designing optimized APIs, implementing caching strategies, building modular React
+                applications, and developing scalable Node.js backends. Most notably, I{" "}
+                <Box component="span" sx={{ color: "#007AFF", fontWeight: 600 }}>solely built Talk2Active</Box>
+                {" "}— a language practice platform serving{" "}
+                <Box component="span" sx={{ color: "#007AFF", fontWeight: 600 }}>50,000+ active users</Box>,
+                designed from architecture to deployment.
+              </Typography>
+              <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "1rem" }}>
+                Passionate about clean architecture, maintainable code, and continuous learning.
+              </Typography>
+            </Stack>
 
-            {/* Key numbers */}
-            <div className="grid grid-cols-3 gap-4 mt-10">
-              {[
-                { value: '50K+', label: 'Users on Talk2Active' },
-                { value: '200+', label: 'Articles Published' },
-                { value: '5+', label: 'Open Source Contributions' },
-              ].map((s, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl p-4 text-center"
-                  style={{
-                    background: 'rgba(56, 189, 248, 0.06)',
-                    border: '1px solid rgba(56, 189, 248, 0.15)',
-                  }}
-                >
-                  <div className="text-2xl font-black mb-1" style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}>
-                    {s.value}
-                  </div>
-                  <div className="text-xs" style={{ color: '#64748b' }}>{s.label}</div>
-                </div>
+            {/* Stats */}
+            <Grid container spacing={2}>
+              {stats.map((s) => (
+                <Grid item xs={4} key={s.label}>
+                  <Box
+                    sx={{
+                      borderRadius: "12px", p: 2.5, textAlign: "center",
+                      border: "1px solid rgba(0,122,255,0.12)",
+                      bgcolor: "rgba(0,122,255,0.04)",
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 700, fontSize: "1.5rem", color: "#007AFF" }}>{s.value}</Typography>
+                    <Typography sx={{ fontSize: "0.7rem", color: "#6B7280", mt: 0.5, lineHeight: 1.3 }}>{s.label}</Typography>
+                  </Box>
+                </Grid>
               ))}
-            </div>
-          </div>
-        </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ borderColor: "rgba(255,255,255,0.06)", mb: 6 }} />
 
         {/* Value cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              onClick={() => { if (value.checkout) window.open(value.checkout, '_blank'); }}
-              className="group rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 cursor-default"
-              style={{
-                background: 'rgba(15, 23, 42, 0.6)',
-                border: '1px solid rgba(56, 189, 248, 0.1)',
-                cursor: value.checkout ? 'pointer' : 'default',
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.35)';
-                (e.currentTarget as HTMLDivElement).style.background = 'rgba(56, 189, 248, 0.06)';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56, 189, 248, 0.1)';
-                (e.currentTarget as HTMLDivElement).style.background = 'rgba(15, 23, 42, 0.6)';
-              }}
-            >
-              <div
-                className="w-11 h-11 rounded-lg flex items-center justify-center mb-4"
-                style={{ background: 'rgba(56, 189, 248, 0.12)' }}
+        <Grid container spacing={2}>
+          {values.map((v, i) => (
+            <Grid item xs={12} sm={6} md={3} key={i}>
+              <Paper
+                onClick={() => v.checkout && window.open(v.checkout, "_blank")}
+                sx={{
+                  p: 3, borderRadius: "14px", height: "100%",
+                  bgcolor: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  cursor: v.checkout ? "pointer" : "default",
+                  transition: "all 0.2s",
+                  "&:hover": {
+                    border: "1px solid rgba(0,122,255,0.3)",
+                    bgcolor: "rgba(0,122,255,0.04)",
+                    transform: "translateY(-3px)",
+                  },
+                }}
               >
-                <value.icon size={22} style={{ color: '#38bdf8' }} />
-              </div>
-              <h3 className="font-bold mb-2 flex items-center gap-2" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
-                {value.title}
-                {value.checkout && <ExternalLink size={12} style={{ color: '#38bdf8' }} />}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#64748b' }}>
-                {value.description}
-              </p>
-            </div>
+                <Box
+                  sx={{
+                    width: 44, height: 44, borderRadius: "10px",
+                    bgcolor: "rgba(0,122,255,0.1)", display: "flex",
+                    alignItems: "center", justifyContent: "center", mb: 2,
+                  }}
+                >
+                  <v.icon size={20} color="#007AFF" />
+                </Box>
+                <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+                  <Typography sx={{ fontWeight: 600, color: "#F9FAFB", fontSize: "0.95rem" }}>{v.title}</Typography>
+                  {v.checkout && <ExternalLink size={12} color="#007AFF" />}
+                </Stack>
+                <Typography sx={{ fontSize: "0.8rem", color: "#6B7280", lineHeight: 1.6 }}>{v.description}</Typography>
+              </Paper>
+            </Grid>
           ))}
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Container>
+    </Box>
   );
 }

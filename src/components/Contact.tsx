@@ -1,180 +1,197 @@
-import { Mail, Github, Linkedin, MapPin, Send, ArrowRight } from "lucide-react";
+import {
+  Box, Button, Container, Grid,  InputBase,
+  Paper, Stack, Typography,
+} from "@mui/material";
+import { GitHub, LinkedIn, Mail, LocationOn, ArrowForward, Send } from "@mui/icons-material";
+import { useState } from "react";
+
+const contacts = [
+  { icon: Mail, label: "Email", value: "sagarhasan273@gmail.com", href: "mailto:sagarhasan273@gmail.com", color: "#007AFF" },
+  { icon: GitHub, label: "GitHub", value: "github.com/sagarhasan273", href: "https://github.com/sagarhasan273", color: "#9CA3AF" },
+  { icon: LinkedIn, label: "LinkedIn", value: "linkedin.com/in/sagar-hasan-677b5b1ba", href: "https://linkedin.com/in/sagar-hasan-677b5b1ba", color: "#0A66C2" },
+  { icon: LocationOn, label: "Location", value: "Dhaka, Bangladesh", href: null, color: "#6B7280" },
+];
+
+const inputSx = {
+  px: 2, py: 1.5, borderRadius: "12px", fontSize: "0.875rem",
+  bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)",
+  color: "#D1D5DB",
+  "& input, & textarea": { color: "#D1D5DB", "&::placeholder": { color: "#4B5563" } },
+  "&:focus-within": { border: "1px solid rgba(0,122,255,0.5)", bgcolor: "rgba(0,122,255,0.03)" },
+  transition: "all 0.2s",
+};
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
   return (
-    <section
+    <Box
       id="contact"
-      className="py-24 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #020817 0%, #0a1628 100%)' }}
+      sx={{ py: { xs: 10, md: 14 }, bgcolor: "#050A14", position: "relative", overflow: "hidden" }}
     >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
-        .input-field {
-          background: rgba(15, 23, 42, 0.8);
-          border: 1px solid rgba(56, 189, 248, 0.15);
-          color: #e2e8f0;
-          outline: none;
-          transition: border-color 0.3s;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .input-field::placeholder { color: #475569; }
-        .input-field:focus { border-color: rgba(56, 189, 248, 0.5); }
-      `}</style>
+      <Box sx={{
+        position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)",
+        width: 600, height: 600, borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(0,122,255,0.06), transparent 70%)",
+        pointerEvents: "none",
+      }} />
 
-      {/* Glow effect */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl opacity-10"
-        style={{ background: 'radial-gradient(circle, #38bdf8, transparent)' }}
-      />
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#38bdf8', letterSpacing: '0.3em' }}>
-            — Get In Touch
-          </p>
-          <h2 className="text-5xl font-black mb-4" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
+        <Box sx={{ mb: 8, textAlign: "center" }}>
+          <Typography variant="overline" sx={{ color: "#007AFF", letterSpacing: "0.2em", fontWeight: 700 }}>
+            Get In Touch
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 700, color: "#F9FAFB", mt: 1,
+              fontFamily: '"SF Pro Display", "Helvetica Neue", sans-serif',
+              fontSize: { xs: "2rem", md: "2.8rem" },
+            }}
+          >
             Let's work together
-          </h2>
-          <p className="text-lg max-w-xl mx-auto" style={{ color: '#64748b', fontFamily: '"DM Sans", sans-serif' }}>
-            Open to full-time opportunities, interesting projects, or just a conversation about tech
-          </p>
-        </div>
+          </Typography>
+          <Typography sx={{ color: "#6B7280", mt: 1.5, fontSize: "1rem", maxWidth: 460, mx: "auto" }}>
+            Open to full-time opportunities, interesting projects, or just a conversation about tech.
+          </Typography>
+        </Box>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Left: Info */}
-          <div>
-            <p
-              className="text-base leading-relaxed mb-8"
-              style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}
-            >
+        <Grid container spacing={5}>
+          {/* Left */}
+          <Grid item xs={12} md={5}>
+            <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "0.9rem", mb: 4 }}>
               I'm actively seeking full-time opportunities where I can contribute to impactful, scalable projects.
               I bring 2+ years of professional engineering experience, having built systems from the ground up — including
-              Talk2Active, now serving <span style={{ color: '#38bdf8', fontWeight: 600 }}>50,000+ active users</span>.
-            </p>
+              Talk2Active, now serving{" "}
+              <Box component="span" sx={{ color: "#007AFF", fontWeight: 600 }}>50,000+ active users</Box>.
+            </Typography>
 
-            <div className="space-y-3">
-              {[
-                {
-                  icon: Mail,
-                  label: 'Email',
-                  value: 'sagarhasan273@gmail.com',
-                  href: 'mailto:sagarhasan273@gmail.com',
-                  color: '#38bdf8',
-                },
-                {
-                  icon: Github,
-                  label: 'GitHub',
-                  value: 'github.com/sagarhasan273',
-                  href: 'https://github.com/sagarhasan273',
-                  color: '#94a3b8',
-                },
-                {
-                  icon: Linkedin,
-                  label: 'LinkedIn',
-                  value: 'linkedin.com/in/sagar-hasan-677b5b1ba',
-                  href: 'https://linkedin.com/in/sagar-hasan-677b5b1ba',
-                  color: '#38bdf8',
-                },
-                {
-                  icon: MapPin,
-                  label: 'Location',
-                  value: 'Dhaka, Bangladesh',
-                  href: null,
-                  color: '#64748b',
-                },
-              ].map(({ icon: Icon, label, value, href, color }) => {
+            <Stack spacing={1.5}>
+              {contacts.map(({ icon: Icon, label, value, href, color }) => {
                 const inner = (
-                  <div
-                    className="flex items-center gap-4 p-4 rounded-xl group transition-all duration-300"
-                    style={{
-                      background: 'rgba(15, 23, 42, 0.6)',
-                      border: '1px solid rgba(56,189,248,0.08)',
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    spacing={2}
+                    sx={{
+                      p: 2, borderRadius: "12px",
+                      bgcolor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)",
+                      cursor: href ? "pointer" : "default",
+                      transition: "all 0.2s",
+                      ...(href ? {
+                        "&:hover": {
+                          border: "1px solid rgba(0,122,255,0.25)",
+                          bgcolor: "rgba(0,122,255,0.04)",
+                        },
+                      } : {}),
                     }}
                   >
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: 'rgba(56,189,248,0.08)' }}
+                    <Box
+                      sx={{
+                        width: 38, height: 38, borderRadius: "9px", flexShrink: 0,
+                        bgcolor: "rgba(255,255,255,0.04)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}
                     >
-                      <Icon size={18} style={{ color }} />
-                    </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider mb-0.5" style={{ color: '#475569' }}>{label}</div>
-                      <div className="text-sm font-medium" style={{ color: '#cbd5e1', fontFamily: '"DM Sans", sans-serif' }}>{value}</div>
-                    </div>
-                    {href && <ArrowRight size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: '#38bdf8' }} />}
-                  </div>
+                      <Icon sx={{ fontSize: 18, color }} />
+                    </Box>
+                    <Box sx={{ flex: 1, minWidth: 0 }}>
+                      <Typography sx={{ fontSize: "0.68rem", color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                        {label}
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.82rem", color: "#D1D5DB", fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                        {value}
+                      </Typography>
+                    </Box>
+                    {href && <ArrowForward sx={{ fontSize: 14, color: "#4B5563", flexShrink: 0 }} />}
+                  </Stack>
                 );
 
                 return href ? (
-                  <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                  <Box
+                    key={label}
+                    component="a"
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    sx={{ textDecoration: "none", display: "block" }}
+                  >
                     {inner}
-                  </a>
+                  </Box>
                 ) : (
-                  <div key={label}>{inner}</div>
+                  <Box key={label}>{inner}</Box>
                 );
               })}
-            </div>
-          </div>
+            </Stack>
+          </Grid>
 
           {/* Right: Form */}
-          <div
-            className="rounded-2xl p-8"
-            style={{
-              background: 'rgba(15, 23, 42, 0.7)',
-              border: '1px solid rgba(56,189,248,0.15)',
-            }}
-          >
-            <form className="space-y-5">
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#64748b' }}>
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="input-field w-full px-4 py-3 rounded-lg text-sm"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#64748b' }}>
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="input-field w-full px-4 py-3 rounded-lg text-sm"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#64748b' }}>
-                  Message
-                </label>
-                <textarea
-                  rows={5}
-                  className="input-field w-full px-4 py-3 rounded-lg text-sm resize-none"
-                  placeholder="Tell me about your opportunity or project..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)',
-                  color: '#fff',
-                  boxShadow: '0 0 20px rgba(56,189,248,0.2)',
-                }}
-              >
-                Send Message
-                <Send size={16} />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+          <Grid item xs={12} md={7}>
+            <Paper
+              sx={{
+                p: { xs: 3, md: 4 }, borderRadius: "20px",
+                bgcolor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              <Stack spacing={3}>
+                <Box>
+                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
+                    Name
+                  </Typography>
+                  <InputBase
+                    fullWidth
+                    placeholder="Your name"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    sx={inputSx}
+                  />
+                </Box>
+                <Box>
+                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
+                    Email
+                  </Typography>
+                  <InputBase
+                    fullWidth
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    sx={inputSx}
+                  />
+                </Box>
+                <Box>
+                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
+                    Message
+                  </Typography>
+                  <InputBase
+                    fullWidth
+                    multiline
+                    rows={5}
+                    placeholder="Tell me about your opportunity or project..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    sx={{ ...inputSx, alignItems: "flex-start" }}
+                  />
+                </Box>
+                <Button
+                  variant="contained"
+                  endIcon={<Send sx={{ fontSize: 16 }} />}
+                  fullWidth
+                  sx={{
+                    bgcolor: "#007AFF", color: "#fff", fontWeight: 600, py: 1.5,
+                    borderRadius: "12px", fontSize: "0.9rem", textTransform: "none",
+                    "&:hover": { bgcolor: "#0066DD", boxShadow: "0 0 24px rgba(0,122,255,0.35)" },
+                    transition: "all 0.2s",
+                  }}
+                >
+                  Send Message
+                </Button>
+              </Stack>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 }
