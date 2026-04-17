@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div style={{border: 'none'}}>
       <Navigation />
       <main>
         <div id="home">
