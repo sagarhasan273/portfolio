@@ -1,4 +1,8 @@
-import { X, Github, ExternalLink, Star, Users } from 'lucide-react';
+import {
+  Box, Button, Chip, Dialog, DialogContent, Divider,
+  Grid, IconButton, Stack, Typography,
+} from "@mui/material";
+import { Close, GitHub, OpenInNew, Star, Group } from "@mui/icons-material";
 
 interface ProjectDetailProps {
   isOpen: boolean;
@@ -23,238 +27,203 @@ interface ProjectDetailProps {
 }
 
 export default function ProjectDetail({ isOpen, onClose, data }: ProjectDetailProps) {
-  if (!isOpen || !data) return null;
+  if (!data) return null;
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
-      `}</style>
-
-      <div
-        className="fixed inset-0 z-40 transition-opacity duration-300"
-        style={{ background: 'rgba(2, 8, 23, 0.9)', backdropFilter: 'blur(8px)' }}
-        onClick={onClose}
-      />
-
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
-        <div
-          className="max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl relative"
-          style={{
-            background: '#0a1628',
-            border: '1px solid rgba(56,189,248,0.2)',
-            boxShadow: '0 0 80px rgba(56,189,248,0.1)',
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      maxWidth="md"
+      fullWidth
+      PaperProps={{
+        sx: {
+          bgcolor: "#0A0F1E", borderRadius: "20px",
+          border: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 0 80px rgba(0,0,0,0.7)",
+          maxHeight: "90vh",
+        },
+      }}
+      BackdropProps={{ sx: { bgcolor: "rgba(0,0,0,0.75)", backdropFilter: "blur(10px)" } }}
+    >
+      <DialogContent sx={{ p: 0 }}>
+        {/* Close btn */}
+        <IconButton
+          onClick={onClose}
+          sx={{
+            position: "sticky", top: 16, float: "right", zIndex: 10, m: 2,
+            color: "#6B7280", bgcolor: "rgba(255,255,255,0.06)", borderRadius: "10px",
+            "&:hover": { bgcolor: "rgba(255,255,255,0.1)", color: "#F9FAFB" },
           }}
         >
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="sticky top-4 right-4 float-right w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 z-10 m-4 mb-0"
-            style={{ background: 'rgba(56,189,248,0.08)', color: '#64748b' }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56,189,248,0.15)';
-              (e.currentTarget as HTMLButtonElement).style.color = '#e2e8f0';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(56,189,248,0.08)';
-              (e.currentTarget as HTMLButtonElement).style.color = '#64748b';
-            }}
-          >
-            <X size={18} />
-          </button>
+          <Close fontSize="small" />
+        </IconButton>
 
-          {/* Hero image */}
-          <div className="relative h-56 overflow-hidden rounded-t-2xl">
-            <img
-              src={data.image}
-              alt={data.title}
-              className="w-full h-full object-cover"
+        {/* Hero image */}
+        <Box sx={{ position: "relative", height: 220, overflow: "hidden", borderRadius: "20px 20px 0 0", mt: -7 }}>
+          <Box
+            component="img"
+            src={data.image}
+            alt={data.title}
+            sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          <Box sx={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to top, rgba(10,15,30,1) 0%, rgba(10,15,30,0.5) 50%, transparent 100%)",
+          }} />
+          {data.soloBuilt && (
+            <Chip
+              icon={<Star sx={{ fontSize: "12px !important", color: "#fff !important" }} />}
+              label="Solely Built by Me"
+              size="small"
+              sx={{ position: "absolute", top: 16, left: 16, bgcolor: "#007AFF", color: "#fff", fontWeight: 700 }}
             />
-            <div
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(to top, rgba(10,22,40,1) 0%, rgba(10,22,40,0.6) 40%, transparent 100%)' }}
-            />
-
-            {data.soloBuilt && (
-              <div
-                className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
-                style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)', color: '#fff' }}
-              >
-                <Star size={12} fill="currentColor" />
-                Solely Built by Me
-              </div>
+          )}
+          <Box sx={{ position: "absolute", bottom: 20, left: 24, right: 60 }}>
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: 700, color: "#F9FAFB", fontFamily: '"SF Pro Display", sans-serif' }}
+            >
+              {data.title}
+            </Typography>
+            {data.subtitle && (
+              <Typography sx={{ fontSize: "0.8rem", color: "#6B7280" }}>{data.subtitle}</Typography>
             )}
+          </Box>
+        </Box>
 
-            <div className="absolute bottom-4 left-6 right-16">
-              <h2
-                className="text-3xl font-black text-white mb-1"
-                style={{ fontFamily: '"Syne", sans-serif' }}
-              >
-                {data.title}
-              </h2>
-              {data.subtitle && (
-                <p className="text-sm" style={{ color: '#64748b' }}>{data.subtitle}</p>
-              )}
-            </div>
-          </div>
+        <Box sx={{ p: { xs: 3, md: 4 } }}>
+          {/* User count */}
+          {data.userCount && (
+            <Stack
+              direction="row" alignItems="center" spacing={1.5}
+              sx={{ p: 2, borderRadius: "12px", mb: 3, bgcolor: "rgba(34,197,94,0.06)", border: "1px solid rgba(34,197,94,0.2)" }}
+            >
+              <Group sx={{ color: "#22C55E", fontSize: 20 }} />
+              <Typography sx={{ fontWeight: 700, color: "#22C55E", fontSize: "0.9rem" }}>{data.userCount} Active Users</Typography>
+              <Typography sx={{ fontSize: "0.8rem", color: "#6B7280" }}>— Built and scaled entirely as a solo project</Typography>
+            </Stack>
+          )}
 
-          <div className="p-8">
-            {/* User count highlight for Talk2Active */}
-            {data.userCount && (
-              <div
-                className="flex items-center gap-2 px-4 py-3 rounded-xl mb-6"
-                style={{
-                  background: 'rgba(56,189,248,0.08)',
-                  border: '1px solid rgba(56,189,248,0.25)',
+          <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "0.9rem", mb: 4 }}>
+            {data.fullDescription || data.description}
+          </Typography>
+
+          {/* Challenges / Solutions */}
+          <Grid container spacing={3} sx={{ mb: 4 }}>
+            {data.challenges && data.challenges.length > 0 && (
+              <Grid item xs={12} md={6}>
+                <Typography sx={{ fontWeight: 700, color: "#F9FAFB", mb: 2, fontSize: "0.9rem" }}>Challenges</Typography>
+                <Stack spacing={1.5}>
+                  {data.challenges.map((c, i) => (
+                    <Stack key={i} direction="row" spacing={1.5}>
+                      <Box component="span" sx={{ color: "#EF4444", fontSize: "0.8rem", mt: "1px" }}>→</Box>
+                      <Typography sx={{ fontSize: "0.82rem", color: "#9CA3AF", lineHeight: 1.6 }}>{c}</Typography>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Grid>
+            )}
+            {data.solutions && data.solutions.length > 0 && (
+              <Grid item xs={12} md={6}>
+                <Typography sx={{ fontWeight: 700, color: "#F9FAFB", mb: 2, fontSize: "0.9rem" }}>Solutions</Typography>
+                <Stack spacing={1.5}>
+                  {data.solutions.map((s, i) => (
+                    <Stack key={i} direction="row" spacing={1.5}>
+                      <Box component="span" sx={{ color: "#22C55E", fontSize: "0.8rem", mt: "1px" }}>✓</Box>
+                      <Typography sx={{ fontSize: "0.82rem", color: "#9CA3AF", lineHeight: 1.6 }}>{s}</Typography>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Grid>
+            )}
+          </Grid>
+
+          {/* Outcomes */}
+          {data.outcomes && data.outcomes.length > 0 && (
+            <Box sx={{ p: 3, borderRadius: "12px", mb: 4, bgcolor: "rgba(0,122,255,0.04)", border: "1px solid rgba(0,122,255,0.12)" }}>
+              <Typography sx={{ fontWeight: 700, color: "#F9FAFB", mb: 2, fontSize: "0.9rem" }}>Key Outcomes</Typography>
+              <Stack spacing={1.5}>
+                {data.outcomes.map((o, i) => (
+                  <Stack key={i} direction="row" spacing={1.5}>
+                    <Box sx={{ width: 5, height: 5, borderRadius: "50%", bgcolor: "#007AFF", mt: "8px", flexShrink: 0 }} />
+                    <Typography sx={{ fontSize: "0.82rem", color: "#9CA3AF", lineHeight: 1.6 }}>{o}</Typography>
+                  </Stack>
+                ))}
+              </Stack>
+            </Box>
+          )}
+
+          {/* Tech & Metrics */}
+          <Grid container spacing={3} sx={{ mb: 4 }}>
+            {data.technologies && (
+              <Grid item xs={12} md={6}>
+                <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1.5 }}>
+                  Technologies
+                </Typography>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
+                  {data.technologies.map((t) => (
+                    <Chip key={t} label={t} size="small" sx={{ bgcolor: "rgba(255,255,255,0.04)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.07)", fontSize: "0.72rem" }} />
+                  ))}
+                </Box>
+              </Grid>
+            )}
+            {data.metrics && data.metrics.length > 0 && (
+              <Grid item xs={12} md={6}>
+                <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1.5 }}>
+                  Key Metrics
+                </Typography>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
+                  {data.metrics.map((m) => (
+                    <Chip key={m} label={m} size="small" sx={{ bgcolor: "rgba(0,122,255,0.08)", color: "#60A5FA", border: "1px solid rgba(0,122,255,0.2)", fontSize: "0.72rem" }} />
+                  ))}
+                </Box>
+              </Grid>
+            )}
+          </Grid>
+
+          <Divider sx={{ borderColor: "rgba(255,255,255,0.06)", mb: 3 }} />
+
+          {/* Actions */}
+          <Stack direction="row" spacing={1.5} flexWrap="wrap">
+            {data.code && (
+              <Button
+                variant="outlined"
+                startIcon={<GitHub sx={{ fontSize: 16 }} />}
+                onClick={() => window.open(data.code, "_blank")}
+                sx={{
+                  borderColor: "rgba(255,255,255,0.12)", color: "#D1D5DB",
+                  textTransform: "none", fontWeight: 600, borderRadius: "10px",
+                  "&:hover": { borderColor: "rgba(255,255,255,0.25)", bgcolor: "rgba(255,255,255,0.04)" },
                 }}
               >
-                <Users size={18} style={{ color: '#38bdf8' }} />
-                <span className="font-bold" style={{ color: '#38bdf8', fontFamily: '"Syne", sans-serif' }}>
-                  {data.userCount} Active Users
-                </span>
-                <span className="text-sm ml-2" style={{ color: '#64748b' }}>
-                  — Built and scaled entirely as a solo project
-                </span>
-              </div>
+                View Code
+              </Button>
             )}
-
-            <p
-              className="text-base leading-relaxed mb-8"
-              style={{ color: '#94a3b8', fontFamily: '"DM Sans", sans-serif' }}
-            >
-              {data.fullDescription || data.description}
-            </p>
-
-            {/* Challenges & Solutions */}
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {data.challenges && data.challenges.length > 0 && (
-                <div>
-                  <h3 className="font-black text-base mb-3" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
-                    Challenges
-                  </h3>
-                  <ul className="space-y-2">
-                    {data.challenges.map((c, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
-                        <span style={{ color: '#f87171', marginTop: '2px' }}>→</span>
-                        <span style={{ fontFamily: '"DM Sans", sans-serif' }}>{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {data.solutions && data.solutions.length > 0 && (
-                <div>
-                  <h3 className="font-black text-base mb-3" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
-                    Solutions
-                  </h3>
-                  <ul className="space-y-2">
-                    {data.solutions.map((s, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
-                        <span style={{ color: '#4ade80', marginTop: '2px' }}>✓</span>
-                        <span style={{ fontFamily: '"DM Sans", sans-serif' }}>{s}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {/* Outcomes */}
-            {data.outcomes && data.outcomes.length > 0 && (
-              <div
-                className="rounded-xl p-5 mb-8"
-                style={{ background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.12)' }}
+            {data.demo && (
+              <Button
+                variant="contained"
+                startIcon={<OpenInNew sx={{ fontSize: 16 }} />}
+                onClick={() => window.open(data.demo, "_blank")}
+                sx={{
+                  bgcolor: "#007AFF", color: "#fff", textTransform: "none", fontWeight: 600, borderRadius: "10px",
+                  "&:hover": { bgcolor: "#0066DD" },
+                }}
               >
-                <h3 className="font-black text-base mb-3" style={{ color: '#e2e8f0', fontFamily: '"Syne", sans-serif' }}>
-                  Key Outcomes
-                </h3>
-                <ul className="space-y-2">
-                  {data.outcomes.map((o, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#94a3b8' }}>
-                      <span style={{ color: '#38bdf8', marginTop: '4px' }}>●</span>
-                      <span style={{ fontFamily: '"DM Sans", sans-serif' }}>{o}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                Live Demo
+              </Button>
             )}
-
-            {/* Technologies & Metrics */}
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {data.technologies && (
-                <div>
-                  <h3 className="font-black text-sm uppercase tracking-wider mb-3" style={{ color: '#64748b', fontFamily: '"Syne", sans-serif' }}>
-                    Technologies
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {data.technologies.map((t, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 rounded-full text-xs font-medium"
-                        style={{ background: 'rgba(30,41,59,0.8)', color: '#94a3b8', border: '1px solid rgba(56,189,248,0.08)' }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {data.metrics && data.metrics.length > 0 && (
-                <div>
-                  <h3 className="font-black text-sm uppercase tracking-wider mb-3" style={{ color: '#64748b', fontFamily: '"Syne", sans-serif' }}>
-                    Key Metrics
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {data.metrics.map((m, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1.5 rounded-lg text-xs font-medium"
-                        style={{ background: 'rgba(56,189,248,0.08)', color: '#38bdf8', border: '1px solid rgba(56,189,248,0.15)' }}
-                      >
-                        {m}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Actions */}
-            <div
-              className="flex flex-wrap gap-3 pt-6"
-              style={{ borderTop: '1px solid rgba(56,189,248,0.1)' }}
+            <Button
+              onClick={onClose}
+              sx={{
+                ml: "auto !important", color: "#6B7280", textTransform: "none", fontWeight: 600,
+                borderRadius: "10px", "&:hover": { bgcolor: "rgba(255,255,255,0.04)", color: "#F9FAFB" },
+              }}
             >
-              {data.code && (
-                <button
-                  onClick={() => window.open(data.code, '_blank')}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ background: 'rgba(30,41,59,0.8)', color: '#e2e8f0', border: '1px solid rgba(56,189,248,0.15)' }}
-                >
-                  <Github size={16} />
-                  View Code
-                </button>
-              )}
-              {data.demo && (
-                <button
-                  onClick={() => window.open(data.demo, '_blank')}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)', color: '#fff' }}
-                >
-                  <ExternalLink size={16} />
-                  Live Demo
-                </button>
-              )}
-              <button
-                onClick={onClose}
-                className="ml-auto px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300"
-                style={{ background: 'rgba(56,189,248,0.06)', color: '#64748b', border: '1px solid rgba(56,189,248,0.1)' }}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+              Close
+            </Button>
+          </Stack>
+        </Box>
+      </DialogContent>
+    </Dialog>
   );
 }
