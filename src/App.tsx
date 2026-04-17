@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CosmicBackground from './components/Cosmicbackground';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Navigation />
       <main>
         <div id="home">
-          <Hero />
+          <CosmicBackground>
+            <Hero />
+          </CosmicBackground>
         </div>
         <About />
         <Skills />

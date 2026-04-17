@@ -37,7 +37,7 @@ export default function Hero() {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#050A14",
+        // bgcolor: "#050A14",
         "&::before": {
           content: '""',
           position: "absolute",
