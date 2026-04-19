@@ -1,8 +1,21 @@
 import { GitHub, LinkedIn, Mail, KeyboardArrowDown } from "@mui/icons-material";
-import { Box, Button, Chip, Container, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Container,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 
-const roles = ["Software Engineer", "Backend Architect", "System Designer", "Full-Stack Builder"];
+const roles = [
+  "Software Engineer",
+  "Backend Architect",
+  "System Designer",
+  "Full-Stack Builder",
+];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -10,7 +23,9 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -18,10 +33,14 @@ export default function Hero() {
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setDisplayText(current.slice(0, displayText.length + 1));
-        if (displayText.length + 1 === current.length) setTimeout(() => setIsDeleting(true), 1800);
+        if (displayText.length + 1 === current.length)
+          setTimeout(() => setIsDeleting(true), 1800);
       } else {
         setDisplayText(current.slice(0, displayText.length - 1));
-        if (displayText.length === 0) { setIsDeleting(false); setRoleIndex((i) => (i + 1) % roles.length); }
+        if (displayText.length === 0) {
+          setIsDeleting(false);
+          setRoleIndex((i) => (i + 1) % roles.length);
+        }
       }
     }, speed);
     return () => clearTimeout(timeout);
@@ -47,32 +66,75 @@ export default function Hero() {
       }}
     >
       {/* Subtle dot grid */}
-      <Box sx={{
-        position: "absolute", inset: 0, opacity: 0.04,
-        backgroundImage: "radial-gradient(circle, #60A5FA 1px, transparent 1px)",
-        backgroundSize: "40px 40px",
-      }} />
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          opacity: 0.04,
+          backgroundImage:
+            "radial-gradient(circle, #60A5FA 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
 
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 1, textAlign: "center",
-        opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: "opacity 0.8s ease, transform 0.8s ease",
-      }}>
+      <Container
+        maxWidth="md"
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          textAlign: "center",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(24px)",
+          transition: "opacity 0.8s ease, transform 0.8s ease",
+        }}
+      >
         {/* Available badge */}
         <Chip
           label={
             <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
-              <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#22C55E",
-                boxShadow: "0 0 8px #22C55E", animation: "pulse 2s infinite" }} />
-              <Typography variant="caption" sx={{ fontWeight: 600, letterSpacing: 1, color: "#22C55E", fontSize: "0.7rem" }}>
+              <Box
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  bgcolor: "#22C55E",
+                  boxShadow: "0 0 8px #22C55E",
+                  animation: "pulse 2s infinite",
+                }}
+              />
+              <Typography
+                variant="caption"
+                sx={{
+                  fontWeight: 600,
+                  letterSpacing: 1,
+                  color: "#22C55E",
+                  fontSize: "0.7rem",
+                }}
+              >
                 OPEN TO FULL-TIME ROLES
               </Typography>
             </Stack>
           }
-          sx={{ mb: 4, bgcolor: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.25)", height: 36, px: 1 }}
+          sx={{
+            mb: 4,
+            bgcolor: "rgba(34,197,94,0.08)",
+            border: "1px solid rgba(34,197,94,0.25)",
+            height: 36,
+            px: 1,
+          }}
         />
 
         {/* Sub-label */}
-        <Typography variant="overline" sx={{ color: "#4B5563", letterSpacing: "0.25em", display: "block", mb: 2, fontSize: "0.75rem" }}>
+        <Typography
+          variant="overline"
+          sx={{
+            color: "#949596",
+            letterSpacing: "0.25em",
+            display: "block",
+            mb: 2,
+            fontSize: "0.85rem",
+          }}
+        >
           Sagar Hasan — Software Engineer
         </Typography>
 
@@ -90,27 +152,72 @@ export default function Hero() {
           }}
         >
           {displayText}
-          <Box component="span" sx={{ color: "#007AFF", animation: "blink 1s step-end infinite" }}>|</Box>
+          <Box
+            component="span"
+            sx={{ color: "#007AFF", animation: "blink 1s step-end infinite" }}
+          >
+            |
+          </Box>
         </Typography>
 
-        <Typography sx={{ color: "#9CA3AF", fontSize: "1.1rem", maxWidth: 560, mx: "auto", mb: 5, lineHeight: 1.7 }}>
-          Building scalable, reliable systems — from production platforms to open-source engineering tools.{" "}
-          <Box component="span" sx={{ color: "#60A5FA" }}>2+ years of backend engineering</Box> with proven impact.
+        <Typography
+          sx={{
+            color: "#9CA3AF",
+            fontSize: "1.1rem",
+            maxWidth: 560,
+            mx: "auto",
+            mb: 5,
+            lineHeight: 1.7,
+          }}
+        >
+          Building scalable, reliable systems — from production platforms to
+          open-source engineering tools.{" "}
+          <Box component="span" sx={{ color: "#60A5FA" }}>
+            2+ years of full-stack software engineering
+          </Box>{" "}
+          with three production applications (real-time lobby finder, language practice
+          platform, file processing tools).
         </Typography>
 
         {/* Stats row */}
-        <Stack direction="row" sx={{ gap: 5, justifyContent: "center", flexWrap: "wrap", mb: 6 }}>
+        <Stack
+          direction="row"
+          sx={{ gap: 5, justifyContent: "center", flexWrap: "wrap", mb: 6 }}
+        >
           {[
             { v: "2+", l: "Years Experience" },
-            { v: "1500+", l: "Problems Solved" },
-            { v: "50K+", l: "Platform Users" },
+            { v: "1500+", l: "DSA Problems Solved" },
+            { v: "20+", l: "LeetCode Badges" },
+            { v: "3+", l: "Production Apps" },
             { v: "1", l: "NPM Package" },
           ].map((s) => (
-            <Box key={s.l} sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0.5 }}>
-              <Typography sx={{ fontWeight: 700, fontSize: "1.6rem", color: "#007AFF", fontFamily: '"SF Pro Display", sans-serif' }}>
+            <Box
+              key={s.l}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 0.5,
+              }}
+            >
+              <Typography
+                sx={{
+                  fontWeight: 700,
+                  fontSize: "1.6rem",
+                  color: "#007AFF",
+                  fontFamily: '"SF Pro Display", sans-serif',
+                }}
+              >
                 {s.v}
               </Typography>
-              <Typography sx={{ fontSize: "0.7rem", color: "#6B7280", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              <Typography
+                sx={{
+                  fontSize: "0.7rem",
+                  color: "#6B7280",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                }}
+              >
                 {s.l}
               </Typography>
             </Box>
@@ -118,15 +225,28 @@ export default function Hero() {
         </Stack>
 
         {/* CTA Buttons */}
-        <Stack direction="row" spacing={2} sx={{ justifyContent: "center", flexWrap: "wrap", mb: 5 }}>
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ justifyContent: "center", flexWrap: "wrap", mb: 5 }}
+        >
           <Button
             href="#contact"
             variant="contained"
             size="large"
             sx={{
-              bgcolor: "#007AFF", color: "#fff", fontWeight: 600, px: 4, py: 1.5,
-              borderRadius: "12px", fontSize: "0.9rem", letterSpacing: "0.02em",
-              "&:hover": { bgcolor: "#0066DD", boxShadow: "0 0 24px rgba(0,122,255,0.4)" },
+              bgcolor: "#007AFF",
+              color: "#fff",
+              fontWeight: 600,
+              px: 4,
+              py: 1.5,
+              borderRadius: "12px",
+              fontSize: "0.9rem",
+              letterSpacing: "0.02em",
+              "&:hover": {
+                bgcolor: "#0066DD",
+                boxShadow: "0 0 24px rgba(0,122,255,0.4)",
+              },
               transition: "all 0.2s",
             }}
           >
@@ -137,9 +257,17 @@ export default function Hero() {
             variant="outlined"
             size="large"
             sx={{
-              borderColor: "rgba(255,255,255,0.12)", color: "#D1D5DB", fontWeight: 600,
-              px: 4, py: 1.5, borderRadius: "12px", fontSize: "0.9rem",
-              "&:hover": { borderColor: "rgba(255,255,255,0.3)", bgcolor: "rgba(255,255,255,0.04)" },
+              borderColor: "rgba(255,255,255,0.12)",
+              color: "#D1D5DB",
+              fontWeight: 600,
+              px: 4,
+              py: 1.5,
+              borderRadius: "12px",
+              fontSize: "0.9rem",
+              "&:hover": {
+                borderColor: "rgba(255,255,255,0.3)",
+                bgcolor: "rgba(255,255,255,0.04)",
+              },
             }}
           >
             View Projects
@@ -149,9 +277,21 @@ export default function Hero() {
         {/* Socials */}
         <Stack direction="row" spacing={1} sx={{ justifyContent: "center" }}>
           {[
-            { icon: <GitHub />, href: "https://github.com/sagarhasan273", label: "GitHub" },
-            { icon: <LinkedIn />, href: "https://linkedin.com/in/sagar-hasan-677b5b1ba", label: "LinkedIn" },
-            { icon: <Mail />, href: "mailto:sagarhasan273@gmail.com", label: "Email" },
+            {
+              icon: <GitHub />,
+              href: "https://github.com/sagarhasan273",
+              label: "GitHub",
+            },
+            {
+              icon: <LinkedIn />,
+              href: "https://linkedin.com/in/sagar-hasan-677b5b1ba",
+              label: "LinkedIn",
+            },
+            {
+              icon: <Mail />,
+              href: "mailto:sagarhasan273@gmail.com",
+              label: "Email",
+            },
           ].map(({ icon, href, label }) => (
             <IconButton
               key={label}
@@ -161,9 +301,15 @@ export default function Hero() {
               rel="noopener noreferrer"
               aria-label={label}
               sx={{
-                color: "#4B5563", border: "1px solid rgba(255,255,255,0.07)",
-                borderRadius: "10px", p: 1.2,
-                "&:hover": { color: "#007AFF", borderColor: "rgba(0,122,255,0.4)", bgcolor: "rgba(0,122,255,0.06)" },
+                color: "#4B5563",
+                border: "1px solid rgba(255,255,255,0.07)",
+                borderRadius: "10px",
+                p: 1.2,
+                "&:hover": {
+                  color: "#007AFF",
+                  borderColor: "rgba(0,122,255,0.4)",
+                  bgcolor: "rgba(0,122,255,0.06)",
+                },
                 transition: "all 0.2s",
               }}
             >
@@ -174,8 +320,15 @@ export default function Hero() {
       </Container>
 
       {/* Scroll indicator */}
-      <Box sx={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)",
-        animation: "bounceY 1.5s ease-in-out infinite" }}>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 32,
+          left: "50%",
+          transform: "translateX(-50%)",
+          animation: "bounceY 1.5s ease-in-out infinite",
+        }}
+      >
         <KeyboardArrowDown sx={{ color: "#374151", fontSize: 28 }} />
       </Box>
 

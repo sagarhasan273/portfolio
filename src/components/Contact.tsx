@@ -16,7 +16,7 @@ const inputSx = {
   px: 2, py: 1.5, borderRadius: "12px", fontSize: "0.875rem",
   bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)",
   color: "#D1D5DB",
-  "& input, & textarea": { color: "#D1D5DB", "&::placeholder": { color: "#4B5563" } },
+  "& input, & textarea": { color: "#D1D5DB", "&::placeholder": { color: "#69707a" } },
   "&:focus-within": { border: "1px solid rgba(0,122,255,0.5)", bgcolor: "rgba(0,122,255,0.03)" },
   transition: "all 0.2s",
 };
@@ -63,8 +63,7 @@ export default function Contact() {
             <Typography sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "0.9rem", mb: 4 }}>
               I'm actively seeking full-time opportunities where I can contribute to impactful, scalable projects.
               I bring 2+ years of professional engineering experience, having built systems from the ground up — including
-              Talk2Active, now serving{" "}
-              <Box component="span" sx={{ color: "#007AFF", fontWeight: 600 }}>50,000+ active users</Box>.
+              Talk2Active, val-5th finder. If you have an opportunity or project in mind, or just want to chat about tech, feel free to reach out!
             </Typography>
 
             <Stack spacing={1.5}>
@@ -97,14 +96,14 @@ export default function Contact() {
                       <Icon sx={{ fontSize: 18, color }} />
                     </Box>
                     <Box sx={{ flex: 1, minWidth: 0 }}>
-                      <Typography sx={{ fontSize: "0.68rem", color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                      <Typography sx={{ fontSize: "0.68rem", color: "#69707a", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                         {label}
                       </Typography>
                       <Typography sx={{ fontSize: "0.82rem", color: "#D1D5DB", fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                         {value}
                       </Typography>
                     </Box>
-                    {href && <ArrowForward sx={{ fontSize: 14, color: "#4B5563", flexShrink: 0 }} />}
+                    {href && <ArrowForward sx={{ fontSize: 14, color: "#69707a", flexShrink: 0 }} />}
                   </Stack>
                 );
 
@@ -136,7 +135,7 @@ export default function Contact() {
             >
               <Stack spacing={3}>
                 <Box>
-                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
+                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#69707a", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
                     Name
                   </Typography>
                   <InputBase
@@ -148,7 +147,7 @@ export default function Contact() {
                   />
                 </Box>
                 <Box>
-                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
+                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#69707a", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
                     Email
                   </Typography>
                   <InputBase
@@ -161,7 +160,7 @@ export default function Contact() {
                   />
                 </Box>
                 <Box>
-                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
+                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#69707a", textTransform: "uppercase", letterSpacing: "0.1em", mb: 1 }}>
                     Message
                   </Typography>
                   <InputBase

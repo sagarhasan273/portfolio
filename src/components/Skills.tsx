@@ -12,7 +12,7 @@ const skillCategories = [
   {
     icon: Code,
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "C++", "MySQL"],
+    skills: ["JavaScript (ES6+, async/await, closures, modules)", "TypeScript", "Python", "C++", "MySQL"],
     color: "#007AFF",
   },
   {
@@ -20,10 +20,10 @@ const skillCategories = [
     title: "Backend & Database",
     skills: [
       "Node.js",
-      "PostgreSQL",
+      "MySQL",
+      "SQL (queries, JOINs, indexing, transactions, RDBBMS)",
       "MongoDB",
       "Redis",
-      "GraphQL",
       "REST APIs",
     ],
     color: "#10B981",
@@ -31,14 +31,8 @@ const skillCategories = [
   {
     icon: Globe,
     title: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "Redux", "Material UI"],
+    skills: ["React",  "JavaScript Libraries","Redux", "Tailwind CSS",  "Material UI"],
     color: "#F59E0B",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    skills: ["Docker", "Kubernetes", "CI/CD", "GCP"],
-    color: "#8B5CF6",
   },
   {
     icon: Terminal,
@@ -48,6 +42,7 @@ const skillCategories = [
       "Linux",
       "Microservices",
       "System Design",
+      "Design Patterns",
       "Computer Networks",
     ],
     color: "#EC4899",
@@ -55,8 +50,14 @@ const skillCategories = [
   {
     icon: Smartphone,
     title: "Mobile & Other",
-    skills: ["WebRTC", "WebSockets", "JWT", "React Native", "Socket.io"],
+    skills: ["React Native", "WebRTC", "WebSockets", "JWT", "OAuth",  "Socket.io"],
     color: "#06B6D4",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & DevOps",
+    skills: ["Docker", "CI/CD", "GCP"],
+    color: "#8B5CF6",
   },
 ];
 
