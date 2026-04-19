@@ -121,7 +121,7 @@ export default function Experience() {
                     </Stack>
                   </Stack>
 
-                  <Typography sx={{ fontSize: "0.85rem", color: "#6B7280", mb: 3, lineHeight: 1.7 }}>
+                  <Typography sx={{ fontSize: "0.85rem", color: "#b1b3b8", mb: 3, lineHeight: 1.7 }}>
                     {exp.description}
                   </Typography>
 
@@ -129,7 +129,7 @@ export default function Experience() {
                     {exp.achievements.slice(0, 5).map((a, j) => (
                       <Stack key={j} direction="row" spacing={1.5} alignItems="flex-start">
                         <Box sx={{ width: 5, height: 5, borderRadius: "50%", bgcolor: "#007AFF", mt: "6px", flexShrink: 0 }} />
-                        <Typography sx={{ fontSize: "0.83rem", color: "#9CA3AF", lineHeight: 1.6 }}>{a}</Typography>
+                        <Typography sx={{ fontSize: "0.83rem", color: "#a8abb1", lineHeight: 1.6 }}>{a}</Typography>
                       </Stack>
                     ))}
                   </Stack>
@@ -161,7 +161,7 @@ export default function Experience() {
                 {highlights.map((h, i) => (
                   <Box key={i}>
                     <Typography sx={{ fontWeight: 600, fontSize: "0.85rem", color: "#E5E7EB", mb: 0.5 }}>{h.title}</Typography>
-                    <Typography sx={{ fontSize: "0.78rem", color: "#6B7280", lineHeight: 1.6 }}>{h.desc}</Typography>
+                    <Typography sx={{ fontSize: "0.78rem", color: "#8d9097", lineHeight: 1.6 }}>{h.desc}</Typography>
                   </Box>
                 ))}
               </Stack>
@@ -173,7 +173,7 @@ export default function Experience() {
                 }}
               >
                 <Typography sx={{ fontWeight: 700, fontSize: "2.5rem", color: "#007AFF" }}>2+</Typography>
-                <Typography sx={{ fontSize: "0.7rem", color: "#6B7280", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                <Typography sx={{ fontSize: "0.7rem", color: "#9da1aa", textTransform: "uppercase", letterSpacing: "0.1em" }}>
                   Years of Professional Experience
                 </Typography>
               </Box>
