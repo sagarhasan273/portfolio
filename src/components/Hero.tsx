@@ -175,7 +175,7 @@ export default function Hero() {
           <Box component="span" sx={{ color: "#60A5FA" }}>
             2+ years of full-stack software engineering
           </Box>{" "}
-          with three production applications (real-time lobby finder, language
+          with three production applications (real-time lobby finder, language practice
           platform, file processing tools).
         </Typography>
 
