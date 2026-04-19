@@ -3,32 +3,45 @@ import {
   Box,  Chip, Container, Divider, Grid, Paper,
   Stack, Typography,
 } from "@mui/material";
-import { WorkOutline, EmojiEvents, ChevronRight } from "@mui/icons-material";
+import { WorkOutline, EmojiEvents } from "@mui/icons-material";
 import ExperienceDetail from "./ExperienceDetail";
 
 const experiences = [
   {
-    company: "Lyxa S.A.L (formerly KadriTech AB)",
+    company: "LYXA S.A.L",
     role: "Software Engineer",
-    period: "06/2023 – Present",
+    period: "08/2024 – Present",
+    location: "Gulshan 1, Dhaka, Bangladesh",
     type: "Full-time",
     description:
-      "Built and scaled backend systems handling exponential user growth across Lyxa's e-commerce and logistics platform.",
+      "Worked on backend systems for e-commerce and logistics platforms, improving performance and delivery efficiency.",
     achievements: [
-      "Designed and deployed a graph-based route optimization engine for rider assignment as part of a full-stack delivery platform, integrating algorithmic decision-making with real-time order tracking.",
-      "Optimized REST API performance by 20% through database query optimization, response caching, and implementing pagination strategies.",
-      "Designed and deployed a rider assignment system using graph algorithms to optimize real-time delivery routes.",
-      "Implemented data caching and optimized database access patterns, significantly reducing response times and bandwidth usage.",
-      "Applied Test-Driven Development (TDD) practices to deliver high-quality, maintainable, and reliable code.",
-      "Fixed critical bugs [Over 500+] and collaborated across teams to maintain code quality.",
-      "Experience building scalable backend services with Node.js and REST APIs.",
-      "Collaborated closely with product, design, and QA teams in Agile sprints for high-quality feature delivery.",
+      "Built RESTful APIs using Node.js, Express.js, and MongoDB, reducing response time by 25%.",
+      "Applied OOP principles and Repository pattern to refactor legacy code, improving maintainability.",
+      "Designed a rider assignment system using graph algorithms, improving delivery efficiency.",
+      "Estimated and delivered 5 features in order-flow on schedule with less than 5% rework.",
+      "Participated in code reviews and knowledge transfer sessions.",
+    ],
+  },
+  {
+    company: "KadriTech AB (Now: LYXA S.A.L)",
+    role: "Software Engineer Intern",
+    period: "02/2024 – 08/2024",
+    location: "Gulshan 1, Dhaka, Bangladesh",
+    type: "Internship",
+    description:
+      "Contributed to backend services and system stability through debugging and performance improvements.",
+    achievements: [
+      "Assisted in debugging and improving system performance through structured issue tracking.",
+      "Identified, reproduced, and resolved critical bugs in Console and backend services.",
+      "Wrote reusable and maintainable code, improving system stability and performance.",
+      "Collaborated with cross-functional teams to improve product quality and user experience.",
     ],
   },
 ];
 
 const highlights = [
-  { title: "Open Source Contributions", desc: "3 contributions to major ML/LLM projects including JavaScript and Python libraries" },
+  { title: "Open Source Contributions", desc: "Contributing to JavaScript libraries like lodash and moment.js" },
   { title: "Technical Writing", desc: "Published 200+ articles on Algorithms at LeetCode with 21.5K+ readers" },
   { title: "Certifications", desc: "Collaboration Ninja Certified at Lyxa" },
   { title: "Lyxa Contributions", desc: "500+ bugs fixed and 20+ features implemented across Lyxa's product suite" },
@@ -121,10 +134,10 @@ export default function Experience() {
                     ))}
                   </Stack>
 
-                  <Stack direction="row" alignItems="center" spacing={0.5} sx={{ color: "#007AFF" }}>
+                  {/* <Stack direction="row" alignItems="center" spacing={0.5} sx={{ color: "#007AFF" }}>
                     <Typography sx={{ fontSize: "0.8rem", fontWeight: 600 }}>View all achievements</Typography>
                     <ChevronRight sx={{ fontSize: 16 }} />
-                  </Stack>
+                  </Stack> */}
                 </Paper>
               ))}
             </Stack>
