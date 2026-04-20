@@ -24,9 +24,9 @@ const experiences = [
     ],
   },
   {
-    company: "KadriTech AB (Now: LYXA S.A.L)",
+    company: "LYXA S.A.L",
     role: "Software Engineer Intern",
-    period: "02/2024 – 08/2024",
+    period: "02/2024 – 07/2024",
     location: "Gulshan 1, Dhaka, Bangladesh",
     type: "Internship",
     description:
