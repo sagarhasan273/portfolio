@@ -135,7 +135,7 @@ export default function Hero() {
             fontSize: "0.85rem",
           }}
         >
-          Sagar Hasan — Software Engineer
+          Sagar Hasan — Software Engineer (Full Stack)
         </Typography>
 
         {/* Typewriter headline */}
