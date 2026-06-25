@@ -4,7 +4,7 @@ import {
   ListItemText, Stack, Toolbar, Typography,
 } from "@mui/material";
 import { Menu, Close, Download } from "@mui/icons-material";
-import resume from "../assets/resume/Sagar_Hasan_Software_Engineer_Exp_2yrs+.pdf";
+import resume from "../assets/resume/Sagar_Hasan_Software_Engineer_Vivosoft_Resume.pdf";
 
 const navItems = [
   { label: "Home", href: "#home" },
