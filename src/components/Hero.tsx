@@ -160,24 +160,35 @@ export default function Hero() {
           </Box>
         </Typography>
 
-        <Typography
-          sx={{
-            color: "#9CA3AF",
-            fontSize: "1.1rem",
-            maxWidth: 560,
-            mx: "auto",
-            mb: 5,
-            lineHeight: 1.7,
-          }}
-        >
-          Building scalable, reliable systems — from production platforms to
-          open-source engineering tools.{" "}
-          <Box component="span" sx={{ color: "#60A5FA" }}>
-            2+ years of full-stack software engineering
-          </Box>{" "}
-          with three production applications (real-time lobby finder, language practice
-          platform, file processing tools).
-        </Typography>
+      <Typography
+        sx={{
+          color: "#9CA3AF",
+          fontSize: "1.1rem",
+          maxWidth: 560,
+          mx: "auto",
+          mb: 5,
+          lineHeight: 1.7,
+        }}
+      >
+        <Box component="span" sx={{ color: "#60A5FA" }}>
+          Full-Stack Developer
+        </Box>{" "}
+        specializing in{" "}
+        <Box component="span" sx={{ color: "#60A5FA" }}>
+          React, TypeScript, and Node.js
+        </Box>
+        . Built three production applications from scratch — real-time
+        gaming lobby with 500+ users, WebRTC-based language platform, and
+        browser-based file processing toolkit.{" "}
+        <Box component="span" sx={{ color: "#60A5FA" }}>
+          3+ years of experience
+        </Box>{" "}
+        and{" "}
+        <Box component="span" sx={{ color: "#60A5FA" }}>
+          1,200+ LeetCode problems solved
+        </Box>
+        .
+      </Typography>
 
         {/* Stats row */}
         <Stack
