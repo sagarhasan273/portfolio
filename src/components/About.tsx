@@ -186,11 +186,23 @@ export default function About() {
                   component="span"
                   sx={{ color: "#F9FAFB", fontWeight: 600 }}
                 >
-                  Software Engineer with 2+ years of professional experience
+                  Software Engineer with 3 years of experience
                 </Box>
-                , building scalable web applications. I focus on writing clean,
-                efficient code and turning complex problems into simple, elegant
-                solutions.
+                , building scalable web applications with a{" "}
+                <Box
+                  component="span"
+                  sx={{ color: "#F9FAFB", fontWeight: 600 }}
+                >
+                  frontend-first approach
+                </Box>
+                . I specialize in{" "}
+                <Box
+                  component="span"
+                  sx={{ color: "#F9FAFB", fontWeight: 600 }}
+                >
+                  React, TypeScript, and performance optimization
+                </Box>
+                — turning complex problems into simple, elegant solutions.
               </Typography>
 
               <Typography
@@ -199,36 +211,63 @@ export default function About() {
                 I've shipped{" "}
                 <Box
                   component="span"
-                  sx={{ color: "#007AFF", fontWeight: 600 }}
+                  sx={{ color: "#60A5FA", fontWeight: 600 }}
                 >
                   three production applications
                 </Box>{" "}
-                end-to-end. Most notably, I{" "}
+                end-to-end, serving{" "}
                 <Box
                   component="span"
-                  sx={{ color: "#007AFF", fontWeight: 600 }}
+                  sx={{ color: "#60A5FA", fontWeight: 600 }}
+                >
+                  500+ active users
+                </Box>
+                . I{" "}
+                <Box
+                  component="span"
+                  sx={{ color: "#60A5FA", fontWeight: 600 }}
                 >
                   solely built Talk2Active
                 </Box>
-                — a language practice platform with real-time audio rooms and
-                interactive exercises. I also built{" "}
+                — a language practice platform with WebRTC-based audio/video
+                rooms. I also built{" "}
                 <Box
                   component="span"
-                  sx={{ color: "#007AFF", fontWeight: 600 }}
+                  sx={{ color: "#60A5FA", fontWeight: 600 }}
                 >
                   Val5th-Finder
                 </Box>
-                , a real-time lobby matching system for gamers, and a file
-                processing platform with 6 client-side tools.
+                , a real-time gaming lobby with 500+ users, and a{" "}
+                <Box
+                  component="span"
+                  sx={{ color: "#60A5FA", fontWeight: 600 }}
+                >
+                  file processing toolkit
+                </Box>{" "}
+                with 6 client-side utilities.
               </Typography>
 
               <Typography
                 sx={{ color: "#9CA3AF", lineHeight: 1.8, fontSize: "1rem" }}
               >
-                My work spans designing optimized APIs, caching strategies,
-                modular React applications, and scalable Node.js backends.
-                Passionate about clean architecture, maintainable code, and
-                continuous learning.
+                My work spans{" "}
+                <Box
+                  component="span"
+                  sx={{ color: "#F9FAFB", fontWeight: 600 }}
+                >
+                  React, Redux Toolkit, Node.js, and real-time systems
+                </Box>
+                . With{" "}
+                <Box
+                  component="span"
+                  sx={{ color: "#F9FAFB", fontWeight: 600 }}
+                >
+                  1,200+ LeetCode problems solved
+                </Box>
+                , I bring strong algorithmic thinking to performance
+                optimization and system design. Passionate about clean
+                architecture, mentoring junior developers, and building products
+                people love.
               </Typography>
             </Stack>
 
