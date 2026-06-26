@@ -181,7 +181,7 @@ export default function Hero() {
         gaming lobby with 500+ users, WebRTC-based language platform, and
         browser-based file processing toolkit.{" "}
         <Box component="span" sx={{ color: "#60A5FA" }}>
-          3+ years of experience
+          3 years of experience
         </Box>{" "}
         and{" "}
         <Box component="span" sx={{ color: "#60A5FA" }}>
