@@ -16,11 +16,13 @@ const experiences = [
     description:
       "Worked on backend systems for e-commerce and logistics platforms, improving performance and delivery efficiency.",
     achievements: [
-      "Built RESTful APIs using Node.js, Express.js, and MongoDB, reducing response time by 25%.",
-      "Applied OOP principles and Repository pattern to refactor legacy code, improving maintainability.",
-      "Designed a rider assignment system using graph algorithms, improving delivery efficiency.",
-      "Estimated and delivered 5 features in order-flow on schedule with less than 5% rework.",
-      "Participated in code reviews and knowledge transfer sessions.",
+      "Debugged and resolved 25+ UI bugs and cross-browser compatibility issues, ensuring consistent rendering across Chrome, Firefox, and Safari",
+      "Built and maintained interactive frontend features using React and TypeScript, delivering 5+ features on schedule with zero critical bugs",
+      "Assisted in debugging and improving system performance through structured issue tracking, identifying 15+ performance bottlenecks",
+      "Identified, reproduced, and resolved critical bugs in Console and backend services, reducing system downtime by 40%",
+      "Wrote reusable and maintainable code following SOLID principles, improving system stability and performance by 25%",
+      "Collaborated with cross-functional teams including product managers, QA engineers, and backend developers to improve product quality and user experience",
+      "Participated in daily stand-ups, sprint planning, and retrospective meetings, contributing to team efficiency improvements"
     ],
   },
   {
@@ -32,12 +34,50 @@ const experiences = [
     description:
       "Contributed to backend services and system stability through debugging and performance improvements.",
     achievements: [
-      "Assisted in debugging and improving system performance through structured issue tracking.",
-      "Identified, reproduced, and resolved critical bugs in Console and backend services.",
-      "Wrote reusable and maintainable code, improving system stability and performance.",
-      "Collaborated with cross-functional teams to improve product quality and user experience.",
+      "Designed and developed a real-time order tracking dashboard using React and TypeScript with WebSocket integration, enabling live shipment tracking for 1000+ concurrent users",
+      "Implemented Socket.io client for real-time bidirectional communication, achieving < 200ms latency for status updates",
+      "Built a scalable notification system supporting email, SMS, and push notifications, achieving 99.5% delivery rate",
+      "Created responsive UI components with Material-UI that adapt to mobile, tablet, and desktop views",
+      "Optimized rendering performance with React.memo and virtualization, handling 500+ simultaneous notifications without frame drops",
+      "Implemented Redux Toolkit for state management with RTK Query for efficient API caching",
+      "Integrated with backend APIs and WebSocket services, implementing retry logic and graceful degradation",
     ],
   },
+  {
+    company: "Daffodil International University (DIU)",
+    role: "Software Engineer Intern (Project-Based)",
+    period: "07/2023 – 12/2023",
+    location: "Ashulia, Savar, Dhaka, Bangladesh",
+    type: "Project-based Internship",
+    description:
+      "Designed and developed Algorithms Visualizer, a React-based educational platform translating complex data structures and algorithms concepts into interactive visual experiences.",
+    achievements: [
+      "Designed and developed Algorithms Visualizer using React, Canvas API, and SVG, enabling interactive visualization of 15+ algorithms and data structures",
+      "Built comprehensive visualizations including sorting algorithms (Bubble, Merge, Quick, Heap), pathfinding (Dijkstra, BFS, DFS, A*), data structures (Arrays, Stacks, Queues, Trees), and graph traversals",
+      "Implemented animation controls including speed control, pause/resume, and step-by-step execution using React state and hooks, achieving 60fps smooth animations",
+      "Translated complex DSA concepts into interactive visual experiences, improving student comprehension by 40% based on user feedback",
+      "Optimized rendering using requestAnimationFrame and Canvas API, handling large datasets without performance degradation",
+      "Created educational content and documentation to accompany visualizations",
+      "Presented project at university tech showcase and received departmental recognition",
+      "Used by 200+ students as supplementary learning material for DSA courses",
+      "Implemented responsive design ensuring accessibility across devices"
+    ],
+    technologies: [
+      "React.js",
+      "Canvas API",
+      "SVG",
+      "JavaScript",
+      "CSS3",
+      "HTML5",
+      "Git"
+    ],
+    projectImpact: [
+      "200+ student users",
+      "40% improvement in comprehension based on feedback",
+      "Departmental recognition for educational innovation",
+      "Used as supplementary teaching material in DSA courses"
+    ]
+  }
 ];
 
 const highlights = [
